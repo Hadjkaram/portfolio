@@ -18,7 +18,7 @@ const projects = [
     type: "Deep Tech & IA", 
     validation: "Validé par la SiPath",
     desc: "Plateforme de télépathologie assistée par IA pour la détection du cancer en Afrique. Analyse des lames en temps réel via microscope (80% de précision). Officiellement validée par la Société Ivoirienne des Pathologistes (SiPath).", 
-    link: "http://www.kanyehassist.net", 
+    link: "https://new.kanyehassist.net/", 
     span: "col-span-1 md:col-span-2", 
     featured: true 
   },
@@ -27,7 +27,7 @@ const projects = [
     type: "Web Design & Institutionnel", 
     validation: "Site Officiel",
     desc: "Conception et développement de la vitrine numérique officielle de la Société Ivoirienne des Pathologistes. Une plateforme moderne, épurée et hautement performante dédiée à la valorisation de la spécialité et au partage de ressources scientifiques.", 
-    link: "https://sipath-website.vercel.app/", 
+    link: "https://www.sipath.ci/", 
     span: "col-span-1" 
   },
   { 
