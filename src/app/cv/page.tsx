@@ -125,11 +125,11 @@ export default function CVPage() {
                       KANYEH ASSIST &mdash; Architecte Technique & Lead Dev
                     </strong>
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-blue-100 text-blue-800 border border-blue-300">
-                      DEEP TECH & IA MÉDICALE
+                      DEEP TECH & IA MÉDICALE • ROCHE & CHU
                     </span>
                   </div>
                   <p className="text-xs text-zinc-700 leading-relaxed">
-                    Infrastructure nationale de télé-diagnostic anatomopathologique reliant les <strong>CHU de Bouaké, Treichville et le PNLC</strong>. Modèles <strong>YOLOv8/v11</strong> pour la détection cellulaire d&apos;atypies (sein, col de l&apos;utérus), visionneuse WSI haute résolution (tuilage TIFF) et isolation stricte des données par établissement via PostgreSQL RLS.
+                    Infrastructure nationale de télé-diagnostic anatomopathologique reliant les <strong>CHU de Bouaké, Treichville, le PNLC et le Laboratoire Roche</strong>. Modèles <strong>YOLOv8/v11</strong> pour la détection cellulaire d&apos;atypies (sein, col de l&apos;utérus), visionneuse WSI haute résolution (tuilage TIFF) et isolation stricte des données par établissement via PostgreSQL RLS.
                   </p>
                   <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
                     Stack : Python (FastAPI, PyTorch, OpenCV), React 18, TypeScript, Tailwind, PostgreSQL (RLS), Docker.
@@ -161,11 +161,11 @@ export default function CVPage() {
                       TILA &mdash; Architecte Mobile & Lead Dev
                     </strong>
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-purple-100 text-purple-800 border border-purple-300">
-                      SANTÉ MENTALE & TÉLÉCONSULTATION
+                      SANTÉ MENTALE • UNICEF, PNUD, AFD, OMS, PNSM
                     </span>
                   </div>
                   <p className="text-xs text-zinc-700 leading-relaxed">
-                    Plateforme et application mobile (iOS/Android - ci.tila.app) de soutien psychologique en Afrique de l&apos;Ouest. Mise en relation confidentielle patients-thérapeutes, suivi d&apos;humeur et messagerie chiffrée de bout en bout respectant le secret médical.
+                    Plateforme et application mobile (iOS/Android - ci.tila.app) de soutien psychologique et santé mentale d&apos;envergure multilatérale. Déployée avec l&apos;<strong>UNICEF, le PNUD, l&apos;AFD, Expertise France, le PNLT, l&apos;OMS et le Programme National de Santé Mentale (PNSM)</strong>. Mise en relation confidentielle patients-thérapeutes, suivi d&apos;humeur et messagerie chiffrée de bout en bout (AES-256).
                   </p>
                   <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
                     Stack : React Native / Expo, TypeScript, Node.js, WebSockets, PostgreSQL, Chiffrement AES-256.

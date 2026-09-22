@@ -45,18 +45,18 @@ const allProjects: ProjectData[] = [
     title: "Kanyeh Assist",
     category: "ai-deeptech",
     categoryLabel: "Deep Tech & IA Médicale",
-    validation: "Validé par la SiPath & CHU",
-    desc: "Infrastructure nationale de télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville et le PNLC. Modèles YOLOv8/v11 pour la détection cellulaire d'atypies (sein, col de l'utérus), visionneuse WSI haute résolution (tuilage TIFF) et PostgreSQL RLS.",
+    validation: "SiPath, CHU & Laboratoire Roche",
+    desc: "Infrastructure nationale de télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville, le PNLC et le Laboratoire Roche. Modèles YOLOv8/v11 pour la détection cellulaire d'atypies (sein, col de l'utérus), visionneuse WSI haute résolution (tuilage TIFF) et PostgreSQL RLS.",
     link: "https://new.kanyehassist.net/",
     featured: true,
     technologies: ["Python (FastAPI)", "PyTorch (YOLOv8/v11)", "OpenCV", "React 18", "TypeScript", "PostgreSQL (RLS)", "Docker"],
-    impactMetrics: "80% de précision clinique • Reliant CHU Bouaké, Treichville & PNLC",
+    impactMetrics: "80% de précision clinique • Reliant CHU Bouaké, Treichville, PNLC & Laboratoire Roche",
     architectureDetails: {
       context: "Pénurie critique d'anatomopathologistes en Afrique subsaharienne et délais d'attente prohibitifs pour les biopsies.",
       challenge: "Traiter et classifier des flux d'images histopathologiques gigaoctets (Whole Slide Imaging - WSI) en direct avec isolation stricte des données de santé.",
       solution: "Pipeline de Deep Learning YOLOv8/v11 optimisé pour la détection d'atypies cellulaires, visionneuse TIFF pyramidale tuilée haute fluidité, et politiques de sécurité Row-Level Security (RLS) par établissement.",
       stackNotes: "Python FastAPI, PyTorch, OpenCV, React 18, TypeScript, Tailwind, PostgreSQL avec RLS, Docker.",
-      impact: "Validation scientifique par la Société Ivoirienne des Pathologistes (SiPath), déploiement au sein des CHU de Bouaké et Treichville."
+      impact: "Validation scientifique par la Société Ivoirienne des Pathologistes (SiPath), déploiement au sein des CHU de Bouaké, Treichville, du PNLC et intégration par le Laboratoire Roche."
     }
   },
   {
@@ -85,17 +85,18 @@ const allProjects: ProjectData[] = [
     title: "Tila",
     category: "health-gov",
     categoryLabel: "Santé Mentale & Téléconsultation",
-    validation: "Validé MSHP-CMU & MTN",
-    desc: "Plateforme et application mobile (iOS/Android - ci.tila.app) de soutien psychologique en Afrique de l'Ouest. Mise en relation confidentielle patients-thérapeutes, suivi d'humeur et messagerie chiffrée de bout en bout (AES-256).",
+    validation: "UNICEF • PNUD • OMS • AFD • PNSM",
+    desc: "Plateforme et application mobile (iOS/Android - ci.tila.app) de soutien psychologique et santé mentale d'envergure internationale. Déployée et activement mobilisée par les institutions multilatérales : UNICEF, PNUD, AFD, Expertise France, PNLT, OMS et le Programme National de Santé Mentale (PNSM). Téléconsultations confidentielles, suivi d'humeur et messagerie chiffrée de bout en bout (AES-256).",
     link: "https://tila.ci",
+    featured: true,
     technologies: ["React Native / Expo", "TypeScript", "Node.js", "WebSockets", "PostgreSQL", "Chiffrement AES-256"],
-    impactMetrics: "Plateforme ci.tila.app • Secret médical garanti (AES-256) • Yellow Day's MTN",
+    impactMetrics: "Déploiement multilatéral : UNICEF, PNUD, OMS, AFD, Expertise France, PNLT & PNSM • Secret médical garanti (AES-256)",
     architectureDetails: {
-      context: "Démocratisation de l'accès aux soins de santé mentale et levée des tabous en Afrique subsaharienne.",
-      challenge: "Sécuriser les échanges intimes entre patients et spécialistes avec une garantie mathématique de confidentialité médicale.",
-      solution: "Application mobile cross-platform avec canaux de téléconsultation chiffrés AES-256, messagerie temps réel WebSockets et journalisation d'humeur anonymisée.",
-      stackNotes: "React Native Expo, Node.js, WebSockets, PostgreSQL, cryptographie AES-256.",
-      impact: "Plateforme déployée lors des Yellow Day's 21 de MTN CI et intégrée aux démarches du Programme National de Santé Mentale."
+      context: "Démocratisation de l'accès aux soins de santé mentale en Afrique de l'Ouest, pilotée avec les plus grandes institutions sanitaires internationales.",
+      challenge: "Fédérer les exigences techniques et réglementaires strictes de multiples bailleurs et agences onusiennes (UNICEF, PNUD, OMS, AFD, Expertise France) tout en garantissant le secret médical absolu.",
+      solution: "Application mobile cross-platform avec canaux de téléconsultation chiffrés AES-256, messagerie temps réel WebSockets, journalisation d'humeur anonymisée et dashboards institutionnels agrégés pour le PNSM et le PNLT.",
+      stackNotes: "React Native Expo, Node.js, WebSockets, PostgreSQL, cryptographie AES-256, infrastructure Cloud hautement disponible.",
+      impact: "Plateforme de référence mobilisée par l'UNICEF, le PNUD, l'AFD, Expertise France, l'OMS, le PNLT et le PNSM pour la prise en charge psychosociale des populations."
     }
   },
   {
@@ -196,27 +197,8 @@ const allProjects: ProjectData[] = [
     }
   },
   {
-    id: "sipath-web",
-    index: "09",
-    title: "SiPath Web",
-    category: "platforms-iot",
-    categoryLabel: "Portail Institutionnel",
-    validation: "Site Officiel",
-    desc: "Plateforme institutionnelle de la Société Ivoirienne des Pathologistes. Hub de publications scientifiques, annuaire national des spécialistes et espace de formation continue.",
-    link: "https://www.sipath.ci/",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "CMS Headless", "Edge Cache"],
-    impactMetrics: "Référence nationale • Hub scientifique de la pathologie en Côte d'Ivoire",
-    architectureDetails: {
-      context: "Nécessité de moderniser l'image et l'outillage numérique des médecins pathologistes ivoiriens.",
-      challenge: "Fournir un portail ergonomique, ultra-rapide et responsive garantissant l'accès aux ressources médicales et événements académiques.",
-      solution: "Site Jamstack optimisé SEO, avec catalogue de revues scientifiques, agenda des congrès et espace membre sécurisé.",
-      stackNotes: "Architecture Serverless Next.js, mise en cache CDN Edge, design épuré conforme aux chartes médicales internationales.",
-      impact: "Portail adopté par l'ensemble des praticiens membres de la société savante."
-    }
-  },
-  {
     id: "yamoh",
-    index: "10",
+    index: "09",
     title: "Yamoh",
     category: "platforms-iot",
     categoryLabel: "Mobilité & Flutter",
@@ -234,7 +216,7 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "assofit",
-    index: "11",
+    index: "10",
     title: "Assofit",
     category: "platforms-iot",
     categoryLabel: "Réseau Social & Matching IA",
@@ -253,11 +235,11 @@ const allProjects: ProjectData[] = [
 ];
 
 const categoryTabs = [
-  { id: "all" as ProjectCategory, label: "Tous les Projets", count: 11 },
+  { id: "all" as ProjectCategory, label: "Tous les Projets", count: 10 },
   { id: "health-gov" as ProjectCategory, label: "e-Santé & GovTech", count: 4 },
   { id: "ai-deeptech" as ProjectCategory, label: "IA & Deep Tech", count: 2 },
   { id: "fintech-sec" as ProjectCategory, label: "FinTech & Sécurité", count: 1 },
-  { id: "platforms-iot" as ProjectCategory, label: "Web, Mobile & IoT", count: 4 },
+  { id: "platforms-iot" as ProjectCategory, label: "Web, Mobile & IoT", count: 3 },
 ];
 
 export default function ProjectsAvantGarde() {
@@ -284,7 +266,7 @@ export default function ProjectsAvantGarde() {
 
         <div className="lg:max-w-md flex flex-col gap-2 text-left">
           <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
-            Une sélection de <strong className="text-zinc-950 font-semibold">11 réalisations majeures</strong> validées par les institutions sanitaires (UNICEF, MSHP-CMU, SiPath) et des partenaires télécoms et bancaires.
+            Une sélection de <strong className="text-zinc-950 font-semibold">10 réalisations majeures</strong> validées par les institutions sanitaires (UNICEF, PNUD, OMS, AFD, MSHP-CMU, SiPath, Laboratoire Roche) et des partenaires télécoms et bancaires.
           </p>
           <span className="text-xs font-mono text-zinc-400">
             Cliquez sur &quot;Consulter l&apos;architecture&quot; pour inspecter les spécifications.

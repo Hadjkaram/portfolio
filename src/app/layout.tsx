@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ibrahimkaramoko.site"),
   title: "El Hadj Ibrahim V. Karamoko — Consultant e-Santé, Architecte IA & Tech Lead",
-  description: "Portfolio d'Ibrahim Karamoko : 10+ ans d'expérience dans l'architecture de solutions critiques, l'IA appliquée (Computer Vision, NLP), et l'e-Santé nationale (UNICEF, MSHP-CMU, SiPath).",
+  description: "Portfolio d'Ibrahim Karamoko : 10+ ans d'expérience dans l'architecture de solutions critiques, l'IA appliquée (Computer Vision, NLP), et l'e-Santé internationale (UNICEF, PNUD, OMS, AFD, MSHP-CMU, Laboratoire Roche).",
   keywords: [
     "Ibrahim Karamoko",
     "El Hadj Ibrahim Karamoko",
@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     "HEC Maroc",
     "Télépathologie IA",
     "Nuria UNICEF",
+    "Tila OMS PNUD",
+    "Laboratoire Roche IA",
     "Côte d'Ivoire Tech"
   ],
   authors: [{ name: "El Hadj Ibrahim V. Karamoko" }],
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.ibrahimkaramoko.site",
     title: "El Hadj Ibrahim V. Karamoko — Architecte IA & Consultant e-Santé",
-    description: "Architecte de solutions intelligentes et infrastructures critiques. Validé UNICEF, MSHP-CMU, SiPath.",
+    description: "Architecte de solutions intelligentes et infrastructures critiques. Déploiements internationaux : UNICEF, PNUD, OMS, AFD, MSHP-CMU, Laboratoire Roche.",
     siteName: "Portfolio Ibrahim Karamoko",
     images: [
       {
