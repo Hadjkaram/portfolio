@@ -1,94 +1,116 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export type Message = {
   id: string;
   text: string;
-  sender: 'user' | 'bot';
+  sender: "user" | "bot";
 };
 
-// LA BASE DE CONNAISSANCES (Le "Cerveau" de l'IA)
+// BASE DE CONNAISSANCES COMPLÈTE & ENRICHIE
 const knowledgeBase = [
   {
-    keywords: ["parle moi", "qui est", "présente", "résumé", "topo", "profil", "pitch"],
-    response: "Ibrahim est bien plus qu'un développeur, c'est un véritable partenaire stratégique avec 10 ans d'expérience.\n\n1. L'Expertise : Actuellement Consultant e-Santé auprès du Ministère de la Santé (CIV) et Ingénieur IA/Fullstack.\n2. Le Gestionnaire : Il pilote des écosystèmes complexes de A à Z (hôpitaux, plateformes gouvernementales).\n3. L'Ingénieur : Il maîtrise les architectures robustes (Next.js, Spring Boot) et l'IA (Computer Vision, NLP)."
+    keywords: ["qui est", "présente", "profil", "parle moi", "résumé", "bio", "qui es-tu"],
+    response: "El Hadj Ibrahim V. Karamoko est Consultant e-Santé, Architecte IA et Tech Lead Fullstack avec plus de 10 ans d'expérience.\n\n• Impact National : Conseiller auprès du Ministère de la Santé (MSHP-CMU) et pilote de projets stratégiques avec l'UNICEF (Nuria) et la Fondation MTN (E-PNEUMO).\n• Expertise IA : Spécialiste en Computer Vision (Kanyeh Assist : 80% de précision dans le diagnostic du cancer) et NLP (CI Connect).\n• Académique & Certifications : Diplômé d'un Master Executive à HEC Maroc, certifié CISSP, CompTIA Security+, Imperial College London et Stanford."
   },
   {
-    keywords: ["expérience", "parcours", "chef de projet", "management", "gestion", "ancienneté", "consultant"],
-    response: "Il cumule plus de 10 ans d'expérience. Actuellement Consultant e-Santé pour le Ministère de la Santé de Côte d'Ivoire, il a également piloté la transformation digitale de la clinique H2A et occupe un rôle central dans des projets institutionnels majeurs (Programme National de Santé Mentale, Campagne Avril Bleu)."
+    keywords: ["expérience", "parcours", "historique", "ancienneté", "carrière", "années"],
+    response: "Ibrahim cumule plus de 10 ans d'expérience dans l'ingénierie logicielle et les infrastructures critiques :\n\n1. En cours : Consultant e-Santé pour le Ministère de la Santé (MSHP-CMU) et l'UNICEF (plateforme Nuria).\n2. Lead IA & CTO : Co-fondateur d'AVLYTECH (France) et Chef de Projet IT & Lead IA pour Adomed.care.\n3. Expériences antérieures : 4 ans en tant que Responsable Informatique (IVAGREL), et débuts comme Analyste Développeur (Ecobank / Sitel)."
   },
   {
-    keywords: ["diplome", "etude", "formation", "hec", "stanford", "pigier", "scolarité"],
-    response: "Ibrahim a un parcours académique d'excellence :\n• Masters Executive en IA, CyberSécurité & Data Science (HEC Maroc)\n• Certificats DeepLearning.AI (Stanford Univ.)\n• Licence Pro Génie Logiciel (PIGIER CIV)."
+    keywords: ["diplome", "etude", "formation", "hec", "stanford", "pigier", "scolarité", "master"],
+    response: "Le parcours académique d'Ibrahim réunit excellence managériale et rigueur technique :\n\n• Master Executive IA, CyberSécurité & Big Data Science — HEC Maroc (2025)\n• Spécialisation Deep Learning — Stanford University (DeepLearning.AI sous la direction d'Andrew Ng)\n• Licence Professionnelle en Génie Logiciel — PIGIER Côte d'Ivoire."
   },
   {
-    keywords: ["certif", "cissp", "comptia", "google", "imperial", "certification", "sécurité"],
-    response: "Il est certifié au niveau international sur des domaines critiques :\n• Cybersécurité : CISSP et CompTIA Security+\n• Santé Numérique : Digital Health Specialization (Imperial College London)\n• Data : Data Analytics & Data Security Pro (Google)."
+    keywords: ["certif", "cissp", "comptia", "google", "imperial", "certification", "sécurité", "cyber"],
+    response: "Ibrahim détient les certifications les plus exigeantes du marché international :\n\n• CyberSécurité : CISSP & CompTIA Security+\n• e-Santé : Digital Health Specialization (Imperial College London)\n• Data & Cloud : Data Analytics & Data Security Professional (Google)\n• Deep Tech : DeepLearning.AI Specialization."
   },
   {
-    keywords: ["tech", "stack", "langage", "code", "maîtrise", "développement", "competence", "outils"],
-    response: "C'est un véritable couteau suisse technologique :\n• IA & Data : Machine Learning, Computer Vision, NLP, Python (FastAPI)\n• Fullstack : Next.js, React, Java (Spring Boot), Node.js\n• Mobile : Flutter, Dart\n• DevOps & Cloud : AWS, Docker\n• CyberSécurité : IAM, Audit."
+    keywords: ["projet", "réalisations", "portfolio", "nuria", "kanyeh", "sipath", "tila", "epneumo", "adomed"],
+    response: "Ibrahim a architecturé plus de 15 solutions majeures en production :\n\n• Nuria : Plateforme nationale pédiatrique pour le neurodéveloppement, validée UNICEF & Ministère de la Santé.\n• Kanyeh Assist : Télépathologie IA pour le cancer validée par la Société Ivoirienne des Pathologistes (SiPath) avec 80% de précision.\n• SiPath Web : Portail scientifique officiel des pathologistes de Côte d'Ivoire.\n• E-PNEUMO : ERP hospitalier pour l'interconnexion des CHU (Fondation MTN).\n• Tila : Plateforme nationale de santé mentale (MSHP & MTN).\n• MonetiquePlus & CI Identité : Systèmes bancaires et d'identité régalienne (IAM)."
   },
   {
-    keywords: ["ia", "intelligence", "deep learning", "nlp", "vision", "artificielle"],
-    response: "En Intelligence Artificielle, Ibrahim est un expert en Computer Vision et Traitement du Langage Naturel (NLP). Il a notamment conçu 'Kanyeh Assist', une IA de télépathologie (précision 80%) pour détecter le cancer en temps réel, et 'CI Connect' pour l'accès vocal aux lois."
+    keywords: ["ia", "deep tech", "computer vision", "nlp", "intelligence artificielle", "machine learning"],
+    response: "En Intelligence Artificielle, Ibrahim est orienté vers l'application clinique et industrielle directe :\n\n• Computer Vision : Kanyeh Assist (classification histopathologique microscopique temps réel du cancer avec 80% de précision clinique).\n• Traitement du Langage (NLP) : CI Connect (démocratisation vocale des lois en Côte d'Ivoire) et tuteurs adaptatifs RAG (Education For Africa).\n• Stack IA : Python, PyTorch, TensorFlow, FastAPI, OpenCV, TensorRT, Vector Databases."
   },
   {
-    keywords: ["projet", "réalisations", "portfolio", "créé", "app", "nuria", "tila", "epneumo"],
-    response: "Parmi ses plus de 15 réalisations majeures :\n• Nuria & Tila : Plateformes e-Santé institutionnelles (Ministère de la Santé).\n• Kanyeh Assist : Télépathologie IA pour le cancer.\n• E-PNEUMO : Digitalisation des hôpitaux publics avec la Fondation MTN.\n• Yamoh : Application de covoiturage innovante.\n• AVLYTECH : Startup GovTech en France."
+    keywords: ["tech", "stack", "langage", "code", "compétences", "outils", "framework"],
+    response: "Sa boîte à outils technologique couvre l'intégralité du cycle logiciel :\n\n• Frontend : Next.js 15/16, React 19, TypeScript, Flutter (Mobile)\n• Backend : Python (FastAPI, Flask), Java (Spring Boot), Node.js\n• Bases de données : PostgreSQL, MongoDB, Redis, InfluxDB\n• Cloud & DevOps : AWS, Docker, Kubernetes, CI/CD\n• Standards de santé : HL7 / FHIR, cryptographie PKI, Zero-Trust."
   },
   {
-    keywords: ["contact", "mail", "téléphone", "joindre", "embaucher", "whatsapp", "email"],
-    response: "Vous pouvez le contacter directement pour discuter de votre vision :\n📧 Email : Ibrahim92karamoko@gmail.com\n📱 WhatsApp / Tél : +225 01 01 59 41 53\nVous pouvez aussi utiliser le formulaire dans la section Contact du site !"
+    keywords: ["contact", "mail", "téléphone", "joindre", "whatsapp", "email", "coordonnées", "numéro"],
+    response: "Vous pouvez joindre Ibrahim directement :\n\n• WhatsApp / Téléphone : +225 07 16 31 37 08 / +225 01 01 59 41 53\n• Email : Ibrahim92karamoko@gmail.com\n• LinkedIn : linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b\n• Localisation : Abidjan, Côte d'Ivoire & International."
   },
   {
-    keywords: ["bonjour", "salut", "coucou", "hello"],
-    response: "Bonjour ! Comment puis-je vous aider ? Demandez-moi ses projets (Nuria, IA...), ses diplômes, ses certifications (CISSP...) ou ses compétences techniques."
+    keywords: ["disponible", "disponibilité", "mission", "embauche", "recruter", "consulting", "tarif"],
+    response: "Ibrahim est actuellement ouvert aux mandats de conseil stratégique, missions de direction technique (Fractional CTO), audits de sécurité et conception d'architectures IA/e-Santé. Vous pouvez convenir d'un échange via WhatsApp ou le formulaire de contact."
+  },
+  {
+    keywords: ["bonjour", "salut", "coucou", "hello", "hi"],
+    response: "Bonjour ! Je suis l'assistant IA d'Ibrahim Karamoko. Je peux vous éclairer sur son parcours auprès du Ministère de la Santé (e-Santé), ses modèles d'IA (Kanyeh Assist), ses certifications (CISSP, Google, Stanford) ou ses disponibilités. De quoi souhaitez-vous discuter ?"
   }
 ];
 
 export const useChatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { 
-      id: '1', 
-      text: "Bonjour ! Je suis l'assistant IA d'Ibrahim. Je peux vous résumer son profil, détailler ses certifications mondiales (CISSP, Google...), ses projets en e-Santé ou sa stack IA. Que souhaitez-vous savoir ?", 
-      sender: 'bot' 
-    }
+    {
+      id: "1",
+      text: "Bonjour ! Je suis l'assistant IA d'El Hadj Ibrahim V. Karamoko. Je peux vous renseigner sur ses 10+ ans d'expérience, ses missions e-Santé avec le Ministère & l'UNICEF, sa stack IA ou ses coordonnées directes. Choisissez une suggestion ci-dessous ou posez votre question !",
+      sender: "bot",
+    },
   ]);
-  
-  // État pour gérer l'animation "L'IA écrit..."
+
   const [isTyping, setIsTyping] = useState(false);
 
-  // ALGORITHME D'ANALYSE (Compréhension de la requête)
   const getBotResponse = (userInput: string): string => {
-    // Normalisation : met en minuscules et enlève les accents pour faciliter la recherche
-    const normalizedInput = userInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    
+    const normalizedInput = userInput
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
     for (const item of knowledgeBase) {
-      if (item.keywords.some(kw => normalizedInput.includes(kw.normalize("NFD").replace(/[\u0300-\u036f]/g, "")))) {
+      if (
+        item.keywords.some((kw) =>
+          normalizedInput.includes(
+            kw
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+          )
+        )
+      ) {
         return item.response;
       }
     }
 
-    return "C'est une question très spécifique. Je n'ai pas cette information exacte dans ma base. Je vous invite à cliquer sur le bouton 'Discutons' ou à le contacter via WhatsApp au +225 01 01 59 41 53 pour en parler directement avec lui !";
+    return "C'est une excellente question. Pour les cas d'usage très spécifiques ou pour étudier une collaboration technique, je vous invite à échanger directement avec Ibrahim via WhatsApp au +225 07 16 31 37 08 ou par email à Ibrahim92karamoko@gmail.com.";
   };
 
   const sendMessage = (text: string) => {
-    // 1. Affiche le message de l'utilisateur
-    const userMsg: Message = { id: Date.now().toString(), text, sender: 'user' };
+    const userMsg: Message = { id: Date.now().toString(), text, sender: "user" };
     setMessages((prev) => [...prev, userMsg]);
-
-    // 2. Déclenche l'état "en train d'écrire"
     setIsTyping(true);
 
-    // 3. Simule le temps de réflexion d'une IA (1.5 secondes)
     setTimeout(() => {
       const botResponseText = getBotResponse(text);
-      const botMsg: Message = { id: (Date.now() + 1).toString(), text: botResponseText, sender: 'bot' };
-      
+      const botMsg: Message = {
+        id: (Date.now() + 1).toString(),
+        text: botResponseText,
+        sender: "bot",
+      };
       setMessages((prev) => [...prev, botMsg]);
-      setIsTyping(false); // Arrête l'animation
-    }, 1500); 
+      setIsTyping(false);
+    }, 800);
   };
 
-  return { messages, sendMessage, isTyping };
+  const resetChat = () => {
+    setMessages([
+      {
+        id: Date.now().toString(),
+        text: "Conversation réinitialisée. N'hésitez pas à me poser vos questions sur l'expertise d'Ibrahim Karamoko !",
+        sender: "bot",
+      },
+    ]);
+  };
+
+  return { messages, sendMessage, isTyping, resetChat };
 };

@@ -1,151 +1,293 @@
 "use client";
+
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Mail, ArrowRight, MessageCircle, Send, CheckCircle } from "lucide-react";
+import {
+  Mail,
+  ArrowRight,
+  MessageCircle,
+  Send,
+  CheckCircle2,
+  Copy,
+  Check,
+  Linkedin,
+  MapPin,
+  Clock,
+  Sparkles,
+} from "lucide-react";
 
 export default function Contact() {
-  const [activeMethod, setActiveMethod] = useState<'none' | 'email'>('none');
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const emailAddress = "Ibrahim92karamoko@gmail.com";
+  const whatsappNumber = "+2250716313708";
+  const formattedPhone = "+225 07 16 31 37 08 / +225 01 01 59 41 53";
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailAddress);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus('submitting');
+    setFormStatus("submitting");
     const form = e.currentTarget;
     const data = new FormData(form);
-    
+
     try {
       const response = await fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: data,
-        headers: { 'Accept': 'application/json' }
+        headers: { Accept: "application/json" },
       });
       if (response.ok) {
-        setFormStatus('success');
+        setFormStatus("success");
         form.reset();
       } else {
-        alert("Erreur lors de l'envoi. Merci de réessayer.");
-        setFormStatus('idle');
+        alert("Erreur lors de l'envoi. Veuillez réessayer ou utiliser WhatsApp.");
+        setFormStatus("idle");
       }
-    } catch (error) {
-        alert("Erreur de connexion.");
-        setFormStatus('idle');
+    } catch {
+      alert("Erreur de connexion. Veuillez réessayer ou passer par WhatsApp.");
+      setFormStatus("idle");
     }
   };
 
   return (
-    <section id="contact" className="py-24 px-6 max-w-7xl mx-auto mb-20">
-      
-      <motion.div 
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        className="flex items-center gap-4 mb-16"
-      >
-        <span className="font-mono text-[var(--primary)] text-xl font-bold">03.</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Démarrer une collaboration</h2>
-        <div className="h-[1px] bg-gray-200 flex-1 ml-6"></div>
-      </motion.div>
-
-      <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
-        <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
-          Comment souhaitez-vous échanger ?
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-12">
-          
-          {/* OPTION 1 : WHATSAPP */}
-          <motion.a 
-            href="https://wa.me/2250716313708?text=Bonjour%20Ibrahim,%20j'ai%20vu%20votre%20portfolio..."
-            target="_blank"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative p-8 rounded-3xl bg-white border border-gray-100 hover:border-green-500 hover:shadow-lg hover:shadow-green-500/10 transition-all cursor-pointer flex flex-col items-center justify-center gap-4 h-64"
-          >
-            <div className="p-4 bg-green-50 rounded-full text-green-500 group-hover:scale-110 transition-transform">
-              <MessageCircle size={40} />
-            </div>
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-gray-900 mb-2">WhatsApp Direct</h4>
-              <p className="text-gray-500 text-sm mb-4">Réponse rapide & instantanée</p>
-              <span className="text-green-500 text-sm font-semibold flex items-center justify-center gap-2">
-                +225 07 16 31 37 08 <ArrowRight size={14} />
-              </span>
-            </div>
-          </motion.a>
-
-          {/* OPTION 2 : EMAIL */}
-          <motion.button 
-            onClick={() => setActiveMethod(activeMethod === 'email' ? 'none' : 'email')}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`group relative p-8 rounded-3xl transition-all cursor-pointer flex flex-col items-center justify-center gap-4 h-64 border ${
-              activeMethod === 'email' 
-                ? 'bg-blue-50 border-[var(--primary)]' 
-                : 'bg-white border-gray-100 hover:border-[var(--primary)] hover:shadow-lg hover:shadow-[var(--primary)]/10'
-            }`}
-          >
-            <div className="p-4 bg-blue-50 rounded-full text-[var(--primary)] group-hover:scale-110 transition-transform">
-              <Mail size={40} />
-            </div>
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-gray-900 mb-2">Email Professionnel</h4>
-              <p className="text-gray-500 text-sm mb-4">Pour détailler votre projet</p>
-              <span className="text-[var(--primary)] text-sm font-semibold flex items-center justify-center gap-2">
-                Ouvrir le formulaire <ArrowRight size={14} />
-              </span>
-            </div>
-          </motion.button>
+    <section id="contact" className="py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
+      {/* SECTION HEADER */}
+      <div className="mb-14 border-b border-slate-800/80 pb-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-4">
+          <Sparkles size={13} />
+          <span>03. Partenariats & Contact</span>
         </div>
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
+          Concrétisons Votre <br />
+          <span className="text-gradient-cyan">Prochaine Architecture.</span>
+        </h2>
+        <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+          Disponible pour des missions de conseil stratégique, direction technique (Fractional CTO), audits de systèmes et déploiements IA sur mesure.
+        </p>
+      </div>
 
-        {/* LE FORMULAIRE */}
-        <AnimatePresence>
-          {activeMethod === 'email' && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, y: -20 }}
-              animate={{ opacity: 1, height: 'auto', y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -20 }}
-              className="w-full overflow-hidden"
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* COLONNE GAUCHE : COORDONNÉES RAPIDES & DISPONIBILITÉ */}
+        <div className="lg:col-span-5 space-y-6">
+          {/* CARTE DISPONIBILITÉ */}
+          <div className="p-6 rounded-3xl bg-slate-900/80 border border-slate-800">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </span>
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
+                Statut Actuel : Ouvert aux opportunités
+              </span>
+            </div>
+            <p className="text-sm text-slate-300 leading-relaxed mb-4">
+              Basé à Abidjan (Côte d&apos;Ivoire), mobile pour missions régionales et internationales (Europe / Afrique / Remote).
+            </p>
+            <div className="space-y-2 text-xs text-slate-400 font-mono">
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className="text-cyan-400 shrink-0" />
+                <span>Abidjan, Côte d&apos;Ivoire & International</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock size={14} className="text-cyan-400 shrink-0" />
+                <span>Fuseau horaire GMT (Temps de réponse &lt; 24h)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CANAUX DIRECTS */}
+          <div className="space-y-3">
+            {/* WHATSAPP ACTION DIRECTE */}
+            <a
+              href={`https://wa.me/${whatsappNumber.replace("+", "")}?text=Bonjour%20Ibrahim,%20j'ai%20consult%C3%A9%20votre%20portfolio%20et%20souhaiterais%20%C3%A9changer...`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/60 hover:shadow-xl hover:shadow-emerald-950/20 transition-all flex items-center justify-between"
             >
-              <div className="p-8 rounded-3xl bg-white border border-gray-200 shadow-xl shadow-gray-200/50 w-full relative">
-                
-                {formStatus === 'success' ? (
-                  <div className="text-center py-12">
-                    <CheckCircle className="text-green-500 mx-auto mb-4" size={60} />
-                    <h4 className="text-2xl font-bold text-gray-900 mb-2">Message Envoyé !</h4>
-                    <p className="text-gray-500">Merci de m'avoir contacté. Je reviens vers vous très vite.</p>
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 group-hover:scale-110 transition-transform">
+                  <MessageCircle size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                    WhatsApp Direct
+                  </h4>
+                  <p className="text-xs text-slate-400">{formattedPhone}</p>
+                </div>
+              </div>
+              <ArrowRight size={18} className="text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+            </a>
+
+            {/* EMAIL AVEC COPIE EN 1 CLIC */}
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-400">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm">Email Professionnel</h4>
+                  <p className="text-xs text-slate-400 font-mono">{emailAddress}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 flex items-center gap-1.5 transition-colors"
+                title="Copier l'adresse"
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check size={14} className="text-emerald-400" />
+                    <span className="text-emerald-400 font-semibold">Copié !</span>
+                  </>
                 ) : (
                   <>
-                     <h4 className="text-xl font-bold text-gray-900 mb-6">Envoyez-moi un message direct</h4>
-                     <form action="https://formspree.io/f/mnnevkag" method="POST" onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">Nom</label>
-                          <input required name="name" type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] focus:outline-none transition-all placeholder-gray-400" placeholder="Votre Nom" />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">Email</label>
-                          <input required name="email" type="email" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] focus:outline-none transition-all placeholder-gray-400" placeholder="votre@email.com" />
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">Message</label>
-                        <textarea required name="message" rows={5} className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] focus:outline-none transition-all placeholder-gray-400 resize-none" placeholder="Détails du projet..."></textarea>
-                      </div>
-                      <button 
-                        type="submit" 
-                        disabled={formStatus === 'submitting'}
-                        className="w-full py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-[var(--primary)] transition-colors flex justify-center items-center gap-2 disabled:opacity-50"
-                      >
-                        {formStatus === 'submitting' ? 'Envoi en cours...' : <><Send size={18} /> Envoyer directement à Ibrahim</>}
-                      </button>
-                     </form>
+                    <Copy size={14} />
+                    <span>Copier</span>
                   </>
                 )}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              </button>
+            </div>
 
+            {/* LINKEDIN */}
+            <a
+              href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-blue-500/60 hover:shadow-xl hover:shadow-blue-950/20 transition-all flex items-center justify-between"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:scale-110 transition-transform">
+                  <Linkedin size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm group-hover:text-blue-300 transition-colors">
+                    Profil LinkedIn Officiel
+                  </h4>
+                  <p className="text-xs text-slate-400">Réseau & recommandations professionnelles</p>
+                </div>
+              </div>
+              <ArrowRight size={18} className="text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+            </a>
+          </div>
+        </div>
+
+        {/* COLONNE DROITE : FORMULAIRE SÉCURISÉ */}
+        <div className="lg:col-span-7">
+          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl relative">
+            {formStatus === "success" ? (
+              <div className="text-center py-16">
+                <CheckCircle2 className="text-emerald-400 mx-auto mb-4" size={56} />
+                <h4 className="text-2xl font-bold text-white mb-2">Message Transmis avec Succès</h4>
+                <p className="text-slate-400 text-sm max-w-md mx-auto">
+                  Merci de m&apos;avoir contacté. Je prendrai connaissance de votre demande et vous répondrai sous 24 heures.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFormStatus("idle")}
+                  className="mt-6 px-6 py-2.5 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition-colors"
+                >
+                  Envoyer un autre message
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                    Transmettez-moi les détails de votre besoin
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-400">
+                    Remplissez ce formulaire confidentiel pour initier une consultation technique.
+                  </p>
+                </div>
+
+                <form
+                  action="https://formspree.io/f/mnnevkag"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-5"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
+                        Nom complet & Titre *
+                      </label>
+                      <input
+                        required
+                        name="name"
+                        type="text"
+                        placeholder="Ex: Dr. Diallo / CTO Acme"
+                        className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
+                        Adresse Email *
+                      </label>
+                      <input
+                        required
+                        name="email"
+                        type="email"
+                        placeholder="nom@organisation.com"
+                        className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
+                      Sujet de la mission
+                    </label>
+                    <select
+                      name="subject"
+                      className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                    >
+                      <option value="conseil-e-sante">Conseil / Transformation e-Santé & ERP</option>
+                      <option value="architecture-ia">Architecture IA & Deep Tech (Vision, NLP)</option>
+                      <option value="direction-tech">Direction Technique (Lead / Fractional CTO)</option>
+                      <option value="audit-securite">Audit d&apos;Architecture & Sécurité (CISSP)</option>
+                      <option value="autre">Autre opportunité stratégique</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
+                      Description du projet & Objectifs *
+                    </label>
+                    <textarea
+                      required
+                      name="message"
+                      rows={5}
+                      placeholder="Décrivez votre vision, les défis techniques ou organisationnels à surmonter..."
+                      className="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={formStatus === "submitting"}
+                    className="w-full py-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 to-sky-400 hover:brightness-110 shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99] disabled:opacity-50"
+                  >
+                    {formStatus === "submitting" ? (
+                      <span>Transmission en cours...</span>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        <span>Transmettre directement à Ibrahim Karamoko</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
