@@ -5,6 +5,8 @@ import AboutBento from "@/components/AboutBento";
 import ProjectsAvantGarde from "@/components/ProjectsAvantGarde";
 import Contact from "@/components/Contact";
 import Chatbot from "@/components/Chatbot";
+import TypewriterHero from "@/components/TypewriterHero";
+import HeroBackgroundPremium from "@/components/HeroBackgroundPremium";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -19,12 +21,15 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f7f7f5] text-zinc-900 selection:bg-zinc-900 selection:text-white overflow-hidden">
+    <main className="min-h-screen bg-[#f7f7f5] text-zinc-900 selection:bg-zinc-900 selection:text-white overflow-hidden relative">
       {/* NAVIGATION MINIMALISTE ÉDITORIALE AVEC LOGO SIGNATURE */}
       <Navbar />
 
-      {/* HERO SECTION 2 COLONNES (TEXTE + PHOTO SIGNATURE RESTAURÉE) */}
+      {/* HERO SECTION 2 COLONNES AVEC EFFET D'ARRIÈRE-PLAN PRO PREMIUM */}
       <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto pt-28 pb-16 relative">
+        {/* ARRIÈRE-PLAN PRO PREMIUM (GRILLE ARCHITECTURALE & LUEURS CINÉMATIQUES) */}
+        <HeroBackgroundPremium />
+
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 lg:gap-16 w-full">
           
           {/* GAUCHE : TEXTE & VALEUR STRATÉGIQUE */}
@@ -47,10 +52,9 @@ export default function Home() {
               </span>
             </h1>
 
-            <div className="flex flex-col gap-6 items-center md:items-start max-w-xl">
-              <p className="text-lg md:text-xl text-zinc-700 font-medium md:border-l-4 md:border-sky-500 md:pl-6 leading-relaxed text-balance">
-                Je suis <strong className="text-zinc-950 font-bold">Ibrahim Karamoko</strong> — CTO opérationnel (10+ ans d&apos;expérience), spécialisé dans l&apos;architecture distribuée, l&apos;IA appliquée (YOLOv8/v11, RAG, Web Scraping) et la cybersécurité des systèmes critiques.
-              </p>
+            <div className="flex flex-col gap-6 items-center md:items-start max-w-xl w-full">
+              {/* EFFET D'ÉCRITURE AUTOMATIQUE REAL-TIME TYPEWRITER */}
+              <TypewriterHero />
 
               <div className="p-3 bg-white border border-zinc-200 text-xs font-mono text-zinc-700 flex items-center gap-3">
                 <Users size={16} className="text-sky-600 shrink-0" />
