@@ -8,7 +8,6 @@ import {
   Bot,
   Loader2,
   RotateCcw,
-  User,
 } from "lucide-react";
 import { useChatbot } from "@/hooks/useChatbot";
 
@@ -30,15 +29,15 @@ export default function Chatbot() {
   };
 
   const quickPrompts = [
-    { label: "🎓 Diplômes & Certifs", prompt: "Quels sont ses diplômes et certifications (CISSP, HEC...) ?" },
-    { label: "🏥 e-Santé & UNICEF", prompt: "Parle-moi de ses projets e-Santé (Nuria, MSHP, UNICEF)" },
-    { label: "🧠 IA & Kanyeh Assist", prompt: "Comment fonctionne son IA de télépathologie (Kanyeh Assist) ?" },
-    { label: "📞 Coordonnées directes", prompt: "Comment puis-je contacter Ibrahim directement ?" },
+    { label: "Diplômes & CISSP", prompt: "Quels sont ses diplômes et certifications (CISSP, HEC...) ?" },
+    { label: "Projets e-Santé", prompt: "Parle-moi de ses projets e-Santé (Nuria, MSHP, UNICEF)" },
+    { label: "IA & Kanyeh Assist", prompt: "Comment fonctionne son IA de télépathologie (Kanyeh Assist) ?" },
+    { label: "Coordonnées", prompt: "Comment puis-je contacter Ibrahim directement ?" },
   ];
 
   return (
     <>
-      {/* BOUTON FLOTTANT DU CHATBOT */}
+      {/* BOUTON FLOTTANT DU CHATBOT ÉDITORIAL */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div
@@ -47,52 +46,43 @@ export default function Chatbot() {
             exit={{ scale: 0, opacity: 0 }}
             className="fixed bottom-6 right-6 z-40 flex items-center gap-3"
           >
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700 text-xs text-slate-300 shadow-xl backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Posez vos questions à l’IA d’Ibrahim</span>
-            </div>
-
             <motion.button
               type="button"
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
               aria-label="Ouvrir l'assistant IA"
-              className="relative w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 via-sky-500 to-blue-600 text-slate-950 flex items-center justify-center shadow-xl shadow-cyan-500/25 border border-cyan-300/40 cursor-pointer"
+              className="px-4 py-3 bg-zinc-900 text-white flex items-center gap-2.5 shadow-xl border border-zinc-900 hover:bg-zinc-800 transition-colors cursor-pointer font-mono text-xs uppercase tracking-wider"
             >
-              <Bot size={28} className="text-slate-950" />
-              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-slate-950"></span>
+              <Bot size={18} />
+              <span>Assistant IA</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* FENÊTRE DU CHAT INTERACTIVE */}
+      {/* FENÊTRE DU CHAT INTERACTIVE STYLE CLAUDE */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.95 }}
-            transition={{ duration: 0.25 }}
-            className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-[94vw] sm:w-[420px] h-[580px] bg-slate-900/95 backdrop-blur-2xl border border-slate-700/80 rounded-3xl shadow-2xl z-50 overflow-hidden flex flex-col"
+            exit={{ opacity: 0, y: 20, scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-[94vw] sm:w-[420px] h-[560px] bg-white border-2 border-zinc-900 shadow-2xl z-50 overflow-hidden flex flex-col"
           >
             {/* EN-TÊTE CHAT */}
-            <div className="p-4 bg-slate-950/80 border-b border-slate-800 flex justify-between items-center">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-                  <Bot size={20} />
-                </div>
+            <div className="p-4 bg-zinc-900 text-white flex justify-between items-center">
+              <div className="flex items-center gap-2.5">
+                <Bot size={18} className="text-sky-400" />
                 <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-white text-sm">Assistant IA d’Ibrahim</span>
-                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
-                      v2.0
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-emerald-400 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Actif • Base certifiée
+                  <span className="block font-bold text-xs font-mono uppercase tracking-wider">
+                    Assistant IA — Ibrahim Karamoko
+                  </span>
+                  <span className="text-[10px] text-zinc-400 font-mono flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Base de connaissances vérifiée
                   </span>
                 </div>
               </div>
@@ -102,59 +92,47 @@ export default function Chatbot() {
                   type="button"
                   onClick={resetChat}
                   title="Réinitialiser la discussion"
-                  className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+                  className="p-1.5 text-zinc-400 hover:text-white transition-colors"
                 >
-                  <RotateCcw size={16} />
+                  <RotateCcw size={15} />
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+                  className="p-1.5 text-zinc-400 hover:text-white transition-colors"
                   aria-label="Fermer"
                 >
-                  <X size={18} />
+                  <X size={17} />
                 </button>
               </div>
             </div>
 
             {/* MESSAGES */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900/50 text-sm">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fbfbfa] text-xs sm:text-sm">
               {messages.map((msg) => {
                 const isUser = msg.sender === "user";
                 return (
                   <div
                     key={msg.id}
-                    className={`flex items-start gap-2.5 ${isUser ? "justify-end" : "justify-start"}`}
+                    className={`flex items-start gap-2 ${isUser ? "justify-end" : "justify-start"}`}
                   >
-                    {!isUser && (
-                      <div className="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
-                        <Bot size={15} />
-                      </div>
-                    )}
-
                     <div
-                      className={`max-w-[85%] p-3.5 rounded-2xl leading-relaxed whitespace-pre-wrap ${
+                      className={`max-w-[85%] p-3.5 leading-relaxed whitespace-pre-wrap ${
                         isUser
-                          ? "bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-medium rounded-tr-sm shadow-md"
-                          : "bg-slate-800/90 text-slate-200 rounded-tl-sm border border-slate-700/70"
+                          ? "bg-zinc-900 text-white font-medium"
+                          : "bg-white text-zinc-800 border border-zinc-200 shadow-sm"
                       }`}
                     >
                       {msg.text}
                     </div>
-
-                    {isUser && (
-                      <div className="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 shrink-0 mt-0.5">
-                        <User size={15} />
-                      </div>
-                    )}
                   </div>
                 );
               })}
 
               {isTyping && (
-                <div className="flex items-center gap-2 text-slate-400 text-xs pl-9">
-                  <Loader2 size={14} className="animate-spin text-cyan-400" />
-                  <span>Analyse et formulation de la réponse...</span>
+                <div className="flex items-center gap-2 text-zinc-500 text-xs pl-2 font-mono">
+                  <Loader2 size={13} className="animate-spin text-zinc-900" />
+                  <span>L&apos;assistant consulte le profil...</span>
                 </div>
               )}
 
@@ -162,14 +140,14 @@ export default function Chatbot() {
             </div>
 
             {/* SUGGESTIONS RAPIDES */}
-            <div className="px-3 pt-2 pb-1 bg-slate-950/40 border-t border-slate-800/60 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <div className="px-3 pt-2 pb-2 bg-white border-t border-zinc-200 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
               {quickPrompts.map((q) => (
                 <button
                   key={q.label}
                   type="button"
                   onClick={() => sendMessage(q.prompt)}
                   disabled={isTyping}
-                  className="px-2.5 py-1 rounded-full bg-slate-800/80 hover:bg-slate-800 hover:text-cyan-300 text-slate-300 text-[11px] font-medium border border-slate-700/60 whitespace-nowrap transition-colors disabled:opacity-50"
+                  className="px-2.5 py-1 bg-zinc-50 hover:bg-zinc-100 text-zinc-700 text-[11px] font-mono border border-zinc-200 whitespace-nowrap transition-colors disabled:opacity-50"
                 >
                   {q.label}
                 </button>
@@ -179,23 +157,23 @@ export default function Chatbot() {
             {/* FORMULAIRE ENVOI */}
             <form
               onSubmit={handleSubmit}
-              className="p-3 bg-slate-950 border-t border-slate-800 flex items-center gap-2"
+              className="p-3 bg-white border-t border-zinc-200 flex items-center gap-2"
             >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isTyping}
-                placeholder={isTyping ? "L'IA formule sa réponse..." : "Interrogez sur ses projets, sa stack..."}
-                className="flex-1 bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all placeholder-slate-500 disabled:opacity-50"
+                placeholder={isTyping ? "Réponse en cours..." : "Posez une question technique..."}
+                className="flex-1 bg-zinc-50 border border-zinc-300 p-2.5 text-xs text-zinc-950 focus:outline-none focus:border-zinc-950 focus:bg-white transition-all placeholder-zinc-400 disabled:opacity-50 font-sans"
               />
               <button
                 type="submit"
                 disabled={isTyping || !input.trim()}
-                className="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-400 text-slate-950 flex items-center justify-center hover:brightness-110 active:scale-95 transition-all disabled:opacity-40 disabled:hover:brightness-100"
+                className="w-9 h-9 bg-zinc-900 text-white flex items-center justify-center hover:bg-zinc-800 transition-colors disabled:opacity-40"
                 aria-label="Envoyer"
               >
-                <Send size={16} />
+                <Send size={14} />
               </button>
             </form>
           </motion.div>

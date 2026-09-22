@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ExternalLink,
   ArrowRight,
   ShieldCheck,
   Cpu,
@@ -13,17 +12,18 @@ import {
   Lock,
   Activity,
   Server,
+  ArrowUpRight,
 } from "lucide-react";
 
 export type ProjectCategory = "all" | "health-gov" | "ai-deeptech" | "fintech-sec" | "platforms-iot";
 
 export interface ProjectData {
   id: string;
+  index: string;
   title: string;
   category: ProjectCategory;
   categoryLabel: string;
   validation?: string;
-  validationBadgeColor?: string;
   desc: string;
   link: string;
   technologies: string[];
@@ -41,15 +41,15 @@ export interface ProjectData {
 const allProjects: ProjectData[] = [
   {
     id: "nuria",
+    index: "01",
     title: "Nuria",
     category: "health-gov",
     categoryLabel: "Santé Publique & GovTech",
     validation: "Validé UNICEF & MSHP-CMU",
-    validationBadgeColor: "emerald",
     desc: "La première plateforme panafricaine dédiée au dépistage et au suivi des troubles du neurodéveloppement (TND/Autisme). Déploiement national avec le Ministère de la Santé.",
     link: "http://www.enuria.net",
     featured: true,
-    technologies: ["Next.js", "TypeScript", "Node.js / Express", "PostgreSQL", "Docker", "AWS"],
+    technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "AWS"],
     impactMetrics: "Déploiement national • Campagne Avril Bleu • +10k enfants ciblés",
     architectureDetails: {
       context: "Projet stratégique de santé publique piloté en coordination avec l'UNICEF et le Programme National de Santé Mentale (MSHP-CMU).",
@@ -61,15 +61,15 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "kanyeh-assist",
+    index: "02",
     title: "Kanyeh Assist",
     category: "ai-deeptech",
     categoryLabel: "Deep Tech & IA Médicale",
-    validation: "Validé Officiellement par la SiPath",
-    validationBadgeColor: "cyan",
-    desc: "Plateforme de télépathologie assistée par vision par ordinateur pour la détection temps réel du cancer en Afrique. Analyse microscopique haute résolution avec 80% de précision.",
+    validation: "Validé par la SiPath",
+    desc: "Plateforme de télépathologie assistée par vision par ordinateur pour la détection temps réel du cancer en Afrique. Analyse microscopique haute résolution avec 80% de précision clinique.",
     link: "https://new.kanyehassist.net/",
     featured: true,
-    technologies: ["Python", "PyTorch / TensorFlow", "Computer Vision", "FastAPI", "React", "Docker"],
+    technologies: ["Python", "PyTorch", "Computer Vision", "FastAPI", "React", "Docker"],
     impactMetrics: "80% de précision clinique • Réduction du diagnostic de 3 semaines à quelques minutes",
     architectureDetails: {
       context: "Pénurie critique d'anatomopathologistes en Afrique subsaharienne (moins d'un spécialiste pour 1 million d'habitants).",
@@ -81,14 +81,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "sipath-web",
+    index: "03",
     title: "SiPath Web",
     category: "platforms-iot",
-    categoryLabel: "Portail Institutionnel & Scientifique",
-    validation: "Vitrine Officielle",
-    validationBadgeColor: "blue",
+    categoryLabel: "Portail Institutionnel",
+    validation: "Site Officiel",
     desc: "Plateforme institutionnelle de la Société Ivoirienne des Pathologistes. Hub de publications scientifiques, annuaire national des spécialistes et espace de formation continue.",
     link: "https://www.sipath.ci/",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "CMS Headless", "Vercel"],
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "CMS Headless", "Edge Cache"],
     impactMetrics: "Référence nationale • Hub scientifique de la pathologie en Côte d'Ivoire",
     architectureDetails: {
       context: "Nécessité de moderniser l'image et l'outillage numérique des médecins pathologistes ivoiriens.",
@@ -100,14 +100,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "epneumo",
+    index: "04",
     title: "E-PNEUMO",
     category: "health-gov",
     categoryLabel: "ERP Médical Institutionnel",
     validation: "Partenariat MTN FONDATION",
-    validationBadgeColor: "amber",
     desc: "Digitalisation du parcours patient en pneumologie et interconnexion des hôpitaux publics de Côte d'Ivoire, en synergie avec la Fondation MTN.",
     link: "https://epneumo.ci",
-    technologies: ["React", "Node.js", "PostgreSQL", "Docker", "HL7 / FHIR", "Architecture Hybride"],
+    technologies: ["React", "Node.js", "PostgreSQL", "Docker", "HL7 / FHIR"],
     impactMetrics: "Interconnexion CHU • Suivi épidémiologique en temps réel",
     architectureDetails: {
       context: "Programme de modernisation hospitalière ciblant le suivi des affections respiratoires et tuberculeuses en milieu hospitalier public.",
@@ -119,14 +119,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "tila",
+    index: "05",
     title: "Tila",
     category: "health-gov",
     categoryLabel: "Santé Mentale & Support",
     validation: "Validé MSHP-CMU & MTN",
-    validationBadgeColor: "emerald",
     desc: "Plateforme pionnière d'écoute, de soutien psychologique et de télé-consultation en santé mentale. Déployée lors des Yellow Day's 21 de MTN CI.",
     link: "https://tila.ci",
-    technologies: ["React", "FastAPI", "WebRTC", "PostgreSQL", "Chiffrement Bout-en-Bout"],
+    technologies: ["React", "FastAPI", "WebRTC", "PostgreSQL", "Chiffrement Asymétrique"],
     impactMetrics: "Programme National de Santé Mentale • Écoute anonyme et sécurisée",
     architectureDetails: {
       context: "Lutte contre la stigmatisation de la santé mentale et facilitation de l'accès aux psychologues agréés.",
@@ -138,11 +138,11 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "h2a",
+    index: "06",
     title: "Cliniques Médicales H2A",
     category: "health-gov",
     categoryLabel: "Santé Internationale & ERP",
     validation: "France - Côte d'Ivoire",
-    validationBadgeColor: "blue",
     desc: "Transformation digitale globale et interconnexion hospitalière transnationale. ERP de gestion clinique, facturation, laboratoire et suivi des évacuations sanitaires.",
     link: "https://cliniquesmedicalesh2a.com/",
     featured: true,
@@ -158,14 +158,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "avlytech",
+    index: "07",
     title: "AVLYTECH",
     category: "platforms-iot",
     categoryLabel: "Startup GovTech / Co-Fondateur",
     validation: "France & International",
-    validationBadgeColor: "indigo",
     desc: "Co-fondateur et CTO de cette startup basée en France. Ingénierie logicielle pour institutions étatiques, architectures critiques et applications de souveraineté numérique.",
     link: "https://avlytech.fr",
-    technologies: ["Architecture Microservices", "Kubernetes", "Next.js", "Python", "Cloud Hybride"],
+    technologies: ["Microservices", "Kubernetes", "Next.js", "Python", "Cloud Hybride"],
     impactMetrics: "Startup co-fondée • Solutions institutionnelles et grands comptes",
     architectureDetails: {
       context: "Accompagnement des administrations publiques et organisations régionales dans leur autonomie logicielle.",
@@ -177,15 +177,15 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "adomed",
+    index: "08",
     title: "Adomed.care & IA",
     category: "ai-deeptech",
     categoryLabel: "Télémédecine & Diagnostic IA",
     validation: "Première IA Médicale CIV",
-    validationBadgeColor: "cyan",
     desc: "Écosystème de santé complet (App Mobile + Portail Web) doté de la première IA médicale d'orientation diagnostique en Côte d'Ivoire. Consultations à domicile et télé-suivi.",
     link: "https://adomed.care/",
     featured: true,
-    technologies: ["Flutter", "Python / FastAPI", "Machine Learning", "Node.js", "MongoDB", "GCP"],
+    technologies: ["Flutter", "Python / FastAPI", "Machine Learning", "Node.js", "MongoDB"],
     impactMetrics: "Diagnostic assisté • Prise en charge à domicile facilitée",
     architectureDetails: {
       context: "Désengorgement des urgences et amélioration de l'accès aux soins de premier recours à Abidjan.",
@@ -197,12 +197,13 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "yamoh",
+    index: "09",
     title: "Yamoh",
     category: "platforms-iot",
     categoryLabel: "Mobilité & Flutter",
     desc: "Plateforme et application mobile de covoiturage urbain et interurbain en Côte d'Ivoire avec un mécanisme innovant de négociation et tarification dynamique par trajet.",
     link: "http://www.yamoh.net",
-    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps Platform", "Stripe / Mobile Money"],
+    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps Platform"],
     impactMetrics: "Tarification dynamique • Optimisation du trafic urbain",
     architectureDetails: {
       context: "Embouteillages massifs et coût élevé du transport individuel dans les grandes agglomérations ivoiriennes.",
@@ -214,13 +215,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "assofit",
+    index: "10",
     title: "Assofit",
     category: "platforms-iot",
     categoryLabel: "Réseau Social & Matching IA",
     desc: "Application sportive communautaire intégrant un ERP de gestion pour associations et clubs sportifs, couplé à un algorithme de recommandation et matching par centres d'intérêt.",
     link: "https://assofit.com/",
-    technologies: ["React Native", "Next.js", "PostgreSQL", "Recommendation Engine", "Docker"],
-    impactMetrics: "Communautés sportives européennes • Matching de partenaires de séance",
+    technologies: ["React Native", "Next.js", "PostgreSQL", "Algorithme Matching", "Docker"],
+    impactMetrics: "Communautés sportives européennes • Matching de partenaires",
     architectureDetails: {
       context: "Marché européen du fitness et des sports collectifs en recherche d'animation communautaire.",
       challenge: "Associer gestion administrative (adhésions, plannings) et expérience sociale stimulante pour les licenciés.",
@@ -231,13 +233,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "efa",
+    index: "11",
     title: "EFA (Education For Africa)",
     category: "ai-deeptech",
     categoryLabel: "EdTech & Generative AI",
     desc: "Plateforme éducative propulsée par l'IA générative. Tuteur virtuel adaptatif qui guide les élèves dans la résolution de leurs exercices scolaires avec pédagogie bienveillante.",
     link: "https://educationforafrica.com/",
-    technologies: ["Next.js", "OpenAI / Claude API", "FastAPI", "Python", "Vector DB", "Tailwind CSS"],
-    impactMetrics: "Tuteur IA 24/7 • Démocratisation du soutien scolaire de qualité",
+    technologies: ["Next.js", "Claude API / OpenAI", "FastAPI", "Python", "Vector DB"],
+    impactMetrics: "Tuteur IA 24/7 • Démocratisation du soutien scolaire",
     architectureDetails: {
       context: "Inégalités d'accès au soutien scolaire personnalisé pour les collégiens et lycéens sur le continent africain.",
       challenge: "Offrir une IA pédagogique qui n'écrit pas la réponse à la place de l'élève, mais le questionne selon la méthode socratique.",
@@ -248,14 +251,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "monetique-plus",
+    index: "12",
     title: "MonetiquePlus",
     category: "fintech-sec",
-    categoryLabel: "FinTech & Paiements Critiques",
-    validation: "Haute Sécurité & Scalabilité",
-    validationBadgeColor: "emerald",
+    categoryLabel: "FinTech & Sécurité Critique",
+    validation: "Transactions Critiques",
     desc: "Plateforme transactionnelle bancaire et de monétique électronique conçue pour traiter des volumes massifs de paiements sécurisés avec tolérance aux pannes.",
     link: "https://www.monetiqueplus.fr/",
-    technologies: ["Java", "Spring Boot", "Angular", "Kafka", "PostgreSQL", "HSM / PCI-DSS"],
+    technologies: ["Java", "Spring Boot", "Angular", "Kafka", "PostgreSQL", "HSM"],
     impactMetrics: "Tolérance aux pannes • Zéro perte de transaction • Traitement temps réel",
     architectureDetails: {
       context: "Infrastructures financières nécessitant une haute disponibilité (99.99%) et le respect des normes strictes de conformité bancaire.",
@@ -267,15 +270,15 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "ci-identite",
+    index: "13",
     title: "CI Identité",
     category: "fintech-sec",
     categoryLabel: "CyberSécurité & IAM d'État",
-    validation: "Normes Gouvernementales",
-    validationBadgeColor: "indigo",
+    validation: "Gouvernemental",
     desc: "Solution régalienne de gestion d'identité numérique et de contrôle d'accès sécurisé (IAM). Authentification multi-facteurs, signature cryptographique et chiffrement de pointe.",
     link: "https://identite.ci/",
     featured: true,
-    technologies: ["OAuth 2.0 / OIDC", "Rust / Go", "Keycloak", "Cryptographie Asymétrique", "PKI"],
+    technologies: ["OAuth 2.0 / OIDC", "Rust / Go", "Keycloak", "PKI Cryptographie"],
     impactMetrics: "Protection de l'identité citoyenne • Chiffrement de niveau étatique",
     architectureDetails: {
       context: "Transformation numérique des services publics nécessitant une identité numérique unique, régalienne et inviolable.",
@@ -287,12 +290,13 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "smart-farm",
+    index: "14",
     title: "Smart Farm",
     category: "platforms-iot",
     categoryLabel: "AgriTech & Capteurs IoT",
     desc: "Plateforme connectée d'optimisation agronomique. Télémétrie en temps réel sur l'humidité des sols, les conditions météo et pilotage automatisé de l'irrigation via intelligence artificielle.",
     link: "https://www.agri-tech.tn/smart-farm/",
-    technologies: ["IoT / MQTT", "Python", "React", "Time-Series DB (InfluxDB)", "FastAPI", "Grafana"],
+    technologies: ["IoT / MQTT", "Python", "React", "InfluxDB", "FastAPI", "Grafana"],
     impactMetrics: "Économie d'eau de 35% • Prévention des maladies culturales",
     architectureDetails: {
       context: "Enjeux climatiques et raréfaction des ressources en eau pour les exploitations agricoles africaines.",
@@ -304,14 +308,14 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "ci-connect",
+    index: "15",
     title: "CI Connect (IA)",
     category: "ai-deeptech",
     categoryLabel: "NLP & Accessibilité Juridique",
-    validation: "Recherche & Inclusion Civique",
-    validationBadgeColor: "cyan",
+    validation: "Recherche & Inclusion",
     desc: "Moteur vocal et textuel de démocratisation du droit ivoirien. Analyse en langage naturel (NLP) permettant à tout citoyen d'interroger la législation et les codes de lois par la voix.",
     link: "#",
-    technologies: ["Speech-to-Text", "NLP", "FastAPI", "Python", "Vector Search", "Langues Locales"],
+    technologies: ["Speech-to-Text", "NLP", "FastAPI", "Python", "Vector Search"],
     impactMetrics: "Inclusion civique • Interrogation vocale intuitive du droit",
     architectureDetails: {
       context: "Barrière de la langue et complexité du jargon juridique limitant l'accès aux droits fondamentaux.",
@@ -340,49 +344,47 @@ export default function ProjectsAvantGarde() {
     : allProjects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
-      {/* SECTION HEADER */}
-      <div className="mb-14 flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-slate-800/80 pb-10">
+    <section id="projects" className="py-28 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-200">
+      {/* SECTION HEADER ÉDITORIAL */}
+      <div className="mb-14 flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-zinc-200">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-4">
-            <Layers size={13} />
-            <span>02. Réalisations & Écosystèmes</span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
-            Architectures <br />
-            <span className="text-gradient-cyan">Déployées & Validées.</span>
+          <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3 flex items-center gap-2">
+            <span>02 // Réalisations & Écosystèmes Déployés</span>
           </h2>
+          <p className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 leading-tight tracking-tight uppercase">
+            Architectures <br />
+            <span className="text-zinc-500">en Production.</span>
+          </p>
         </div>
 
-        <div className="lg:max-w-md flex flex-col gap-3">
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Une sélection de <strong className="text-white font-semibold">15 réalisations concrètes</strong> — de la santé publique nationale aux modèles d’IA de télépathologie validés scientifiquement.
+        <div className="lg:max-w-md flex flex-col gap-2 text-left">
+          <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
+            Une sélection de <strong className="text-zinc-950 font-semibold">15 réalisations majeures</strong> validées par les institutions sanitaires (UNICEF, MSHP-CMU, SiPath) et des partenaires télécoms et bancaires.
           </p>
-          <div className="flex items-center gap-2 text-xs font-mono text-cyan-400">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Cliquez sur un projet pour inspecter son architecture technique</span>
-          </div>
+          <span className="text-xs font-mono text-zinc-400">
+            Cliquez sur &quot;Consulter l&apos;architecture&quot; pour inspecter les spécifications.
+          </span>
         </div>
       </div>
 
-      {/* FILTER TABS */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+      {/* TABS DE FILTRAGE ÉDITORIAL CLAUDE STYLE */}
+      <div className="flex items-center gap-1 overflow-x-auto pb-4 mb-10 border-b border-zinc-200 no-scrollbar">
         {categoryTabs.map((tab) => {
           const isActive = activeCategory === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => setActiveCategory(tab.id)}
-              className={`relative px-4 py-2.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-2 border ${
+              className={`relative px-4 py-2 text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors flex items-center gap-2 ${
                 isActive
-                  ? "bg-cyan-500/15 border-cyan-500 text-cyan-300 shadow-lg shadow-cyan-950/40"
-                  : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+                  ? "text-zinc-950 font-bold border-b-2 border-zinc-950 bg-white"
+                  : "text-zinc-500 hover:text-zinc-900 bg-transparent"
               }`}
             >
               <span>{tab.label}</span>
               <span
-                className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full ${
-                  isActive ? "bg-cyan-500/30 text-white" : "bg-slate-800 text-slate-400"
+                className={`text-[10px] font-mono px-1.5 py-0.2 ${
+                  isActive ? "bg-zinc-900 text-white" : "bg-zinc-200 text-zinc-600"
                 }`}
               >
                 {tab.count}
@@ -392,7 +394,7 @@ export default function ProjectsAvantGarde() {
         })}
       </div>
 
-      {/* PROJECTS GRID */}
+      {/* GRILLE DES PROJETS NETTE ET STRUCTURÉE (SANS ARRONDIS BULLES) */}
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence>
           {filteredProjects.map((project) => {
@@ -402,79 +404,77 @@ export default function ProjectsAvantGarde() {
               <motion.article
                 key={project.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className={`group relative rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 bg-slate-900/70 border border-slate-800/90 hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-950/20 backdrop-blur-sm ${
-                  isFeatured ? "md:col-span-2 lg:col-span-2 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-cyan-950/20" : ""
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+                className={`group relative p-8 flex flex-col justify-between transition-all duration-300 bg-white border border-zinc-200 hover:border-zinc-950 shadow-sm hover:shadow-md ${
+                  isFeatured ? "md:col-span-2 lg:col-span-2 bg-[#fcfcfb]" : ""
                 }`}
               >
-                {/* LUEUR HOVER */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/10 transition-colors"></div>
-
                 <div>
-                  {/* BADGES EN-TÊTE */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700/60">
-                      {project.categoryLabel}
+                  {/* EN-TÊTE DE LA CARTE : NUMÉRO & BADGES */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-6 pb-4 border-b border-zinc-100">
+                    <span className="font-mono text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors">
+                      {"//"} {project.index}
                     </span>
 
-                    {project.validation && (
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                        <CheckCircle2 size={12} />
-                        {project.validation}
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-zinc-100 text-zinc-700 border border-zinc-200">
+                        {project.categoryLabel}
                       </span>
-                    )}
+
+                      {project.validation && (
+                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-300 flex items-center gap-1">
+                          <CheckCircle2 size={11} />
+                          {project.validation}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* TITRE */}
-                  <h3 className={`font-black text-white group-hover:text-cyan-300 transition-colors tracking-tight mb-3 ${
-                    isFeatured ? "text-2xl sm:text-4xl" : "text-xl sm:text-2xl"
+                  <h3 className={`font-black text-zinc-950 tracking-tight mb-3 uppercase ${
+                    isFeatured ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
                   }`}>
                     {project.title}
                   </h3>
 
                   {/* DESCRIPTION */}
-                  <p className="text-slate-300/90 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">
                     {project.desc}
                   </p>
 
-                  {/* IMPACT MÉTRIQUE CLÉ */}
+                  {/* MÉTRIQUE CLÉ */}
                   {project.impactMetrics && (
-                    <div className="mb-6 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 text-xs font-medium text-cyan-400/90 flex items-center gap-2">
-                      <Activity size={14} className="text-cyan-400 shrink-0" />
+                    <div className="mb-6 p-3 bg-zinc-50 border border-zinc-200 text-xs font-mono text-zinc-800 flex items-center gap-2">
+                      <Activity size={14} className="text-sky-600 shrink-0" />
                       <span>{project.impactMetrics}</span>
                     </div>
                   )}
 
-                  {/* TECH STACK BADGES */}
+                  {/* TECH STACK TAGS NETS */}
                   <div className="flex flex-wrap gap-1.5 mb-8">
-                    {project.technologies.slice(0, isFeatured ? 6 : 4).map((tech) => (
+                    {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-md bg-slate-800/80 border border-slate-700/60 text-slate-300 text-[11px] font-mono"
+                        className="px-2 py-0.5 bg-zinc-50 border border-zinc-200 text-zinc-700 text-[10px] font-mono"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > (isFeatured ? 6 : 4) && (
-                      <span className="px-2 py-1 rounded-md bg-slate-800/40 text-slate-400 text-[11px] font-mono">
-                        +{project.technologies.length - (isFeatured ? 6 : 4)}
-                      </span>
-                    )}
                   </div>
                 </div>
 
-                {/* ACTIONS */}
-                <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+                {/* ACTIONS PIED DE CARTE */}
+                <div className="pt-4 border-t border-zinc-200 flex items-center justify-between gap-3 text-xs font-mono uppercase tracking-wider">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-cyan-400 transition-colors group/modal"
+                    className="font-bold text-zinc-900 hover:text-sky-600 transition-colors flex items-center gap-1 group/btn"
                   >
-                    <span>Fiche Architecture</span>
-                    <ArrowRight size={14} className="group-hover/modal:translate-x-1 transition-transform" />
+                    <span>Consulter l&apos;architecture</span>
+                    <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
                   </button>
 
                   {project.link !== "#" ? (
@@ -482,14 +482,14 @@ export default function ProjectsAvantGarde() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-xs font-semibold border border-cyan-500/30 transition-all hover:scale-105"
+                      className="text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1"
                     >
                       <span>Visiter</span>
-                      <ExternalLink size={12} />
+                      <ArrowUpRight size={13} />
                     </a>
                   ) : (
-                    <span className="text-[11px] font-mono text-slate-500 flex items-center gap-1">
-                      <Lock size={11} /> R&D Interne
+                    <span className="text-[10px] font-mono text-zinc-400 flex items-center gap-1">
+                      <Lock size={10} /> Confidentiel
                     </span>
                   )}
                 </div>
@@ -499,103 +499,103 @@ export default function ProjectsAvantGarde() {
         </AnimatePresence>
       </motion.div>
 
-      {/* DETAIL MODAL / DRAWER */}
+      {/* MODAL ARCHITECTURE ÉDITORIALE ÉLÉGANTE */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 overflow-y-auto">
             {/* BACKDROP */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProject(null)}
-              className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
+              className="fixed inset-0 bg-zinc-900/60 backdrop-blur-sm"
             ></motion.div>
 
             {/* MODAL CARD */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 20 }}
-              className="relative w-full max-w-3xl rounded-3xl bg-slate-900 border border-slate-700/80 shadow-2xl p-6 sm:p-10 z-10 max-h-[90vh] overflow-y-auto"
+              exit={{ opacity: 0, scale: 0.98, y: 10 }}
+              className="relative w-full max-w-3xl bg-white border-2 border-zinc-900 p-6 md:p-10 z-10 max-h-[90vh] overflow-y-auto shadow-2xl"
             >
               {/* CLOSE BUTTON */}
               <button
                 type="button"
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+                className="absolute top-6 right-6 p-2 text-zinc-500 hover:text-zinc-950 border border-zinc-200 hover:border-zinc-900 transition-colors bg-white"
                 aria-label="Fermer"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
 
-              {/* EN-TÊTE MODAL */}
-              <div className="mb-6">
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="text-xs font-mono uppercase px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+              {/* EN-TÊTE */}
+              <div className="mb-6 pb-6 border-b border-zinc-200">
+                <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-xs">
+                  <span className="text-zinc-400 font-bold">{"//"} {selectedProject.index}</span>
+                  <span className="px-2 py-0.5 bg-zinc-100 text-zinc-800 border border-zinc-200">
                     {selectedProject.categoryLabel}
                   </span>
                   {selectedProject.validation && (
-                    <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
-                      <CheckCircle2 size={13} />
+                    <span className="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold">
                       {selectedProject.validation}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-black text-zinc-950 uppercase tracking-tight">
                   {selectedProject.title}
                 </h3>
-                <p className="text-slate-400 text-sm sm:text-base mt-2">
+                <p className="text-zinc-600 text-sm mt-1">
                   {selectedProject.desc}
                 </p>
               </div>
 
-              {/* DÉTAILS D'ARCHITECTURE */}
-              <div className="space-y-6 text-sm text-slate-300">
-                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-                  <h4 className="text-xs font-mono uppercase text-cyan-400 tracking-wider mb-2 flex items-center gap-2">
-                    <Layers size={14} /> Contexte & Problématique Métier
+              {/* CONTENU DOSSIER ARCHITECTURE */}
+              <div className="space-y-6 text-sm text-zinc-800">
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
+                    <Layers size={14} /> Contexte & Défi Métier
                   </h4>
-                  <p className="leading-relaxed text-slate-300">
+                  <p className="leading-relaxed text-zinc-700">
                     {selectedProject.architectureDetails.context}
                   </p>
-                  <p className="mt-2 text-slate-400 text-xs italic">
-                    Défi critique : {selectedProject.architectureDetails.challenge}
+                  <p className="mt-2 text-xs text-zinc-500 italic">
+                    Problématique critique : {selectedProject.architectureDetails.challenge}
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-                  <h4 className="text-xs font-mono uppercase text-emerald-400 tracking-wider mb-2 flex items-center gap-2">
-                    <Cpu size={14} /> Solution Déployée & Architecture
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
+                    <Cpu size={14} /> Architecture & Solution Déployée
                   </h4>
-                  <p className="leading-relaxed text-slate-300">
+                  <p className="leading-relaxed text-zinc-700">
                     {selectedProject.architectureDetails.solution}
                   </p>
-                  <p className="mt-2 text-slate-300 text-xs font-mono text-cyan-300">
+                  <p className="mt-2 text-xs font-mono text-zinc-900 font-medium">
                     Infrastructure : {selectedProject.architectureDetails.stackNotes}
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-                  <h4 className="text-xs font-mono uppercase text-sky-400 tracking-wider mb-2 flex items-center gap-2">
-                    <ShieldCheck size={14} /> Impact & Validation Institutionnelle
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
+                    <ShieldCheck size={14} /> Impact Mesuré & Validation
                   </h4>
-                  <p className="leading-relaxed text-slate-300">
+                  <p className="leading-relaxed text-zinc-700">
                     {selectedProject.architectureDetails.impact}
                   </p>
                 </div>
 
-                {/* TECHNOLOGIES COMPLÈTES */}
+                {/* TECHNOLOGIES */}
                 <div>
-                  <h4 className="text-xs font-mono uppercase text-slate-400 tracking-wider mb-2 flex items-center gap-1.5">
-                    <Server size={14} /> Stack Technique Complète
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-1.5">
+                    <Server size={14} /> Stack Technique
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {selectedProject.technologies.map((t) => (
                       <span
                         key={t}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-white font-mono text-xs"
+                        className="px-2.5 py-1 bg-white border border-zinc-300 text-zinc-900 font-mono text-xs font-medium"
                       >
                         {t}
                       </span>
@@ -604,28 +604,28 @@ export default function ProjectsAvantGarde() {
                 </div>
               </div>
 
-              {/* PIED DE MODAL */}
-              <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+              {/* PIED MODAL */}
+              <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
                 {selectedProject.link !== "#" ? (
                   <a
                     href={selectedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-sm transition-all"
+                    className="w-full sm:w-auto px-6 py-3 bg-zinc-900 text-white font-bold uppercase tracking-wider hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2"
                   >
-                    <span>Ouvrir la plateforme</span>
-                    <ExternalLink size={16} />
+                    <span>Visiter la plateforme live</span>
+                    <ArrowUpRight size={14} />
                   </a>
                 ) : (
-                  <div className="text-xs font-mono text-slate-500 flex items-center gap-1.5">
-                    <Lock size={14} /> Plateforme confidentielle sous accord de confidentialité
-                  </div>
+                  <span className="text-zinc-500 flex items-center gap-1">
+                    <Lock size={12} /> Solution sous accord de confidentialité
+                  </span>
                 )}
 
                 <button
                   type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold text-slate-400 hover:text-white rounded-full border border-slate-700/60 hover:bg-slate-800 transition-colors"
+                  className="w-full sm:w-auto px-5 py-2.5 border border-zinc-300 text-zinc-700 hover:text-zinc-950 hover:border-zinc-950 transition-colors uppercase"
                 >
                   Fermer
                 </button>

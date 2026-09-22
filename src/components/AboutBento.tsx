@@ -9,106 +9,101 @@ import {
   ShieldCheck,
   Terminal,
   HeartPulse,
-  Workflow,
 } from "lucide-react";
 
 export default function AboutBento() {
   return (
-    <section id="about" className="py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
-      {/* SECTION HEADER */}
-      <div className="mb-14 border-b border-slate-800/80 pb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-4">
-          <Workflow size={13} />
-          <span>01. Profil & Savoir-Faire</span>
-        </div>
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
-          Architecte de Systèmes Critiques. <br />
-          <span className="text-gradient-cyan">Ingénierie & Vision Stratégique.</span>
+    <section id="about" className="py-28 px-6 md:px-12 max-w-7xl mx-auto">
+      {/* SECTION HEADER ÉDITORIAL CLAUDE STYLE */}
+      <div className="mb-16 border-b border-zinc-200 pb-8">
+        <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3 flex items-center gap-2">
+          <span>01 // Profil & Expertise Stratégique</span>
         </h2>
-        <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-3xl leading-relaxed">
-          Plus qu’un développeur, j’interviens en tant qu’architecte de confiance et consultant e-Santé auprès d’organisations étatiques, d’ONG internationales (UNICEF) et de startups à haute intensité technologique.
+        <p className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 leading-tight tracking-tight uppercase">
+          Je ne code pas de simples applications. <br />
+          <span className="text-zinc-400">J&apos;architecte des écosystèmes durables.</span>
         </p>
       </div>
 
-      {/* BENTO GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {/* CARD 1: LEAD E-SANTÉ & IMPACT NATIONAL (2 COLS) */}
+      {/* GRILLE ARCHITECTURALE NETTE (SANS ARRONDIS BULLES) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        {/* CARTE 1 : LEAD E-SANTÉ & IMPACT NATIONAL (2 COLS) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="md:col-span-2 lg:col-span-2 rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-900/80 to-cyan-950/30 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 group flex flex-col justify-between"
+          className="col-span-1 md:col-span-2 bg-zinc-900 text-white p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group border border-zinc-900 transition-all"
         >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[90px] pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+          {/* Lueur subtile */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-[80px] pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
 
           <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="p-3 bg-cyan-500/10 border border-cyan-500/20 rounded-2xl w-fit text-cyan-400">
-                <HeartPulse size={28} />
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-800">
+              <div className="flex items-center gap-2.5">
+                <HeartPulse className="text-sky-400" size={24} />
+                <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
+                  Mission Nationale en cours
+                </span>
               </div>
-              <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Mission d&apos;État en cours
+              <span className="text-xs font-mono text-zinc-400 uppercase">
+                Côte d&apos;Ivoire & International
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-black text-white mb-3 tracking-tight">
-              Consultant e-Santé & Architecte National
+            <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight">
+              Consultant e-Santé & Architecte IA
             </h3>
-            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-              Actuellement engagé auprès du <strong className="text-white font-semibold">Ministère de la Santé et de l&apos;Hygiène Publique (MSHP-CMU)</strong> de Côte d’Ivoire. Je pilote l’interconnexion des centres hospitaliers publics (CHU), la numérisation des parcours de soins et le déploiement de protocoles pédiatriques nationaux validés par l’<strong className="text-white font-semibold">UNICEF</strong>.
+            <p className="text-zinc-300 leading-relaxed text-base md:text-lg">
+              Actuellement engagé auprès du <strong className="text-white font-semibold">Ministère de la Santé et de l&apos;Hygiène Publique (MSHP-CMU)</strong>. Je pilote des transformations numériques à l&apos;échelle nationale, alliant intelligence artificielle clinique (Computer Vision, NLP) et infrastructures backend résilientes pour l&apos;interconnexion des CHU et les programmes validés par l&apos;<strong className="text-white font-semibold">UNICEF</strong>.
             </p>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center gap-6 text-slate-400 text-xs font-mono">
+          <div className="flex flex-wrap items-center gap-6 mt-10 pt-6 border-t border-zinc-800 text-zinc-400 text-xs font-mono">
             <div>
-              <span className="block text-2xl font-black text-white">10+ Ans</span>
-              <span className="uppercase tracking-wider text-slate-500">Expérience Terrain</span>
+              <span className="block text-3xl font-black text-white font-mono">10+</span>
+              <span className="uppercase tracking-wider text-zinc-500">Années d&apos;Expérience</span>
             </div>
-            <div className="h-8 w-[1px] bg-slate-800"></div>
+            <div className="h-8 w-[1px] bg-zinc-800"></div>
             <div>
-              <span className="block text-2xl font-black text-cyan-400">UNICEF</span>
-              <span className="uppercase tracking-wider text-slate-500">Validation e-Santé</span>
+              <span className="block text-3xl font-black text-sky-400 font-mono">UNICEF</span>
+              <span className="uppercase tracking-wider text-zinc-500">Validation e-Santé</span>
             </div>
-            <div className="h-8 w-[1px] bg-slate-800"></div>
+            <div className="h-8 w-[1px] bg-zinc-800"></div>
             <div>
-              <span className="block text-2xl font-black text-emerald-400">CHU & MSHP</span>
-              <span className="uppercase tracking-wider text-slate-500">Interconnexion</span>
+              <span className="block text-3xl font-black text-emerald-400 font-mono">MSHP-CMU</span>
+              <span className="uppercase tracking-wider text-zinc-500">CHU Connectés</span>
             </div>
           </div>
         </motion.div>
 
-        {/* CARD 2: LABORATOIRE IA & DEEP TECH (2 COLS) */}
+        {/* CARTE 2 : LABORATOIRE IA & DEEP TECH (1 COL) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="md:col-span-1 lg:col-span-2 rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between"
+          className="col-span-1 bg-white border border-zinc-200 hover:border-zinc-950 p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md"
         >
           <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-2xl w-fit text-purple-400">
-                <BrainCircuit size={28} />
-              </div>
-              <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-                Recherche & Déploiement
+            <div className="flex justify-between items-start mb-6 pb-4 border-b border-zinc-100">
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">
+                Deep Tech & Vision
               </span>
+              <BrainCircuit className="text-sky-600" size={24} />
             </div>
 
-            <h3 className="text-2xl font-black text-white mb-3 tracking-tight">
-              Intelligence Artificielle & Deep Tech
-            </h3>
-            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-              Conception d’algorithmes de pointe adaptés aux contraintes du terrain africain : télépathologie histopathologique assistée par vision (80% de précision pour le cancer, validé <strong className="text-white font-semibold">SiPath</strong>), analyse en langage naturel (NLP vocal pour l&apos;accessibilité juridique) et agents conversationnels RAG.
+            <h4 className="text-xl font-bold text-zinc-950 mb-3">Intelligence Artificielle</h4>
+            <p className="text-sm text-zinc-600 leading-relaxed mb-6">
+              Conception d&apos;algorithmes adaptés aux exigences cliniques : télépathologie temps réel pour le diagnostic du cancer (80% de précision validé <strong className="text-zinc-900">SiPath</strong>) et traitement du langage naturel (NLP vocal).
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mt-6">
-            {["Computer Vision", "PyTorch", "FastAPI", "NLP & Speech", "TensorRT", "RAG & LLM"].map((tech) => (
+          <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100">
+            {["PyTorch", "Computer Vision", "NLP & Speech", "FastAPI", "TensorRT", "RAG"].map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 bg-slate-800/80 border border-slate-700/80 text-cyan-300 rounded-lg text-xs font-mono font-medium"
+                className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 text-zinc-800 text-xs font-mono font-medium"
               >
                 {tech}
               </span>
@@ -116,189 +111,196 @@ export default function AboutBento() {
           </div>
         </motion.div>
 
-        {/* CARD 3: ACADÉMIQUE D'EXCELLENCE & MASTER HEC MAROC (2 COLS) */}
+        {/* CARTE 3 : ARCHITECTURE FULLSTACK & CLOUD (1 COL) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="col-span-1 bg-white border border-zinc-200 hover:border-zinc-950 p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md"
+        >
+          <div>
+            <div className="flex justify-between items-start mb-6 pb-4 border-b border-zinc-100">
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">
+                Infrastructures
+              </span>
+              <Database className="text-blue-600" size={24} />
+            </div>
+
+            <h4 className="text-xl font-bold text-zinc-950 mb-3">Ingénierie Fullstack</h4>
+            <p className="text-sm text-zinc-600 leading-relaxed mb-6">
+              Architectures microservices modulaires, systèmes d&apos;information hospitaliers et applications mobiles résilientes déployées sous AWS, Docker et Kubernetes.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100">
+            {["Next.js", "Spring Boot", "Flutter", "PostgreSQL", "AWS Cloud", "Docker"].map((tech) => (
+              <span
+                key={tech}
+                className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 text-zinc-800 text-xs font-mono font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CARTE 4 : DIPLÔMES & CERTIFICATIONS D'ÉLITE (2 COLS) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="md:col-span-2 lg:col-span-2 rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between"
+          className="col-span-1 md:col-span-2 bg-white border border-zinc-200 hover:border-zinc-950 p-8 md:p-10 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md"
         >
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-blue-400">
-                <GraduationCap size={28} />
-              </div>
-              <div>
-                <h4 className="text-xl font-bold text-white tracking-tight">Parcours Académique Supérieur</h4>
-                <p className="text-xs font-mono text-slate-400 uppercase">Formation d&apos;Excellence Internationale</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 text-sm text-slate-300">
-              <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
-                <div className="flex items-center justify-between">
-                  <strong className="text-white text-base">HEC Maroc</strong>
-                  <span className="text-xs font-mono text-cyan-400 bg-cyan-950/50 px-2 py-0.5 rounded border border-cyan-800/50">
-                    Master Executive
-                  </span>
-                </div>
-                <p className="text-slate-400 text-xs mt-1">
-                  Intelligence Artificielle, CyberSécurité & Big Data Science
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
-                <div className="flex items-center justify-between">
-                  <strong className="text-white text-base">PIGIER Côte d’Ivoire</strong>
-                  <span className="text-xs font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded">
-                    Licence Professionnelle
-                  </span>
-                </div>
-                <p className="text-slate-400 text-xs mt-1">
-                  Génie Logiciel & Systèmes d’Information
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center gap-2 text-xs font-mono text-slate-400">
-            <span className="text-emerald-400">●</span>
-            <span>Allie rigueur scientifique et vision d’affaires</span>
-          </div>
-        </motion.div>
-
-        {/* CARD 4: CERTIFICATIONS MONDIALES (2 COLS) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="md:col-span-2 lg:col-span-2 rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-gradient-to-br from-slate-900/90 to-blue-950/30 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between"
-        >
-          <div>
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-emerald-400">
-                  <ShieldCheck size={28} />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white tracking-tight">Certifications Critiques</h4>
-                  <p className="text-xs font-mono text-slate-400 uppercase">Standards Mondiaux</p>
-                </div>
+                <GraduationCap className="text-zinc-900" size={24} />
+                <h4 className="text-xl font-bold text-zinc-950 tracking-tight">Académique & Certifications Internationales</h4>
               </div>
+              <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+                Standards Mondiaux
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                <div className="font-bold text-white flex items-center gap-2">
-                  <ShieldCheck size={14} className="text-cyan-400" />
-                  <span>CISSP & CompTIA Security+</span>
-                </div>
-                <p className="text-slate-400 mt-1">Cybersécurité & Gouvernance des architectures</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4 font-bold">
+                  Diplômes Supérieurs
+                </h5>
+                <ul className="space-y-4 text-sm">
+                  <li className="p-3 bg-zinc-50 border border-zinc-200">
+                    <strong className="block text-zinc-950 text-base font-bold">HEC Maroc</strong>
+                    <span className="text-xs text-zinc-600 font-mono">
+                      Master Executive IA, CyberSécurité & Big Data Science (2025)
+                    </span>
+                  </li>
+                  <li className="p-3 bg-zinc-50 border border-zinc-200">
+                    <strong className="block text-zinc-950 text-base font-bold">PIGIER Côte d&apos;Ivoire</strong>
+                    <span className="text-xs text-zinc-600 font-mono">
+                      Licence Professionnelle en Génie Logiciel
+                    </span>
+                  </li>
+                </ul>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                <div className="font-bold text-white flex items-center gap-2">
-                  <HeartPulse size={14} className="text-emerald-400" />
-                  <span>Imperial College London</span>
-                </div>
-                <p className="text-slate-400 mt-1">Digital Health Specialization (e-Santé mondiale)</p>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                <div className="font-bold text-white flex items-center gap-2">
-                  <BrainCircuit size={14} className="text-purple-400" />
-                  <span>Stanford Univ. / DeepLearning</span>
-                </div>
-                <p className="text-slate-400 mt-1">Deep Learning Specialization par Andrew Ng</p>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                <div className="font-bold text-white flex items-center gap-2">
-                  <Database size={14} className="text-blue-400" />
-                  <span>Google Professional</span>
-                </div>
-                <p className="text-slate-400 mt-1">Data Analytics & Cloud Security Pro</p>
+              <div>
+                <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4 font-bold">
+                  Certifications Critiques
+                </h5>
+                <ul className="space-y-2.5 text-xs text-zinc-700">
+                  <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
+                    <ShieldCheck size={16} className="text-emerald-600 shrink-0" />
+                    <span><strong>CISSP</strong> & <strong>CompTIA Security+</strong> (CyberSécurité)</span>
+                  </li>
+                  <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
+                    <ShieldCheck size={16} className="text-blue-600 shrink-0" />
+                    <span><strong>Imperial College London</strong> (Digital Health Specialization)</span>
+                  </li>
+                  <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
+                    <ShieldCheck size={16} className="text-purple-600 shrink-0" />
+                    <span><strong>Stanford Univ. / DeepLearning.AI</strong> (Andrew Ng)</span>
+                  </li>
+                  <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
+                    <ShieldCheck size={16} className="text-sky-600 shrink-0" />
+                    <span><strong>Google Professional</strong> (Data Analytics & Cloud Security)</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-slate-800 flex justify-between items-center">
-            <span className="text-xs font-mono text-slate-400">Preuves & Recommandations vérifiables</span>
+          <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between">
+            <span className="text-xs font-mono text-zinc-500">
+              Identité vérifiable & recommandations
+            </span>
             <a
               href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-zinc-950 hover:text-blue-600 transition-colors"
             >
-              <span>Vérifier sur LinkedIn</span>
+              <span>Consulter sur LinkedIn</span>
               <ArrowUpRight size={14} />
             </a>
           </div>
         </motion.div>
+
       </div>
 
-      {/* STACK TECHNIQUE CONSOLIDÉE & INTERACTIVE */}
-      <div className="mt-8 rounded-3xl p-8 bg-slate-900/60 border border-slate-800">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-          <div className="flex items-center gap-3">
-            <Terminal size={22} className="text-cyan-400" />
-            <h4 className="text-lg font-bold text-white">Stack Technologique Complète</h4>
+      {/* MATRICE TECHNIQUE COMPLÈTE STYLE DOSSIER ÉDITORIAL */}
+      <div className="mt-8 p-8 md:p-10 bg-white border border-zinc-200">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-zinc-200">
+          <div className="flex items-center gap-2.5">
+            <Terminal size={20} className="text-zinc-900" />
+            <h4 className="text-sm font-mono font-bold uppercase tracking-widest text-zinc-950">
+              Matrice Technologique & Conformité
+            </h4>
           </div>
-          <span className="text-xs font-mono text-slate-400 uppercase">
-            Frontend • Backend • IA • DevOps • Sécurité
+          <span className="text-xs font-mono text-zinc-500">
+            Frontend • Backend • IA • Cloud • Normes de Santé
           </span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-            <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block mb-2">Frontend</span>
-            <ul className="text-xs space-y-1 text-slate-300 font-medium">
-              <li>Next.js 15 / 16 (App Router)</li>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-xs font-mono">
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              Frontend & Mobile
+            </span>
+            <ul className="space-y-1 text-zinc-600">
+              <li>Next.js (App Router)</li>
               <li>React 19 & TypeScript</li>
-              <li>Tailwind CSS & Framer Motion</li>
-              <li>Flutter & Dart (Mobile)</li>
+              <li>Flutter & Dart</li>
+              <li>Tailwind CSS</li>
             </ul>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-            <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block mb-2">Backend & APIs</span>
-            <ul className="text-xs space-y-1 text-slate-300 font-medium">
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              Backend & APIs
+            </span>
+            <ul className="space-y-1 text-zinc-600">
               <li>Python (FastAPI, Flask)</li>
-              <li>Java (Spring Boot, Cloud)</li>
+              <li>Java (Spring Boot)</li>
               <li>Node.js / Express</li>
-              <li>PostgreSQL, MongoDB, Redis</li>
+              <li>PostgreSQL, MongoDB</li>
             </ul>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-            <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block mb-2">IA & Data</span>
-            <ul className="text-xs space-y-1 text-slate-300 font-medium">
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              IA & Computer Vision
+            </span>
+            <ul className="space-y-1 text-zinc-600">
               <li>PyTorch & TensorFlow</li>
-              <li>Computer Vision (OpenCV)</li>
-              <li>NLP & Vector Databases</li>
-              <li>Pipelines RAG & LLMs</li>
+              <li>Vision par Ordinateur</li>
+              <li>NLP & Voice Processing</li>
+              <li>Vector Search & RAG</li>
             </ul>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-            <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block mb-2">Cloud & DevOps</span>
-            <ul className="text-xs space-y-1 text-slate-300 font-medium">
-              <li>Amazon Web Services (AWS)</li>
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              Cloud & DevOps
+            </span>
+            <ul className="space-y-1 text-zinc-600">
+              <li>Amazon Web Services</li>
               <li>Docker & Kubernetes</li>
-              <li>CI/CD GitHub Actions</li>
-              <li>Linux Server Admin</li>
+              <li>Pipelines CI/CD</li>
+              <li>Architecture Microservices</li>
             </ul>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-            <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block mb-2">Sécurité & Santé</span>
-            <ul className="text-xs space-y-1 text-slate-300 font-medium">
-              <li>IAM & Zero-Trust (CISSP)</li>
-              <li>Normes HL7 / FHIR</li>
-              <li>Chiffrement PKI / HSM</li>
-              <li>Audit de vulnérabilités</li>
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              Sécurité & Normes
+            </span>
+            <ul className="space-y-1 text-zinc-600">
+              <li>Standards CISSP & IAM</li>
+              <li>Standards HL7 / FHIR</li>
+              <li>Cryptographie PKI</li>
+              <li>Conformité Santé</li>
             </ul>
           </div>
         </div>

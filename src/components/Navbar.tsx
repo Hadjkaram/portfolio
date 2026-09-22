@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { FileText, Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,127 +19,111 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Expertise", href: "#about" },
-    { name: "Réalisations", href: "#projects", badge: "15" },
-    { name: "Contact", href: "#contact" },
+    { num: "01", name: "Expertise", href: "#about" },
+    { num: "02", name: "Réalisations", href: "#projects", badge: "15" },
+    { num: "03", name: "Contact", href: "#contact" },
   ];
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 transition-all duration-300 pointer-events-none">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* LOGO & BRAND */}
-          <Link
-            href="/"
-            className="pointer-events-auto flex items-center gap-3 group focus:outline-none"
-          >
-            <div className="relative w-11 h-11 rounded-xl bg-slate-900/90 border border-slate-700/80 p-1 flex items-center justify-center shadow-lg shadow-cyan-950/30 group-hover:border-cyan-500/60 transition-all duration-300">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#f7f7f5]/95 backdrop-blur-md border-b border-zinc-200/90 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+          {/* LOGO DANS SON CADRE ORGANIQUE SIGNATURE */}
+          <Link href="/" className="flex items-center gap-3.5 group focus:outline-none">
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-zinc-900 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] flex items-center justify-center overflow-hidden shadow-sm group-hover:rounded-[40%_60%_70%_30%/50%_60%_30%_50%] transition-all duration-500">
               <Image
                 src="/Logo_IK.png"
                 alt="Logo Ibrahim Karamoko"
                 width={36}
                 height={36}
-                className="w-full h-full object-contain filter drop-shadow group-hover:scale-105 transition-transform"
+                className="w-[75%] h-auto object-contain transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-900 animate-pulse"></div>
             </div>
-            <div className="hidden sm:flex flex-col">
-              <span className="font-extrabold text-sm tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+            <div className="flex flex-col">
+              <span className="font-bold text-sm tracking-tight text-zinc-900 group-hover:text-blue-600 transition-colors uppercase">
                 Ibrahim Karamoko
               </span>
-              <span className="text-[10px] font-mono tracking-wider text-cyan-400/90 uppercase">
-                Architecte IA & e-Santé
+              <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
+                e-Santé & IA Engineer
               </span>
             </div>
           </Link>
 
-          {/* DESKTOP FLOATING PILL */}
-          <nav
-            className={`pointer-events-auto hidden md:flex items-center gap-1 p-1.5 rounded-full transition-all duration-300 ${
-              scrolled
-                ? "bg-slate-900/85 backdrop-blur-xl border border-slate-700/60 shadow-xl shadow-black/40"
-                : "bg-slate-900/50 backdrop-blur-md border border-slate-800/80"
-            }`}
-          >
+          {/* MENU DESKTOP ÉDITORIAL CLAUDE STYLE */}
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white rounded-full transition-all duration-200 hover:bg-slate-800/70 flex items-center gap-1.5"
+                className="text-xs font-mono uppercase tracking-wider text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1.5 group py-1"
               >
-                {link.name}
+                <span className="text-[10px] text-zinc-400 group-hover:text-zinc-900 transition-colors">{link.num}.</span>
+                <span className="font-semibold">{link.name}</span>
                 {link.badge && (
-                  <span className="text-[10px] font-mono font-bold px-1.5 py-0.2 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+                  <span className="text-[9px] px-1.5 py-0.2 border border-zinc-300 text-zinc-700 bg-white font-mono">
                     {link.badge}
                   </span>
                 )}
               </a>
             ))}
 
-            <div className="h-4 w-[1px] bg-slate-700/80 mx-1"></div>
+            <div className="h-4 w-[1px] bg-zinc-300"></div>
 
-            {/* LIEN VERS CV */}
             <Link
               href="/cv"
-              className="px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-cyan-400 rounded-full transition-all duration-200 hover:bg-slate-800/70 flex items-center gap-1.5"
+              className="text-xs font-mono uppercase tracking-wider text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1 py-1"
             >
-              <FileText size={13} className="text-cyan-400" />
               <span>Curriculum</span>
+              <ArrowUpRight size={12} className="text-zinc-400" />
             </Link>
-          </nav>
 
-          {/* CTA & MOBILE MENU BUTTON */}
-          <div className="pointer-events-auto flex items-center gap-2.5">
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-sky-400 hover:brightness-110 shadow-lg shadow-cyan-500/20 active:scale-95 transition-all duration-200"
+              className="px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider transition-all duration-200 border border-zinc-900 hover:shadow-md"
             >
-              <Sparkles size={14} className="text-slate-950" />
-              <span>Démarrer un projet</span>
+              Discutons.
             </a>
+          </nav>
 
-            {/* HAMBURGER TOGGLE */}
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Menu"
-              className="md:hidden w-10 h-10 rounded-xl bg-slate-900/90 border border-slate-700 flex items-center justify-center text-slate-200 hover:text-cyan-400 hover:border-cyan-500 transition-colors"
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+          {/* BOUTON MOBILE */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Menu"
+            className="md:hidden p-2 text-zinc-900 border border-zinc-300 bg-white"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </header>
 
-      {/* MOBILE DRAWER */}
+      {/* MOBILE DRAWER ÉDITORIAL */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-4 top-20 z-40 p-6 rounded-2xl bg-slate-900/95 backdrop-blur-2xl border border-slate-800 shadow-2xl md:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-x-0 top-[73px] z-40 bg-[#f7f7f5] border-b border-zinc-300 p-6 md:hidden shadow-xl"
           >
             <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <span className="text-xs font-mono uppercase text-slate-400">Navigation</span>
-                <span className="text-[11px] font-semibold text-emerald-400 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Disponible
-                </span>
-              </div>
-
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-semibold text-slate-200 hover:text-cyan-400 py-1.5 flex items-center justify-between transition-colors"
+                  className="text-sm font-mono uppercase tracking-wider text-zinc-900 py-2 border-b border-zinc-200 flex justify-between items-center"
                 >
-                  <span>{link.name}</span>
+                  <span>{link.num} &mdash; {link.name}</span>
                   {link.badge && (
-                    <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                      {link.badge} projets
+                    <span className="text-xs px-2 py-0.5 border border-zinc-300 bg-white">
+                      {link.badge}
                     </span>
                   )}
                 </a>
@@ -148,25 +132,19 @@ export default function Navbar() {
               <Link
                 href="/cv"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-semibold text-slate-200 hover:text-cyan-400 py-1.5 flex items-center justify-between transition-colors"
+                className="text-sm font-mono uppercase tracking-wider text-zinc-900 py-2 border-b border-zinc-200 flex justify-between items-center"
               >
-                <span className="flex items-center gap-2">
-                  <FileText size={16} className="text-cyan-400" />
-                  Consulter mon CV
-                </span>
-                <ArrowUpRight size={16} className="text-slate-500" />
+                <span>Curriculum Vitae</span>
+                <ArrowUpRight size={14} />
               </Link>
 
-              <div className="pt-2 border-t border-slate-800">
-                <a
-                  href="#contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-sky-400 shadow-lg shadow-cyan-500/20"
-                >
-                  <Sparkles size={16} />
-                  <span>Démarrer un projet</span>
-                </a>
-              </div>
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-3 bg-zinc-900 text-white text-xs font-mono uppercase tracking-wider mt-2"
+              >
+                Démarrer une collaboration
+              </a>
             </div>
           </motion.div>
         )}

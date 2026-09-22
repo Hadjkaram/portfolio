@@ -12,7 +12,6 @@ import {
   Linkedin,
   MapPin,
   Clock,
-  Sparkles,
 } from "lucide-react";
 
 export default function Contact() {
@@ -55,99 +54,97 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
-      {/* SECTION HEADER */}
-      <div className="mb-14 border-b border-slate-800/80 pb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono tracking-widest uppercase mb-4">
-          <Sparkles size={13} />
-          <span>03. Partenariats & Contact</span>
-        </div>
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
-          Concrétisons Votre <br />
-          <span className="text-gradient-cyan">Prochaine Architecture.</span>
+    <section id="contact" className="py-28 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-200">
+      {/* SECTION HEADER ÉDITORIAL */}
+      <div className="mb-14 pb-8 border-b border-zinc-200">
+        <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3 flex items-center gap-2">
+          <span>03 // Partenariats & Contact</span>
         </h2>
-        <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
-          Disponible pour des missions de conseil stratégique, direction technique (Fractional CTO), audits de systèmes et déploiements IA sur mesure.
+        <p className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 leading-tight tracking-tight uppercase">
+          Démarrer une <br />
+          <span className="text-zinc-500">Collaboration Stratégique.</span>
+        </p>
+        <p className="mt-4 text-zinc-600 text-base md:text-lg max-w-2xl leading-relaxed">
+          Disponible pour missions de conseil stratégique, direction technique (Fractional CTO), audits de systèmes et déploiements IA sur mesure.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* COLONNE GAUCHE : COORDONNÉES RAPIDES & DISPONIBILITÉ */}
-        <div className="lg:col-span-5 space-y-6">
+        <div className="lg:col-span-5 space-y-4">
           {/* CARTE DISPONIBILITÉ */}
-          <div className="p-6 rounded-3xl bg-slate-900/80 border border-slate-800">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-                Statut Actuel : Ouvert aux opportunités
+          <div className="p-8 bg-white border border-zinc-200 shadow-sm">
+            <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-zinc-100">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-800 font-bold">
+                Statut : Disponible pour missions
               </span>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed mb-4">
-              Basé à Abidjan (Côte d&apos;Ivoire), mobile pour missions régionales et internationales (Europe / Afrique / Remote).
+            <p className="text-sm text-zinc-700 leading-relaxed mb-6">
+              Basé à Abidjan (Côte d&apos;Ivoire), disponible pour des interventions régionales et internationales (missions sur site ou hybrides).
             </p>
-            <div className="space-y-2 text-xs text-slate-400 font-mono">
-              <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-cyan-400 shrink-0" />
-                <span>Abidjan, Côte d&apos;Ivoire & International</span>
+            <div className="space-y-3 text-xs text-zinc-600 font-mono">
+              <div className="flex items-center gap-2.5">
+                <MapPin size={15} className="text-zinc-900 shrink-0" />
+                <span>Abidjan, CI • Mobilité Afrique & Europe</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock size={14} className="text-cyan-400 shrink-0" />
-                <span>Fuseau horaire GMT (Temps de réponse &lt; 24h)</span>
+              <div className="flex items-center gap-2.5">
+                <Clock size={15} className="text-zinc-900 shrink-0" />
+                <span>Fuseau GMT • Réponse garantie &lt; 24h</span>
               </div>
             </div>
           </div>
 
           {/* CANAUX DIRECTS */}
           <div className="space-y-3">
-            {/* WHATSAPP ACTION DIRECTE */}
+            {/* WHATSAPP */}
             <a
               href={`https://wa.me/${whatsappNumber.replace("+", "")}?text=Bonjour%20Ibrahim,%20j'ai%20consult%C3%A9%20votre%20portfolio%20et%20souhaiterais%20%C3%A9changer...`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/60 hover:shadow-xl hover:shadow-emerald-950/20 transition-all flex items-center justify-between"
+              className="p-6 bg-white border border-zinc-200 hover:border-zinc-950 transition-all flex items-center justify-between group shadow-sm"
             >
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 group-hover:scale-110 transition-transform">
-                  <MessageCircle size={24} />
+                <div className="p-3 bg-zinc-50 border border-zinc-200 text-emerald-700">
+                  <MessageCircle size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  <h4 className="font-bold text-zinc-950 text-sm font-mono uppercase tracking-wider">
                     WhatsApp Direct
                   </h4>
-                  <p className="text-xs text-slate-400">{formattedPhone}</p>
+                  <p className="text-xs text-zinc-500 font-mono mt-0.5">{formattedPhone}</p>
                 </div>
               </div>
-              <ArrowRight size={18} className="text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+              <ArrowRight size={16} className="text-zinc-400 group-hover:text-zinc-950 group-hover:translate-x-1 transition-all" />
             </a>
 
             {/* EMAIL AVEC COPIE EN 1 CLIC */}
-            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <div className="p-6 bg-white border border-zinc-200 flex items-center justify-between shadow-sm">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-400">
-                  <Mail size={24} />
+                <div className="p-3 bg-zinc-50 border border-zinc-200 text-sky-700">
+                  <Mail size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-sm">Email Professionnel</h4>
-                  <p className="text-xs text-slate-400 font-mono">{emailAddress}</p>
+                  <h4 className="font-bold text-zinc-950 text-sm font-mono uppercase tracking-wider">
+                    Email Professionnel
+                  </h4>
+                  <p className="text-xs text-zinc-500 font-mono mt-0.5">{emailAddress}</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 flex items-center gap-1.5 transition-colors"
+                className="px-3 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-xs font-mono text-zinc-800 flex items-center gap-1.5 transition-colors border border-zinc-300"
                 title="Copier l'adresse"
               >
                 {copiedEmail ? (
                   <>
-                    <Check size={14} className="text-emerald-400" />
-                    <span className="text-emerald-400 font-semibold">Copié !</span>
+                    <Check size={13} className="text-emerald-700" />
+                    <span className="font-bold text-emerald-800">Copié</span>
                   </>
                 ) : (
                   <>
-                    <Copy size={14} />
+                    <Copy size={13} />
                     <span>Copier</span>
                   </>
                 )}
@@ -159,50 +156,50 @@ export default function Contact() {
               href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-blue-500/60 hover:shadow-xl hover:shadow-blue-950/20 transition-all flex items-center justify-between"
+              className="p-6 bg-white border border-zinc-200 hover:border-zinc-950 transition-all flex items-center justify-between group shadow-sm"
             >
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:scale-110 transition-transform">
-                  <Linkedin size={24} />
+                <div className="p-3 bg-zinc-50 border border-zinc-200 text-blue-700">
+                  <Linkedin size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-sm group-hover:text-blue-300 transition-colors">
-                    Profil LinkedIn Officiel
+                  <h4 className="font-bold text-zinc-950 text-sm font-mono uppercase tracking-wider">
+                    LinkedIn Officiel
                   </h4>
-                  <p className="text-xs text-slate-400">Réseau & recommandations professionnelles</p>
+                  <p className="text-xs text-zinc-500 font-mono mt-0.5">Parcours vérifié & réseau</p>
                 </div>
               </div>
-              <ArrowRight size={18} className="text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+              <ArrowRight size={16} className="text-zinc-400 group-hover:text-zinc-950 group-hover:translate-x-1 transition-all" />
             </a>
           </div>
         </div>
 
-        {/* COLONNE DROITE : FORMULAIRE SÉCURISÉ */}
+        {/* COLONNE DROITE : FORMULAIRE SÉCURISÉ CLAUDE STYLE */}
         <div className="lg:col-span-7">
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl relative">
+          <div className="p-8 md:p-10 bg-white border border-zinc-200 shadow-sm">
             {formStatus === "success" ? (
               <div className="text-center py-16">
-                <CheckCircle2 className="text-emerald-400 mx-auto mb-4" size={56} />
-                <h4 className="text-2xl font-bold text-white mb-2">Message Transmis avec Succès</h4>
-                <p className="text-slate-400 text-sm max-w-md mx-auto">
+                <CheckCircle2 className="text-emerald-600 mx-auto mb-4" size={48} />
+                <h4 className="text-2xl font-bold text-zinc-950 mb-2">Message Transmis avec Succès</h4>
+                <p className="text-zinc-600 text-sm max-w-md mx-auto">
                   Merci de m&apos;avoir contacté. Je prendrai connaissance de votre demande et vous répondrai sous 24 heures.
                 </p>
                 <button
                   type="button"
                   onClick={() => setFormStatus("idle")}
-                  className="mt-6 px-6 py-2.5 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition-colors"
+                  className="mt-6 px-6 py-2.5 bg-zinc-900 text-white text-xs font-mono uppercase tracking-wider hover:bg-zinc-800 transition-colors"
                 >
-                  Envoyer un autre message
+                  Envoyer un nouveau message
                 </button>
               </div>
             ) : (
               <>
-                <div className="mb-8">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                    Transmettez-moi les détails de votre besoin
+                <div className="mb-8 pb-4 border-b border-zinc-100">
+                  <h3 className="text-xl md:text-2xl font-bold text-zinc-950 mb-1">
+                    Envoyer un message direct
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-400">
-                    Remplissez ce formulaire confidentiel pour initier une consultation technique.
+                  <p className="text-xs text-zinc-500 font-mono">
+                    Formulaire chiffré et sécurisé pour consultations techniques.
                   </p>
                 </div>
 
@@ -214,41 +211,41 @@ export default function Contact() {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
-                        Nom complet & Titre *
+                      <label className="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+                        Nom complet *
                       </label>
                       <input
                         required
                         name="name"
                         type="text"
-                        placeholder="Ex: Dr. Diallo / CTO Acme"
-                        className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                        placeholder="Votre nom ou organisation"
+                        className="w-full bg-zinc-50 border border-zinc-300 p-3.5 text-sm text-zinc-950 placeholder-zinc-400 focus:outline-none focus:border-zinc-950 focus:bg-white transition-all"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
                         Adresse Email *
                       </label>
                       <input
                         required
                         name="email"
                         type="email"
-                        placeholder="nom@organisation.com"
-                        className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                        placeholder="votre@email.com"
+                        className="w-full bg-zinc-50 border border-zinc-300 p-3.5 text-sm text-zinc-950 placeholder-zinc-400 focus:outline-none focus:border-zinc-950 focus:bg-white transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
-                      Sujet de la mission
+                    <label className="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+                      Nature de la mission
                     </label>
                     <select
                       name="subject"
-                      className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                      className="w-full bg-zinc-50 border border-zinc-300 p-3.5 text-sm text-zinc-950 focus:outline-none focus:border-zinc-950 focus:bg-white transition-all font-sans"
                     >
-                      <option value="conseil-e-sante">Conseil / Transformation e-Santé & ERP</option>
+                      <option value="conseil-e-sante">Conseil / Transformation e-Santé & ERP Hospitalier</option>
                       <option value="architecture-ia">Architecture IA & Deep Tech (Vision, NLP)</option>
                       <option value="direction-tech">Direction Technique (Lead / Fractional CTO)</option>
                       <option value="audit-securite">Audit d&apos;Architecture & Sécurité (CISSP)</option>
@@ -257,29 +254,29 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase text-slate-400 mb-2">
-                      Description du projet & Objectifs *
+                    <label className="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+                      Description du besoin & Enjeux *
                     </label>
                     <textarea
                       required
                       name="message"
                       rows={5}
-                      placeholder="Décrivez votre vision, les défis techniques ou organisationnels à surmonter..."
-                      className="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
+                      placeholder="Détaillez les objectifs, défis techniques ou périmètre de votre projet..."
+                      className="w-full bg-zinc-50 border border-zinc-300 p-3.5 text-sm text-zinc-950 placeholder-zinc-400 focus:outline-none focus:border-zinc-950 focus:bg-white transition-all resize-none font-sans"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={formStatus === "submitting"}
-                    className="w-full py-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 to-sky-400 hover:brightness-110 shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all active:scale-[0.99] disabled:opacity-50"
+                    className="w-full py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-mono text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-50"
                   >
                     {formStatus === "submitting" ? (
                       <span>Transmission en cours...</span>
                     ) : (
                       <>
-                        <Send size={16} />
-                        <span>Transmettre directement à Ibrahim Karamoko</span>
+                        <Send size={15} />
+                        <span>Transmettre directement à Ibrahim</span>
                       </>
                     )}
                   </button>
