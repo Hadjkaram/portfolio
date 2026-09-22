@@ -82,7 +82,7 @@ const allProjects: ProjectData[] = [
   {
     id: "tila",
     index: "03",
-    title: "Tila (MindWell Connect)",
+    title: "Tila",
     category: "health-gov",
     categoryLabel: "Santé Mentale & Téléconsultation",
     validation: "Validé MSHP-CMU & MTN",
@@ -99,22 +99,23 @@ const allProjects: ProjectData[] = [
     }
   },
   {
-    id: "sipath-web",
+    id: "xh-skills-academy",
     index: "04",
-    title: "SiPath Web",
-    category: "platforms-iot",
-    categoryLabel: "Portail Institutionnel",
-    validation: "Site Officiel",
-    desc: "Plateforme institutionnelle de la Société Ivoirienne des Pathologistes. Hub de publications scientifiques, annuaire national des spécialistes et espace de formation continue.",
-    link: "https://www.sipath.ci/",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "CMS Headless", "Edge Cache"],
-    impactMetrics: "Référence nationale • Hub scientifique de la pathologie en Côte d'Ivoire",
+    title: "XH Skills Academy",
+    category: "health-gov",
+    categoryLabel: "e-Santé & EdTech Africaine",
+    validation: "Portée par Corine M. Ouattara",
+    desc: "Plateforme d'apprentissage en ligne spécialisée dans les formations en santé numérique pour l'Afrique. Formations certifiantes adaptées aux réalités du continent africain pour qualifier et professionnaliser les acteurs de santé.",
+    link: "https://xhskillsacademy.com/",
+    featured: true,
+    technologies: ["Next.js / React", "TypeScript", "Architecture LMS", "Node.js", "PostgreSQL", "Streaming Vidéo Bas Débit"],
+    impactMetrics: "Formateur en Santé Numérique & Tech Lead • Programmes adaptés aux réalités du continent",
     architectureDetails: {
-      context: "Nécessité de moderniser l'image et l'outillage numérique des médecins pathologistes ivoiriens.",
-      challenge: "Fournir un portail ergonomique, ultra-rapide et responsive garantissant l'accès aux ressources médicales et événements académiques.",
-      solution: "Site Jamstack optimisé SEO, avec catalogue de revues scientifiques, agenda des congrès et espace membre sécurisé.",
-      stackNotes: "Architecture Serverless Next.js, mise en cache CDN Edge, design épuré conforme aux chartes médicales internationales.",
-      impact: "Portail adopté par l'ensemble des praticiens membres de la société savante."
+      context: "Déficit d'acculturation et de compétences spécialisées en santé numérique (e-Santé) chez les soignants et cadres de santé africains.",
+      challenge: "Déployer une plateforme e-learning résiliente et fluide, optimisée pour les débits internet faibles et hétérogènes des pays d'Afrique subsaharienne.",
+      solution: "Architecture Next.js avec streaming vidéo optimisé bas débit, parcours d'apprentissage modulaire, évaluations interactives et émission automatisée de certificats.",
+      stackNotes: "Next.js, TypeScript, API Node.js, PostgreSQL, infrastructure Cloud scalable, streaming CDN.",
+      impact: "Portée notamment par Corine Maurice Ouattara, plateforme panafricaine où Ibrahim intervient comme Formateur en santé numérique et Tech Lead du projet."
     }
   },
   {
@@ -137,140 +138,8 @@ const allProjects: ProjectData[] = [
     }
   },
   {
-    id: "h2a",
-    index: "06",
-    title: "Cliniques Médicales H2A",
-    category: "health-gov",
-    categoryLabel: "Santé Internationale & ERP",
-    validation: "France - Côte d'Ivoire",
-    desc: "Transformation digitale globale et interconnexion hospitalière transnationale. ERP de gestion clinique, facturation, laboratoire et suivi des évacuations sanitaires.",
-    link: "https://cliniquesmedicalesh2a.com/",
-    featured: true,
-    technologies: ["Next.js", "Spring Boot", "PostgreSQL", "Docker", "AWS Multi-Région"],
-    impactMetrics: "Gestion de bout-en-bout • Interconnexion France-Abidjan sans interruption",
-    architectureDetails: {
-      context: "Groupe de cliniques privées haut de gamme gérant des parcours de soins complexes entre l'Europe et l'Afrique de l'Ouest.",
-      challenge: "Assurer la continuité du dossier médical informatisé et la traçabilité des actes entre praticiens français et ivoiriens dans un cadre légal bilatéral.",
-      solution: "ERP hospitalier modulaire : admissions, bloc opératoire, pharmacie, facturation intégrée et télé-expertise transfrontalière.",
-      stackNotes: "Microservices Java Spring Boot pour la robustesse transactionnelle, frontend réactif Next.js, cluster Docker sous AWS.",
-      impact: "Diminution drastique des temps d'attente administratifs et fiabilisation comptable et clinique à 100%."
-    }
-  },
-  {
-    id: "avlytech",
-    index: "07",
-    title: "AVLYTECH",
-    category: "platforms-iot",
-    categoryLabel: "Startup GovTech / Co-Fondateur",
-    validation: "France & International",
-    desc: "Co-fondateur et CTO de cette startup basée en France. Ingénierie logicielle pour institutions étatiques, architectures critiques et applications de souveraineté numérique.",
-    link: "https://avlytech.fr",
-    technologies: ["Microservices", "Kubernetes", "Next.js", "Python", "Cloud Hybride"],
-    impactMetrics: "Startup co-fondée • Solutions institutionnelles et grands comptes",
-    architectureDetails: {
-      context: "Accompagnement des administrations publiques et organisations régionales dans leur autonomie logicielle.",
-      challenge: "Délivrer des architectures logicielles répondant à de fortes exigences de conformité réglementaire (RGPD, souveraineté des données).",
-      solution: "Cadre applicatif standardisé haute sécurité pour le déploiement rapide de portails de services publics et de systèmes transactionnels.",
-      stackNotes: "Conteneurisation avancée Kubernetes, audits de code automatisés, intégration continue GitOps.",
-      impact: "Contrats institutionnels et positionnement d'avant-garde sur le segment GovTech."
-    }
-  },
-  {
-    id: "adomed",
-    index: "08",
-    title: "Adomed.care & IA",
-    category: "ai-deeptech",
-    categoryLabel: "Télémédecine & Diagnostic IA",
-    validation: "Première IA Médicale CIV",
-    desc: "Écosystème de santé complet (App Mobile + Portail Web) doté de la première IA médicale d'orientation diagnostique en Côte d'Ivoire. Consultations à domicile et télé-suivi.",
-    link: "https://adomed.care/",
-    featured: true,
-    technologies: ["Flutter", "Python / FastAPI", "Machine Learning", "Node.js", "MongoDB"],
-    impactMetrics: "Diagnostic assisté • Prise en charge à domicile facilitée",
-    architectureDetails: {
-      context: "Désengorgement des urgences et amélioration de l'accès aux soins de premier recours à Abidjan.",
-      challenge: "Concevoir un moteur d'inférence médical capable d'orienter le patient selon ses symptômes sans poser de faux diagnostics anxiogènes.",
-      solution: "Arbre de décision probabiliste combiné à un modèle NLP pour l'analyse des symptômes en langage naturel, couplé à la géolocalisation des soignants pour visites à domicile.",
-      stackNotes: "Application mobile cross-platform Flutter, API Python pour le moteur IA, backend temps réel avec notifications push géolocalisées.",
-      impact: "Mise en service opérationnelle et adoption par des milliers de patients et professionnels de santé."
-    }
-  },
-  {
-    id: "yamoh",
-    index: "09",
-    title: "Yamoh",
-    category: "platforms-iot",
-    categoryLabel: "Mobilité & Flutter",
-    desc: "Plateforme et application mobile de covoiturage urbain et interurbain en Côte d'Ivoire avec un mécanisme innovant de négociation et tarification dynamique par trajet.",
-    link: "http://www.yamoh.net",
-    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps Platform"],
-    impactMetrics: "Tarification dynamique • Optimisation du trafic urbain",
-    architectureDetails: {
-      context: "Embouteillages massifs et coût élevé du transport individuel dans les grandes agglomérations ivoiriennes.",
-      challenge: "Calculer des itinéraires partagés en temps réel avec intégration des moyens de paiement locaux (Orange, MTN, Wave).",
-      solution: "Algorithme d'appariement conducteur-passagers en fonction du trajet prévu, avec messagerie instantanée intégrée et portefeuille électronique sécurisé.",
-      stackNotes: "Développement mobile Flutter réactif, gestion d'état Bloc/Provider, géolocalisation haute fréquence optimisée en batterie.",
-      impact: "Alternative économique et conviviale aux taxis traditionnels pour les trajets quotidiens."
-    }
-  },
-  {
-    id: "assofit",
-    index: "10",
-    title: "Assofit",
-    category: "platforms-iot",
-    categoryLabel: "Réseau Social & Matching IA",
-    desc: "Application sportive communautaire intégrant un ERP de gestion pour associations et clubs sportifs, couplé à un algorithme de recommandation et matching par centres d'intérêt.",
-    link: "https://assofit.com/",
-    technologies: ["React Native", "Next.js", "PostgreSQL", "Algorithme Matching", "Docker"],
-    impactMetrics: "Communautés sportives européennes • Matching de partenaires",
-    architectureDetails: {
-      context: "Marché européen du fitness et des sports collectifs en recherche d'animation communautaire.",
-      challenge: "Associer gestion administrative (adhésions, plannings) et expérience sociale stimulante pour les licenciés.",
-      solution: "Système de matching dynamique basé sur le niveau, la localisation et les créneaux horaires, adossé à un back-office complet de facturation.",
-      stackNotes: "Base relationnelle PostgreSQL optimisée pour les requêtes géospatiales (PostGIS), interface moderne et interactive.",
-      impact: "Plateforme déployée et adoptée par plusieurs clubs sportifs en France."
-    }
-  },
-  {
-    id: "efa",
-    index: "11",
-    title: "EFA (Education For Africa)",
-    category: "ai-deeptech",
-    categoryLabel: "EdTech & Generative AI",
-    desc: "Plateforme éducative propulsée par l'IA générative. Tuteur virtuel adaptatif qui guide les élèves dans la résolution de leurs exercices scolaires avec pédagogie bienveillante.",
-    link: "https://educationforafrica.com/",
-    technologies: ["Next.js", "Claude API / OpenAI", "FastAPI", "Python", "Vector DB"],
-    impactMetrics: "Tuteur IA 24/7 • Démocratisation du soutien scolaire",
-    architectureDetails: {
-      context: "Inégalités d'accès au soutien scolaire personnalisé pour les collégiens et lycéens sur le continent africain.",
-      challenge: "Offrir une IA pédagogique qui n'écrit pas la réponse à la place de l'élève, mais le questionne selon la méthode socratique.",
-      solution: "Architecture RAG (Retrieval-Augmented Generation) indexant les programmes éducatifs nationaux, formulant des explications pas-à-pas personnalisées au rythme de chaque apprenant.",
-      stackNotes: "Pipelines LangChain, base vectorielle pour le corpus scolaire, interface enfant/adolescent intuitive et ludique.",
-      impact: "Accélération de la compréhension et autonomie accrue pour des centaines d'élèves."
-    }
-  },
-  {
-    id: "monetique-plus",
-    index: "12",
-    title: "MonetiquePlus",
-    category: "fintech-sec",
-    categoryLabel: "FinTech & Sécurité Critique",
-    validation: "Transactions Critiques",
-    desc: "Plateforme transactionnelle bancaire et de monétique électronique conçue pour traiter des volumes massifs de paiements sécurisés avec tolérance aux pannes.",
-    link: "https://www.monetiqueplus.fr/",
-    technologies: ["Java", "Spring Boot", "Angular", "Kafka", "PostgreSQL", "HSM"],
-    impactMetrics: "Tolérance aux pannes • Zéro perte de transaction • Traitement temps réel",
-    architectureDetails: {
-      context: "Infrastructures financières nécessitant une haute disponibilité (99.99%) et le respect des normes strictes de conformité bancaire.",
-      challenge: "Éviter les doubles débits, garantir l'idempotence des transactions et assurer la réconciliation en continu.",
-      solution: "Architecture orientée événements avec bus de messages distribué (Kafka), transactions distribuées ACID et journalisation d'audit infalsifiable.",
-      stackNotes: "Microservices Spring Cloud, chiffrement matériel HSM, audits de conformité PCI-DSS.",
-      impact: "Traitement fiable de flux financiers critiques pour les partenaires du secteur monétique."
-    }
-  },
-  {
     id: "ci-identite",
-    index: "13",
+    index: "06",
     title: "CI Identité",
     category: "fintech-sec",
     categoryLabel: "CyberSécurité & IAM d'État",
@@ -289,26 +158,8 @@ const allProjects: ProjectData[] = [
     }
   },
   {
-    id: "smart-farm",
-    index: "14",
-    title: "Smart Farm",
-    category: "platforms-iot",
-    categoryLabel: "AgriTech & Capteurs IoT",
-    desc: "Plateforme connectée d'optimisation agronomique. Télémétrie en temps réel sur l'humidité des sols, les conditions météo et pilotage automatisé de l'irrigation via intelligence artificielle.",
-    link: "https://www.agri-tech.tn/smart-farm/",
-    technologies: ["IoT / MQTT", "Python", "React", "InfluxDB", "FastAPI", "Grafana"],
-    impactMetrics: "Économie d'eau de 35% • Prévention des maladies culturales",
-    architectureDetails: {
-      context: "Enjeux climatiques et raréfaction des ressources en eau pour les exploitations agricoles africaines.",
-      challenge: "Collecter des données télémétriques de capteurs basse consommation disséminés sur de vastes parcelles avec connectivité intermittente.",
-      solution: "Passerelles IoT transmettant via protocole MQTT vers un moteur d'analyse prédictif anticipant les besoins hydriques selon les prévisions météorologiques locales.",
-      stackNotes: "Courtier MQTT résilient, base temporelle InfluxDB, visualisations interactives pour les agriculteurs.",
-      impact: "Augmentation des rendements tout en réduisant l'empreinte hydrique de plus d'un tiers."
-    }
-  },
-  {
     id: "ci-connect",
-    index: "15",
+    index: "07",
     title: "CI Connect (IA)",
     category: "ai-deeptech",
     categoryLabel: "NLP & Accessibilité Juridique",
@@ -324,15 +175,89 @@ const allProjects: ProjectData[] = [
       stackNotes: "Microservice FastAPI ultra-léger, embeddings juridiques, synthèse vocale pour restitution audio aux non-lecteurs.",
       impact: "Projet pionnier d'accessibilité civique salué pour son impact sociétal."
     }
+  },
+  {
+    id: "avlytech",
+    index: "08",
+    title: "AVLYTECH",
+    category: "platforms-iot",
+    categoryLabel: "Startup GovTech / Co-Fondateur",
+    validation: "France & International",
+    desc: "Co-fondateur et CTO de cette startup basée en France. Ingénierie logicielle pour institutions étatiques, architectures critiques et applications de souveraineté numérique.",
+    link: "https://avlytech.fr",
+    technologies: ["Microservices", "Kubernetes", "Next.js", "Python", "Cloud Hybride"],
+    impactMetrics: "Startup co-fondée • Solutions institutionnelles et grands comptes",
+    architectureDetails: {
+      context: "Accompagnement des administrations publiques et organisations régionales dans leur autonomie logicielle.",
+      challenge: "Délivrer des architectures logicielles répondant à de fortes exigences de conformité réglementaire (RGPD, souveraineté des données).",
+      solution: "Cadre applicatif standardisé haute sécurité pour le déploiement rapide de portails de services publics et de systèmes transactionnels.",
+      stackNotes: "Conteneurisation avancée Kubernetes, audits de code automatisés, intégration continue GitOps.",
+      impact: "Contrats institutionnels et positionnement d'avant-garde sur le segment GovTech."
+    }
+  },
+  {
+    id: "sipath-web",
+    index: "09",
+    title: "SiPath Web",
+    category: "platforms-iot",
+    categoryLabel: "Portail Institutionnel",
+    validation: "Site Officiel",
+    desc: "Plateforme institutionnelle de la Société Ivoirienne des Pathologistes. Hub de publications scientifiques, annuaire national des spécialistes et espace de formation continue.",
+    link: "https://www.sipath.ci/",
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "CMS Headless", "Edge Cache"],
+    impactMetrics: "Référence nationale • Hub scientifique de la pathologie en Côte d'Ivoire",
+    architectureDetails: {
+      context: "Nécessité de moderniser l'image et l'outillage numérique des médecins pathologistes ivoiriens.",
+      challenge: "Fournir un portail ergonomique, ultra-rapide et responsive garantissant l'accès aux ressources médicales et événements académiques.",
+      solution: "Site Jamstack optimisé SEO, avec catalogue de revues scientifiques, agenda des congrès et espace membre sécurisé.",
+      stackNotes: "Architecture Serverless Next.js, mise en cache CDN Edge, design épuré conforme aux chartes médicales internationales.",
+      impact: "Portail adopté par l'ensemble des praticiens membres de la société savante."
+    }
+  },
+  {
+    id: "yamoh",
+    index: "10",
+    title: "Yamoh",
+    category: "platforms-iot",
+    categoryLabel: "Mobilité & Flutter",
+    desc: "Plateforme et application mobile de covoiturage urbain et interurbain en Côte d'Ivoire avec un mécanisme innovant de négociation et tarification dynamique par trajet.",
+    link: "http://www.yamoh.net",
+    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps Platform"],
+    impactMetrics: "Tarification dynamique • Optimisation du trafic urbain",
+    architectureDetails: {
+      context: "Embouteillages massifs et coût élevé du transport individuel dans les grandes agglomérations ivoiriennes.",
+      challenge: "Calculer des itinéraires partagés en temps réel avec intégration des moyens de paiement locaux (Orange, MTN, Wave).",
+      solution: "Algorithme d'appariement conducteur-passagers en fonction du trajet prévu, avec messagerie instantanée intégrée et portefeuille électronique sécurisé.",
+      stackNotes: "Développement mobile Flutter réactif, gestion d'état Bloc/Provider, géolocalisation haute fréquence optimisée en batterie.",
+      impact: "Alternative économique et conviviale aux taxis traditionnels pour les trajets quotidiens."
+    }
+  },
+  {
+    id: "assofit",
+    index: "11",
+    title: "Assofit",
+    category: "platforms-iot",
+    categoryLabel: "Réseau Social & Matching IA",
+    desc: "Application sportive communautaire intégrant un ERP de gestion pour associations et clubs sportifs, couplé à un algorithme de recommandation et matching par centres d'intérêt.",
+    link: "https://assofit.com/",
+    technologies: ["React Native", "Next.js", "PostgreSQL", "Algorithme Matching", "Docker"],
+    impactMetrics: "Communautés sportives européennes • Matching de partenaires",
+    architectureDetails: {
+      context: "Marché européen du fitness et des sports collectifs en recherche d'animation communautaire.",
+      challenge: "Associer gestion administrative (adhésions, plannings) et expérience sociale stimulante pour les licenciés.",
+      solution: "Système de matching dynamique basé sur le niveau, la localisation et les créneaux horaires, adossé à un back-office complet de facturation.",
+      stackNotes: "Base relationnelle PostgreSQL optimisée pour les requêtes géospatiales (PostGIS), interface moderne et interactive.",
+      impact: "Plateforme déployée et adoptée par plusieurs clubs sportifs en France."
+    }
   }
 ];
 
 const categoryTabs = [
-  { id: "all" as ProjectCategory, label: "Tous les Projets", count: 15 },
+  { id: "all" as ProjectCategory, label: "Tous les Projets", count: 11 },
   { id: "health-gov" as ProjectCategory, label: "e-Santé & GovTech", count: 4 },
-  { id: "ai-deeptech" as ProjectCategory, label: "IA & Deep Tech", count: 4 },
-  { id: "fintech-sec" as ProjectCategory, label: "FinTech & Sécurité", count: 2 },
-  { id: "platforms-iot" as ProjectCategory, label: "Web, Mobile & IoT", count: 5 },
+  { id: "ai-deeptech" as ProjectCategory, label: "IA & Deep Tech", count: 2 },
+  { id: "fintech-sec" as ProjectCategory, label: "FinTech & Sécurité", count: 1 },
+  { id: "platforms-iot" as ProjectCategory, label: "Web, Mobile & IoT", count: 4 },
 ];
 
 export default function ProjectsAvantGarde() {
@@ -359,7 +284,7 @@ export default function ProjectsAvantGarde() {
 
         <div className="lg:max-w-md flex flex-col gap-2 text-left">
           <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
-            Une sélection de <strong className="text-zinc-950 font-semibold">15 réalisations majeures</strong> validées par les institutions sanitaires (UNICEF, MSHP-CMU, SiPath) et des partenaires télécoms et bancaires.
+            Une sélection de <strong className="text-zinc-950 font-semibold">11 réalisations majeures</strong> validées par les institutions sanitaires (UNICEF, MSHP-CMU, SiPath) et des partenaires télécoms et bancaires.
           </p>
           <span className="text-xs font-mono text-zinc-400">
             Cliquez sur &quot;Consulter l&apos;architecture&quot; pour inspecter les spécifications.

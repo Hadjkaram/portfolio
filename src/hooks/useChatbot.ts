@@ -10,7 +10,7 @@ export type Message = {
 const knowledgeBase = [
   {
     keywords: ["qui est", "présente", "profil", "parle moi", "résumé", "bio", "qui es-tu"],
-    response: "Ibrahim Karamoko est Tech Lead IA & Cybersécurité, CTO Opérationnel et Full-Stack Senior avec plus de 10 ans d'expérience.\n\n• Management d'Équipe : Encadrement direct de 5 personnes (3 développeurs juniors, 2 stagiaires ingénieurs) avec une baisse démontrée de 40% des régressions grâce aux revues de code systématiques (MRs).\n• IA & Computer Vision : YOLOv8/v11, PyTorch, OpenCV, MLOps, RAG et Web Scraping (Playwright/Scrapy).\n• Outils d'Ingénierie IA : Maîtrise avancée d'Antigravity avec Gemini, Claude Code (Anthropic) et Codex avec ChatGPT (OpenAI).\n• Projets Stratégiques : Kanyeh Assist (télépathologie CHU Bouaké/Treichville), Nuria (UNICEF/MSHP) et Tila (MindWell Connect).\n• Diplômes & Certifications : Master Executive HEC Maroc (2025), Stanford (DeepLearning.AI), certifié CISSP® et CompTIA Security+."
+    response: "Ibrahim Karamoko est Tech Lead IA & Cybersécurité, CTO Opérationnel et Full-Stack Senior avec plus de 10 ans d'expérience.\n\n• Management d'Équipe : Encadrement direct de 5 personnes (3 développeurs juniors, 2 stagiaires ingénieurs) avec une baisse démontrée de 40% des régressions grâce aux revues de code systématiques (MRs).\n• IA & Computer Vision : YOLOv8/v11, PyTorch, OpenCV, MLOps, RAG et Web Scraping (Playwright/Scrapy).\n• Outils d'Ingénierie IA : Maîtrise avancée d'Antigravity avec Gemini, Claude Code (Anthropic) et Codex avec ChatGPT (OpenAI).\n• Projets Stratégiques : Kanyeh Assist (télépathologie CHU Bouaké/Treichville), Nuria (UNICEF/MSHP), XH Skills Academy et Tila.\n• Diplômes & Certifications : Master Executive HEC Maroc (2025), Stanford (DeepLearning.AI), certifié CISSP® et CompTIA Security+."
   },
   {
     keywords: ["management", "équipe", "lead", "manage", "personnes", "combien", "encadrement"],
@@ -33,8 +33,8 @@ const knowledgeBase = [
     response: "Certifications internationales vérifiables :\n\n• CISSP® (Cybersécurité) : Sécurité des Systèmes d'Information\n• CompTIA Security+ : Défense, Réseaux & Cryptographie\n• Digital Health Specialization : Imperial College London\n• Google Data Analytics & Security : Ingénierie & Sécurité Cloud."
   },
   {
-    keywords: ["projet", "réalisations", "portfolio", "nuria", "kanyeh", "tila"],
-    response: "3 Réalisations stratégiques phares du CV :\n\n• Kanyeh Assist : Télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville et le PNLC. Modèles YOLOv8/v11 pour atypies cellulaires, visionneuse WSI (tuilage TIFF) et PostgreSQL RLS.\n• Nuria : 1ère plateforme africaine de neurodéveloppement pédiatrique validée par l'UNICEF et le MSHP (Node.js, Next.js, PostgreSQL, Docker, AWS).\n• Tila (MindWell Connect) : Application mobile de soutien psychologique en Afrique de l'Ouest (ci.tila.app, React Native, WebSockets, chiffrement AES-256)."
+    keywords: ["projet", "réalisations", "portfolio", "nuria", "kanyeh", "tila", "xh", "academy"],
+    response: "Réalisations stratégiques phares du portfolio (11 architectures déployées en production) :\n\n• Kanyeh Assist : Télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville et le PNLC. Modèles YOLOv8/v11 pour atypies cellulaires, visionneuse WSI (tuilage TIFF) et PostgreSQL RLS.\n• Nuria : 1ère plateforme africaine de neurodéveloppement pédiatrique validée par l'UNICEF et le MSHP (Node.js, Next.js, PostgreSQL, Docker, AWS).\n• XH Skills Academy : Plateforme d'apprentissage en ligne en santé numérique pour l'Afrique (xhskillsacademy.com), portée notamment par Corine Maurice Ouattara. Ibrahim y est Formateur en santé numérique & Tech Lead.\n• Tila : Application mobile de soutien psychologique en Afrique de l'Ouest (ci.tila.app, React Native, WebSockets, chiffrement AES-256)."
   },
   {
     keywords: ["contact", "mail", "téléphone", "joindre", "whatsapp", "email", "coordonnées", "disponible", "disponibilité"],
@@ -42,7 +42,7 @@ const knowledgeBase = [
   },
   {
     keywords: ["bonjour", "salut", "coucou", "hello", "hi"],
-    response: "Bonjour ! Je suis l'assistant IA d'Ibrahim Karamoko. Je peux vous renseigner sur son leadership d'équipe (5 personnes managées), son expertise IA (YOLOv8/v11, RAG, Web Scraping, Antigravity, Claude Code), ses projets (Kanyeh Assist, Nuria, Tila) ou ses certifications (CISSP, HEC). De quoi souhaitez-vous parler ?"
+    response: "Bonjour ! Je suis l'assistant IA d'Ibrahim Karamoko. Je peux vous renseigner sur son leadership d'équipe (5 personnes managées), son expertise IA (YOLOv8/v11, RAG, Web Scraping, Antigravity, Claude Code), ses projets (Kanyeh Assist, Nuria, XH Skills Academy, Tila) ou ses certifications (CISSP, HEC). De quoi souhaitez-vous parler ?"
   }
 ];
 

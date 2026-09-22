@@ -42,7 +42,10 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/Logo_IK.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/Logo_IK.png", type: "image/png" },
+    ],
     apple: "/Logo_IK.png",
   },
 };

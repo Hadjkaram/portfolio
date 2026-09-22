@@ -158,7 +158,7 @@ export default function CVPage() {
                 <div className="p-4 bg-zinc-50 border border-zinc-200">
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1.5">
                     <strong className="text-zinc-950 text-sm">
-                      TILA (MindWell Connect) &mdash; Architecte Mobile & Lead Dev
+                      TILA &mdash; Architecte Mobile & Lead Dev
                     </strong>
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-purple-100 text-purple-800 border border-purple-300">
                       SANTÉ MENTALE & TÉLÉCONSULTATION
@@ -169,6 +169,24 @@ export default function CVPage() {
                   </p>
                   <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
                     Stack : React Native / Expo, TypeScript, Node.js, WebSockets, PostgreSQL, Chiffrement AES-256.
+                  </p>
+                </div>
+
+                {/* XH SKILLS ACADEMY */}
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <div className="flex flex-wrap items-center justify-between gap-1 mb-1.5">
+                    <strong className="text-zinc-950 text-sm">
+                      XH SKILLS ACADEMY &mdash; Formateur en Santé Numérique & Tech Lead
+                    </strong>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-amber-100 text-amber-800 border border-amber-300">
+                      EDTECH SANTÉ AFRIQUE • PORTÉE PAR CORINE M. OUATTARA
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-700 leading-relaxed">
+                    Plateforme d&apos;apprentissage en ligne spécialisée dans les formations en santé numérique pour l&apos;Afrique (xhskillsacademy.com). Programmes éducatifs principalement gratuits et adaptés aux réalités du continent africain pour qualifier soignants et cadres de santé.
+                  </p>
+                  <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
+                    Stack : Next.js / React, TypeScript, Node.js, PostgreSQL, Architecture LMS & Streaming bas débit.
                   </p>
                 </div>
               </div>
