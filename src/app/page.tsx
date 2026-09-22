@@ -8,14 +8,14 @@ import Chatbot from "@/components/Chatbot";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Users } from "lucide-react";
 
 export default function Home() {
   const kpis = [
-    { value: "10+", label: "Années d'Expérience", detail: "Systèmes critiques & Cloud" },
-    { value: "15", label: "Architectures Déployées", detail: "Santé, GovTech, FinTech" },
+    { value: "5 Pers.", label: "Encadrement Tech Direct", detail: "3 dévs + 2 stagiaires (-40% bugs)" },
+    { value: "10+ Ans", label: "Direction & Ingénierie", detail: "Systèmes critiques & Cloud" },
     { value: "UNICEF", label: "Validation Officielle", detail: "Plateforme nationale Nuria" },
-    { value: "80%", label: "Précision IA Médicale", detail: "Télépathologie SiPath" },
+    { value: "CISSP", label: "Cybersécurité Critique", detail: "Master Exec. IA HEC Maroc" },
   ];
 
   return (
@@ -35,44 +35,51 @@ export default function Home() {
             className="w-full md:w-3/5 z-10 flex flex-col items-center md:items-start text-center md:text-left mt-6 md:mt-0"
           >
             {/* LIGNE DE STATUT */}
-            <div className="inline-flex items-center gap-2 mb-6 text-xs font-mono uppercase tracking-wider text-zinc-600 bg-white border border-zinc-200 px-3 py-1 shadow-sm">
+            <div className="inline-flex items-center gap-2 mb-6 text-xs font-mono uppercase tracking-wider text-zinc-700 bg-white border border-zinc-200 px-3 py-1 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Consultant e-Santé & Architecte IA — Disponible</span>
+              <span>Tech Lead IA & Cybersécurité | CTO Opérationnel</span>
             </div>
 
-            <h1 className="text-[13vw] md:text-[6.8vw] font-black leading-[0.88] tracking-tighter text-zinc-950 mb-8 uppercase">
-              FULLSTACK <br />
+            <h1 className="text-[12vw] md:text-[6.5vw] font-black leading-[0.88] tracking-tighter text-zinc-950 mb-8 uppercase">
+              TECH LEAD IA <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700">
-                & AI ENGINEER.
+                & CYBERSÉCURITÉ.
               </span>
             </h1>
 
             <div className="flex flex-col gap-6 items-center md:items-start max-w-xl">
               <p className="text-lg md:text-xl text-zinc-700 font-medium md:border-l-4 md:border-sky-500 md:pl-6 leading-relaxed text-balance">
-                Je suis <strong className="text-zinc-950 font-bold">El Hadj Ibrahim V. Karamoko</strong> — J&apos;architecte des solutions intelligentes et des infrastructures critiques pour les institutions étatiques, les organisations internationales (UNICEF) et les startups visionnaires.
+                Je suis <strong className="text-zinc-950 font-bold">Ibrahim Karamoko</strong> — CTO opérationnel (10+ ans d&apos;expérience), spécialisé dans l&apos;architecture distribuée, l&apos;IA appliquée (YOLOv8/v11, RAG, Web Scraping) et la cybersécurité des systèmes critiques.
               </p>
 
+              <div className="p-3 bg-white border border-zinc-200 text-xs font-mono text-zinc-700 flex items-center gap-3">
+                <Users size={16} className="text-sky-600 shrink-0" />
+                <span>
+                  <strong>Management Tech :</strong> Encadrement direct de 5 personnes (3 dévs + 2 stagiaires ingénieurs) &mdash; réduction de <strong>40% des régressions</strong>.
+                </span>
+              </div>
+
               {/* BADGES TECHNOLOGIQUES SIGNATURE */}
-              <div className="flex items-center gap-4 mt-2">
+              <div className="flex items-center gap-4 mt-1">
                 <div className="flex -space-x-3">
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-zinc-900 flex items-center justify-center text-white font-mono font-bold text-[10px] shadow-sm">
                     AWS
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-sky-500 flex items-center justify-center text-white font-mono font-bold text-[10px] shadow-sm">
-                    IA
+                    RAG
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-blue-600 flex items-center justify-center text-white font-mono font-bold text-[10px] shadow-sm">
-                    DEV
+                    YOLO
                   </div>
-                  <div className="w-12 h-12 rounded-full border-2 border-white bg-zinc-800 flex items-center justify-center text-white font-mono font-bold text-[10px] shadow-sm">
-                    SEC
+                  <div className="w-12 h-12 rounded-full border-2 border-white bg-purple-600 flex items-center justify-center text-white font-mono font-bold text-[10px] shadow-sm">
+                    AGENT
                   </div>
                 </div>
 
                 <div className="text-left text-xs font-mono text-zinc-500 leading-tight">
-                  <span className="font-bold text-zinc-900">10+ Années</span>
+                  <span className="font-bold text-zinc-900">Lead Hands-on</span>
                   <br />
-                  d&apos;ingénierie & d&apos;impact
+                  Antigravity, Claude Code & Codex
                 </div>
               </div>
 
@@ -82,15 +89,15 @@ export default function Home() {
                   href="#projects"
                   className="px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-2 hover:shadow-lg"
                 >
-                  <span>Explorer les 15 Réalisations</span>
+                  <span>Explorer les Réalisations Déployées</span>
                   <ArrowDownRight size={14} />
                 </a>
 
                 <Link
                   href="/cv"
-                  className="px-6 py-3.5 bg-white border border-zinc-300 hover:border-zinc-900 text-zinc-900 text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
+                  className="px-6 py-3.5 bg-white border border-zinc-300 hover:border-zinc-950 text-zinc-900 text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
                 >
-                  <span>Curriculum Vitae</span>
+                  <span>Consulter le CV Officiel</span>
                   <ArrowUpRight size={14} />
                 </Link>
               </div>
@@ -147,19 +154,19 @@ export default function Home() {
       <footer className="border-t border-zinc-200 bg-white py-12 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <span className="font-mono font-bold text-xs uppercase tracking-widest text-zinc-900">
-              [IK] EL HADJ IBRAHIM V. KARAMOKO
+            <span className="font-mono font-bold text-xs uppercase tracking-widest text-zinc-950">
+              [IK] IBRAHIM KARAMOKO
             </span>
             <span className="text-xs text-zinc-400 font-mono hidden sm:inline">•</span>
             <span className="text-xs text-zinc-500 font-mono hidden sm:inline">
-              Abidjan, Côte d&apos;Ivoire & International
+              Tech Lead IA & Cybersécurité | CTO Opérationnel
             </span>
           </div>
 
           <div className="flex items-center gap-6 text-xs font-mono uppercase tracking-wider text-zinc-600">
-            <a href="#about" className="hover:text-zinc-950 transition-colors">01. Profil</a>
+            <a href="#about" className="hover:text-zinc-950 transition-colors">01. Profil & Lead</a>
             <a href="#projects" className="hover:text-zinc-950 transition-colors">02. Projets</a>
-            <Link href="/cv" className="hover:text-zinc-950 transition-colors">Curriculum</Link>
+            <Link href="/cv" className="hover:text-zinc-950 transition-colors">CV Officiel</Link>
             <a href="#contact" className="hover:text-zinc-950 transition-colors">Contact</a>
           </div>
         </div>

@@ -13,6 +13,8 @@ import {
   ArrowLeft,
   Printer,
   GraduationCap,
+  Users,
+  Calendar,
 } from "lucide-react";
 
 export default function CVPage() {
@@ -23,7 +25,7 @@ export default function CVPage() {
   return (
     <main className="min-h-screen bg-[#f7f7f5] text-zinc-900 p-4 md:p-8 font-sans print:bg-white print:p-0">
       {/* BARRE D'ACTIONS DU HAUT (CACHÉE À L'IMPRESSION) */}
-      <div className="max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 print:hidden">
+      <div className="max-w-5xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 print:hidden">
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-300 text-xs font-mono uppercase tracking-wider text-zinc-800 hover:border-zinc-950 transition-colors shadow-sm"
@@ -48,240 +50,437 @@ export default function CVPage() {
       </div>
 
       {/* CV CONTAINER - FEUILLE A4 ÉDITORIALE ÉLÉGANTE */}
-      <div className="max-w-4xl mx-auto bg-white border border-zinc-300 p-8 md:p-12 shadow-md print:border-none print:shadow-none print:p-4">
+      <div className="max-w-5xl mx-auto bg-white border border-zinc-300 p-8 md:p-12 shadow-md print:border-none print:shadow-none print:p-4">
         {/* HEADER CV */}
-        <header className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left border-b-2 border-zinc-900 pb-6 mb-6 gap-4">
-          <div>
-            <div className="inline-block px-2 py-0.5 bg-zinc-100 border border-zinc-300 text-[10px] font-mono uppercase tracking-widest text-zinc-700 mb-2">
-              Dossier Professionnel Exécutif
+        <header className="border-b-2 border-zinc-900 pb-6 mb-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-zinc-100 border border-zinc-300 text-[10px] font-mono uppercase tracking-widest text-zinc-700 mb-2">
+                Dossier Candidature & Profil Exécutif
+              </div>
+              <h1 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-950 uppercase">
+                Ibrahim Karamoko
+              </h1>
+              <h2 className="text-sm md:text-base font-bold text-sky-700 mt-1 uppercase font-mono tracking-wider">
+                Tech Lead IA & Cybersécurité | CTO Opérationnel | Full-Stack Senior
+              </h2>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-zinc-950 uppercase">
-              El Hadj Ibrahim V. Karamoko
-            </h1>
-            <h2 className="text-base font-bold text-sky-700 mt-1 uppercase font-mono tracking-wider">
-              Consultant e-Santé | Architecte IA & Tech Lead Fullstack
-            </h2>
 
-            {/* COORDONNÉES */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-3 text-xs text-zinc-600 font-mono">
-              <span className="flex items-center gap-1.5">
-                <Mail size={13} className="text-zinc-900" />
-                Ibrahim92karamoko@gmail.com
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Phone size={13} className="text-zinc-900" />
-                +225 07 16 31 37 08 / +225 01 01 59 41 53
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin size={13} className="text-zinc-900" />
-                Abidjan, Côte d&apos;Ivoire & International
-              </span>
-              <a
-                href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-zinc-900 hover:underline font-bold"
-              >
-                <Linkedin size={13} />
-                linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b
-              </a>
+            <div className="text-left md:text-right shrink-0">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-mono font-bold">
+                <Calendar size={13} />
+                <span>Dispo : 3 Novembre 2026 (Temps plein)</span>
+              </div>
             </div>
           </div>
 
-          <div className="text-right shrink-0">
-            <div className="p-3 bg-zinc-50 border border-zinc-300 text-center">
-              <span className="block text-2xl font-black text-zinc-950 font-mono">10+ ANS</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-600">
-                Expérience
-              </span>
-            </div>
+          {/* COORDONNÉES */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-xs text-zinc-600 font-mono pt-3 border-t border-zinc-100">
+            <span className="flex items-center gap-1.5">
+              <MapPin size={13} className="text-zinc-900" />
+              Abidjan, Côte d&apos;Ivoire
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Mail size={13} className="text-zinc-900" />
+              ibrahim92karamoko@gmail.com
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Phone size={13} className="text-zinc-900" />
+              +225 07 16 31 37 08 / 01 01 59 41 53
+            </span>
+            <a
+              href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-zinc-900 hover:underline font-bold"
+            >
+              <Linkedin size={13} />
+              linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b
+            </a>
           </div>
         </header>
 
-        {/* PROFIL RÉSUMÉ */}
-        <div className="mb-8 p-4 bg-zinc-50 border-l-4 border-zinc-900">
+        {/* PROFIL RÉSUMÉ & LEADERSHIP */}
+        <div className="mb-8 p-5 bg-zinc-50 border-l-4 border-zinc-900">
           <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed font-medium">
-            Architecte de systèmes critiques et spécialiste en Intelligence Artificielle (Computer Vision, NLP). Actuellement impliqué auprès du <strong>Ministère de la Santé (MSHP-CMU)</strong>, j&apos;accompagne la transformation numérique nationale en conjuguant direction technique (Agile/Scrum), respect des standards de sécurité mondiaux (<strong>CISSP</strong>) et déploiement d&apos;architectures à fort impact social validées par l&apos;<strong>UNICEF</strong> et la <strong>SiPath</strong>.
+            <strong>Tech Lead & CTO Opérationnel (10+ ans d&apos;expérience)</strong>, spécialisé dans l&apos;architecture distribuée, l&apos;IA appliquée (Computer Vision, MLOps, LLM & RAG) et la cybersécurité des systèmes critiques. Profil hands-on alliant arbitrage stratégique, écriture des briques logicielles complexes et structuration d&apos;équipes agiles performantes.
           </p>
         </div>
 
-        {/* SECTION RÉALISATIONS STRATÉGIQUES */}
-        <section className="mb-8">
-          <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-zinc-500 mb-3 flex items-center gap-2 border-b border-zinc-200 pb-1">
-            <Star size={14} className="text-amber-600" /> Réalisations Phares & Validations Officielles
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 bg-zinc-50 border border-zinc-200">
-              <div className="flex items-center justify-between mb-1.5">
-                <strong className="text-zinc-950 text-sm">NURIA (Santé Publique)</strong>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  UNICEF VALIDATED
-                </span>
-              </div>
-              <p className="text-xs text-zinc-700 leading-relaxed">
-                Architecte de la première plateforme africaine dédiée au neurodéveloppement pédiatrique. Déploiement national avec le MSHP-CMU pour la campagne Avril Bleu.
-              </p>
-            </div>
+        {/* GRILLE 2 COLONNES PRINCIPALE (EXPÉRIENCES / SIDEBAR) */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.7fr_1.1fr] gap-8">
+          {/* COLONNE GAUCHE : PROJETS STRATÉGIQUES & EXPÉRIENCES */}
+          <div className="space-y-8">
+            {/* PROJETS STRATÉGIQUES DÉPLOYÉS */}
+            <section>
+              <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-zinc-500 mb-3 flex items-center gap-2 border-b border-zinc-200 pb-1">
+                <Star size={14} className="text-amber-600" /> Projets Stratégiques Déployés
+              </h3>
 
-            <div className="p-4 bg-zinc-50 border border-zinc-200">
-              <div className="flex items-center justify-between mb-1.5">
-                <strong className="text-zinc-950 text-sm">Kanyeh Assist (IA & Deep Tech)</strong>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-blue-100 text-blue-800 border border-blue-300">
-                  SiPath VALIDATED
-                </span>
+              <div className="space-y-4">
+                {/* KANYEH ASSIST */}
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <div className="flex flex-wrap items-center justify-between gap-1 mb-1.5">
+                    <strong className="text-zinc-950 text-sm">
+                      KANYEH ASSIST &mdash; Architecte Technique & Lead Dev
+                    </strong>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-blue-100 text-blue-800 border border-blue-300">
+                      DEEP TECH & IA MÉDICALE
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-700 leading-relaxed">
+                    Infrastructure nationale de télé-diagnostic anatomopathologique reliant les <strong>CHU de Bouaké, Treichville et le PNLC</strong>. Modèles <strong>YOLOv8/v11</strong> pour la détection cellulaire d&apos;atypies (sein, col de l&apos;utérus), visionneuse WSI haute résolution (tuilage TIFF) et isolation stricte des données par établissement via PostgreSQL RLS.
+                  </p>
+                  <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
+                    Stack : Python (FastAPI, PyTorch, OpenCV), React 18, TypeScript, Tailwind, PostgreSQL (RLS), Docker.
+                  </p>
+                </div>
+
+                {/* NURIA */}
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <div className="flex flex-wrap items-center justify-between gap-1 mb-1.5">
+                    <strong className="text-zinc-950 text-sm">
+                      NURIA &mdash; Architecte Logiciel & Tech Lead
+                    </strong>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-300">
+                      VALIDÉ PAR L&apos;UNICEF • MSHP
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-700 leading-relaxed">
+                    1ère plateforme africaine de dépistage et suivi précoce des troubles neurodéveloppementaux de l&apos;enfant. Moteur de scoring clinique automatisé et synchronisation résiliente pour connectivité régionale intermittente. Déployée par le Ministère de la Santé (MSHP).
+                  </p>
+                  <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
+                    Stack : Node.js (TypeScript), Next.js / React, PostgreSQL, Docker, AWS.
+                  </p>
+                </div>
+
+                {/* TILA */}
+                <div className="p-4 bg-zinc-50 border border-zinc-200">
+                  <div className="flex flex-wrap items-center justify-between gap-1 mb-1.5">
+                    <strong className="text-zinc-950 text-sm">
+                      TILA (MindWell Connect) &mdash; Architecte Mobile & Lead Dev
+                    </strong>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-purple-100 text-purple-800 border border-purple-300">
+                      SANTÉ MENTALE & TÉLÉCONSULTATION
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-700 leading-relaxed">
+                    Plateforme et application mobile (iOS/Android - ci.tila.app) de soutien psychologique en Afrique de l&apos;Ouest. Mise en relation confidentielle patients-thérapeutes, suivi d&apos;humeur et messagerie chiffrée de bout en bout respectant le secret médical.
+                  </p>
+                  <p className="text-[11px] font-mono text-zinc-900 mt-2 font-medium">
+                    Stack : React Native / Expo, TypeScript, Node.js, WebSockets, PostgreSQL, Chiffrement AES-256.
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-zinc-700 leading-relaxed">
-                Conception d&apos;un algorithme de vision par ordinateur pour la télépathologie du cancer en temps réel (80% de précision clinique), validé par la Société Ivoirienne des Pathologistes.
-              </p>
-            </div>
+            </section>
+
+            {/* EXPÉRIENCES PROFESSIONNELLES CLÉS */}
+            <section className="space-y-5">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-zinc-500 flex items-center gap-2 border-b border-zinc-200 pb-1">
+                <Zap size={14} /> Expériences Professionnelles Clés
+              </h3>
+
+              <div className="space-y-5">
+                {/* EXP 1 : MCM GROUP SAS / PASS SANTÉ MOUSSO */}
+                <div className="relative pl-4 border-l-2 border-zinc-900">
+                  <div className="flex justify-between items-baseline flex-wrap gap-1">
+                    <h4 className="text-sm font-bold text-zinc-950">
+                      Tech Lead IA & Développeur Senior Fullstack
+                    </h4>
+                    <span className="text-[11px] font-mono text-zinc-500 font-bold">Janv. 2024 &mdash; Présent</span>
+                  </div>
+                  <p className="text-xs text-sky-700 font-mono font-semibold">
+                    MCM GROUP SAS / PASS SANTÉ MOUSSO • Abidjan, Côte d&apos;Ivoire
+                  </p>
+                  <ul className="list-disc list-outside pl-4 text-xs text-zinc-700 mt-2 space-y-1.5 leading-relaxed">
+                    <li>
+                      <strong>Encadrement technique direct de 5 personnes</strong> (3 développeurs juniors, 2 stagiaires ingénieurs).
+                    </li>
+                    <li>
+                      Mise en place de <strong>revues de code systématiques (Merge Requests)</strong>, réduisant de <strong>40% les régressions</strong> et accélérant la vélocité des sprints.
+                    </li>
+                    <li>
+                      Conception et déploiement d&apos;architectures microservices & APIs critiques (FastAPI, Node.js, Spring Boot) interfacées avec des frontends web et mobiles (React, Flutter) sous Docker/Cloud.
+                    </li>
+                  </ul>
+                </div>
+
+                {/* EXP 2 : ADOMED.care */}
+                <div className="relative pl-4 border-l-2 border-zinc-300">
+                  <div className="flex justify-between items-baseline flex-wrap gap-1">
+                    <h4 className="text-sm font-bold text-zinc-950">
+                      Chef de Projet IT / Lead Dev IA & Scrum Master
+                    </h4>
+                    <span className="text-[11px] font-mono text-zinc-500 font-bold">2023 &mdash; Présent</span>
+                  </div>
+                  <p className="text-xs text-sky-700 font-mono font-semibold">
+                    ADOMED.care • Abidjan & International
+                  </p>
+                  <ul className="list-disc list-outside pl-4 text-xs text-zinc-700 mt-2 space-y-1 leading-relaxed">
+                    <li>
+                      Conception du <strong>pipeline MLOps du 1er module ivoirien d&apos;IA médicale</strong> interconnecté au backend Spring Boot.
+                    </li>
+                    <li>
+                      Pilotage agile bi-hebdomadaire garantissant la fluidité des cycles de livraison et l&apos;intégrité clinique.
+                    </li>
+                  </ul>
+                </div>
+
+                {/* EXP 3 : AVLYTECH */}
+                <div className="relative pl-4 border-l-2 border-zinc-300">
+                  <div className="flex justify-between items-baseline flex-wrap gap-1">
+                    <h4 className="text-sm font-bold text-zinc-950">
+                      Co-Fondateur & Chief Technology Officer (CTO)
+                    </h4>
+                    <span className="text-[11px] font-mono text-zinc-500 font-bold">2022 &mdash; Présent</span>
+                  </div>
+                  <p className="text-xs text-sky-700 font-mono font-semibold">
+                    AVLYTECH • France / International
+                  </p>
+                  <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
+                    Définition de la feuille de route technologique et architecture SaaS scalable (Next.js, bases vectorielles pgvector, RAG).
+                  </p>
+                </div>
+
+                {/* EXP 4 : IVAGREL */}
+                <div className="relative pl-4 border-l-2 border-zinc-300">
+                  <div className="flex justify-between items-baseline flex-wrap gap-1">
+                    <h4 className="text-sm font-bold text-zinc-950">
+                      Responsable Informatique
+                    </h4>
+                    <span className="text-[11px] font-mono text-zinc-500 font-bold">2018 &mdash; 2023 (5 ans)</span>
+                  </div>
+                  <p className="text-xs text-sky-700 font-mono font-semibold">
+                    IVAGREL • Abidjan, Côte d&apos;Ivoire
+                  </p>
+                  <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
+                    Refonte totale du SI d&apos;entreprise et migration Cloud (AWS/Docker) pour 200+ agents. Sécurité, gouvernance et Plan de Continuité d&apos;Activité (PCA).
+                  </p>
+                </div>
+
+                {/* EXP 5 : ECOBANK / SITEL */}
+                <div className="relative pl-4 border-l-2 border-zinc-300">
+                  <div className="flex justify-between items-baseline flex-wrap gap-1">
+                    <h4 className="text-sm font-bold text-zinc-950">
+                      Analyste Développeur Fullstack
+                    </h4>
+                    <span className="text-[11px] font-mono text-zinc-500 font-bold">2017 &mdash; 2018</span>
+                  </div>
+                  <p className="text-xs text-sky-700 font-mono font-semibold">
+                    ECOBANK / SITEL • Abidjan, Côte d&apos;Ivoire
+                  </p>
+                  <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
+                    Développement d&apos;applications financières et automatisation de flux de paiement transactionnels sécurisés.
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
 
-        {/* 2 COLONNES : EXPÉRIENCES & FORMATIONS/COMPÉTENCES */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8">
-          {/* EXPÉRIENCES PROFESSIONNELLES */}
-          <section className="space-y-5">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-zinc-500 flex items-center gap-2 border-b border-zinc-200 pb-1">
-              <Zap size={14} /> Parcours Professionnel & Lead
-            </h3>
-
-            <div className="space-y-4">
-              <div className="relative pl-4 border-l-2 border-zinc-900">
-                <div className="flex justify-between items-baseline">
-                  <h4 className="text-sm font-bold text-zinc-950">
-                    Consultant e-Santé <span className="text-sky-700">/ MSHP-CMU</span>
-                  </h4>
-                  <span className="text-[11px] font-mono text-zinc-500">2023 — Présent</span>
-                </div>
-                <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
-                  Supervision de l&apos;interconnexion hospitalière (E-PNEUMO) avec la Fondation MTN, protocoles pédiatriques nationaux avec l&apos;UNICEF et mise en conformité des systèmes de santé.
-                </p>
+          {/* COLONNE DROITE : MANAGEMENT, COMPÉTENCES, CERTIFS & ÉTUDES */}
+          <aside className="space-y-6">
+            {/* MANAGEMENT TECH (NOUVEL ENCADRÉ MIS EN VALEUR) */}
+            <div className="p-4 bg-zinc-900 text-white border border-zinc-900">
+              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-zinc-800">
+                <Users size={16} className="text-sky-400" />
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+                  Management Tech & Leadership
+                </h4>
               </div>
-
-              <div className="relative pl-4 border-l-2 border-zinc-300">
-                <div className="flex justify-between items-baseline">
-                  <h4 className="text-sm font-bold text-zinc-950">
-                    Chef de Projet IT & Lead IA <span className="text-sky-700">/ ADOMED.CARE</span>
-                  </h4>
-                  <span className="text-[11px] font-mono text-zinc-500">2021 — 2023</span>
-                </div>
-                <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
-                  Management Scrum d&apos;une équipe pluridisciplinaire. Développement de la première IA médicale d&apos;orientation diagnostique en Côte d&apos;Ivoire et de l&apos;écosystème mobile Flutter.
+              <div className="text-xs space-y-2 text-zinc-300">
+                <p>
+                  <strong className="text-white">Encadrement direct de 5 Personnes :</strong><br />
+                  3 développeurs juniors + 2 stagiaires ingénieurs.
                 </p>
-              </div>
-
-              <div className="relative pl-4 border-l-2 border-zinc-300">
-                <div className="flex justify-between items-baseline">
-                  <h4 className="text-sm font-bold text-zinc-950">
-                    Co-fondateur & CTO <span className="text-sky-700">/ AVLYTECH (France)</span>
-                  </h4>
-                  <span className="text-[11px] font-mono text-zinc-500">2020 — 2022</span>
-                </div>
-                <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
-                  Direction technologique, élaboration de solutions logicielles institutionnelles haute sécurité et architectures microservices modulaires.
+                <p>
+                  <strong className="text-white">Gouvernance & Méthode :</strong><br />
+                  Revues de code systématiques (Merge Requests), rituels Agile/Scrum, montée en compétences et culture <strong>Clean Code / DDD</strong>.
                 </p>
-              </div>
-
-              <div className="relative pl-4 border-l-2 border-zinc-300">
-                <div className="flex justify-between items-baseline">
-                  <h4 className="text-sm font-bold text-zinc-950">
-                    Responsable Informatique <span className="text-sky-700">/ IVAGREL</span>
-                  </h4>
-                  <span className="text-[11px] font-mono text-zinc-500">4 ans</span>
+                <div className="p-2 bg-zinc-800 border border-zinc-700 text-[11px] font-mono text-emerald-400">
+                  -40% de régressions en prod & accélération de la vélocité sprint.
                 </div>
-                <p className="text-xs text-zinc-700 mt-1 leading-relaxed">
-                  Refonte intégrale du système d&apos;information, migration d&apos;infrastructures vers le cloud AWS et mise en place de politiques de cybersécurité.
-                </p>
               </div>
             </div>
-          </section>
 
-          {/* ASIDE : FORMATIONS & CERTIFICATIONS */}
-          <aside className="space-y-6">
-            {/* CERTIFICATIONS */}
+            {/* COMPÉTENCES CLÉS ENRICHIES (IA, RAG, SCRAPING, OUTILS AGENTS IA) */}
+            <div className="p-4 bg-zinc-50 border border-zinc-200 space-y-4">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900 pb-1 border-b border-zinc-200 flex items-center gap-1.5">
+                <Zap size={14} className="text-amber-600" /> Compétences Clés & Outils
+              </h4>
+
+              {/* IA & VISION PAR ORDINATEUR */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-bold block mb-1">
+                  IA & Vision par Ordinateur
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {["YOLOv8 / v11", "Computer Vision", "PyTorch", "OpenCV", "MLOps"].map((s) => (
+                    <span key={s} className="px-1.5 py-0.5 bg-white border border-zinc-300 text-zinc-800 text-[10px] font-mono">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* LLM, RAG & SCRAPING */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-bold block mb-1">
+                  LLM, RAG & Web Scraping
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    "LLM & RAG",
+                    "pgvector / Vector DB",
+                    "LangChain",
+                    "Web Scraping (Playwright)",
+                    "Scrapy / BeautifulSoup",
+                    "Data Extraction Pipelines",
+                  ].map((s) => (
+                    <span key={s} className="px-1.5 py-0.5 bg-sky-50 border border-sky-300 text-sky-900 text-[10px] font-mono font-bold">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* AGENTIC CODING & MAÎTRISE IA DE POINTE */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-bold block mb-1">
+                  Agentic AI & Outils d&apos;Ingénierie IA
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    "Google Antigravity + Gemini",
+                    "Claude Code (Anthropic)",
+                    "Codex & Assistants ChatGPT",
+                    "MCP (Model Context Protocol)",
+                    "Multi-Agents Workflows",
+                  ].map((s) => (
+                    <span key={s} className="px-1.5 py-0.5 bg-purple-50 border border-purple-300 text-purple-900 text-[10px] font-mono font-bold">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* BACKEND & ARCHITECTURE */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-bold block mb-1">
+                  Backend & Architecture
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    "Python (FastAPI)",
+                    "Node.js (TypeScript)",
+                    "Java / Spring Boot",
+                    "PostgreSQL (RLS)",
+                    "Supabase",
+                    "Docker / AWS",
+                  ].map((s) => (
+                    <span key={s} className="px-1.5 py-0.5 bg-white border border-zinc-300 text-zinc-800 text-[10px] font-mono">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* FRONTEND & MOBILE */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-bold block mb-1">
+                  Frontend & Mobile
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    "React 18 / Next.js",
+                    "Flutter",
+                    "React Native / Expo",
+                    "TypeScript",
+                    "Tailwind CSS",
+                  ].map((s) => (
+                    <span key={s} className="px-1.5 py-0.5 bg-white border border-zinc-300 text-zinc-800 text-[10px] font-mono">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CERTIFICATIONS MONDIALES */}
             <div className="p-4 bg-zinc-50 border border-zinc-200">
               <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-900 font-bold mb-3 flex items-center gap-1.5 border-b border-zinc-200 pb-1">
-                <Award size={14} /> Certifications Internationales
+                <Award size={14} className="text-sky-700" /> Certifications
               </h4>
               <ul className="space-y-2 text-xs text-zinc-800">
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-1.5">
                   <ShieldCheck size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                  <span><strong>CISSP & CompTIA Security+</strong> (Cybersécurité)</span>
+                  <div>
+                    <strong>CISSP® (Cybersécurité)</strong>
+                    <span className="block text-[10px] text-zinc-500 font-mono">Sécurité des Systèmes d&apos;Information</span>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-1.5">
                   <ShieldCheck size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                  <span><strong>Imperial College London</strong> (Digital Health)</span>
+                  <div>
+                    <strong>CompTIA Security+</strong>
+                    <span className="block text-[10px] text-zinc-500 font-mono">Défense, Réseaux & Cryptographie</span>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-1.5">
                   <ShieldCheck size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                  <span><strong>Stanford Univ.</strong> (DeepLearning.AI)</span>
+                  <div>
+                    <strong>Digital Health Specialization</strong>
+                    <span className="block text-[10px] text-zinc-500 font-mono">Imperial College London</span>
+                  </div>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-1.5">
                   <ShieldCheck size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                  <span><strong>Google Professional</strong> (Data & Security)</span>
+                  <div>
+                    <strong>Google Data Analytics & Security</strong>
+                    <span className="block text-[10px] text-zinc-500 font-mono">Ingénierie & Sécurité Cloud</span>
+                  </div>
                 </li>
               </ul>
             </div>
 
-            {/* DIPLÔMES */}
-            <div>
-              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold mb-2 pb-1 border-b border-zinc-200 flex items-center gap-1.5">
-                <GraduationCap size={14} /> Diplômes Académiques
+            {/* FORMATION */}
+            <div className="p-4 bg-zinc-50 border border-zinc-200">
+              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-900 font-bold mb-3 pb-1 border-b border-zinc-200 flex items-center gap-1.5">
+                <GraduationCap size={14} /> Formation Supérieure
               </h4>
-              <div className="space-y-2 text-xs">
+              <div className="space-y-2.5 text-xs">
                 <div>
-                  <strong className="text-zinc-950 block">Master Executive IA & Cyber</strong>
-                  <span className="text-zinc-600 text-[11px] font-mono">HEC Maroc (2025)</span>
+                  <strong className="text-zinc-950 block">Master Exec. IA & Cybersécurité</strong>
+                  <span className="text-zinc-600 text-[11px] font-mono">HEC Maroc • 2024 &mdash; 2025</span>
                 </div>
                 <div>
-                  <strong className="text-zinc-950 block">Licence Pro Génie Logiciel</strong>
-                  <span className="text-zinc-600 text-[11px] font-mono">PIGIER Côte d&apos;Ivoire</span>
+                  <strong className="text-zinc-950 block">Deep Learning Specialization</strong>
+                  <span className="text-zinc-600 text-[11px] font-mono">Stanford / Coursera • 2025</span>
+                </div>
+                <div>
+                  <strong className="text-zinc-950 block">Licence Génie Logiciel & Réseaux</strong>
+                  <span className="text-zinc-600 text-[11px] font-mono">PIGIER Côte d&apos;Ivoire • 2014 &mdash; 2017</span>
                 </div>
               </div>
             </div>
 
-            {/* STACK TECHNIQUE */}
-            <div>
-              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold mb-2 pb-1 border-b border-zinc-200">
-                Compétences Clés
-              </h4>
-              <div className="flex flex-wrap gap-1">
-                {[
-                  "Computer Vision",
-                  "NLP",
-                  "PyTorch",
-                  "FastAPI",
-                  "Next.js",
-                  "Spring Boot",
-                  "Flutter",
-                  "AWS",
-                  "Docker",
-                  "HL7/FHIR",
-                  "CISSP",
-                ].map((s) => (
-                  <span
-                    key={s}
-                    className="px-2 py-0.5 bg-zinc-100 text-zinc-800 font-mono text-[10px] border border-zinc-200"
-                  >
-                    {s}
-                  </span>
-                ))}
+            {/* LANGUES */}
+            <div className="p-3 bg-zinc-50 border border-zinc-200 flex justify-between items-center text-xs font-mono">
+              <div>
+                <span className="text-zinc-400 block text-[10px]">Langue Maternelle</span>
+                <strong className="text-zinc-950">Français (C2)</strong>
+              </div>
+              <div className="text-right">
+                <span className="text-zinc-400 block text-[10px]">Courant / Technique</span>
+                <strong className="text-zinc-950">Anglais (B2)</strong>
               </div>
             </div>
           </aside>
         </div>
 
         {/* PIED DU CV */}
-        <footer className="mt-8 pt-4 border-t border-zinc-200 text-center text-xs font-mono text-zinc-500">
-          <span>Portfolio interactif & projets : </span>
-          <a
-            href="https://www.ibrahimkaramoko.site"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-950 font-bold hover:underline"
-          >
-            www.ibrahimkaramoko.site
-          </a>
+        <footer className="mt-8 pt-4 border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-500 gap-2">
+          <span>Ibrahim KARAMOKO &mdash; Tech Lead IA & Cybersécurité | CTO</span>
+          <span className="text-zinc-900 font-bold">Dossier Candidature • {new Date().getFullYear()}</span>
         </footer>
       </div>
     </main>

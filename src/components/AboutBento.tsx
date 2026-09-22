@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import {
-  BrainCircuit,
-  Database,
   ArrowUpRight,
   GraduationCap,
   ShieldCheck,
   Terminal,
   HeartPulse,
+  Users,
+  Bot,
 } from "lucide-react";
 
 export default function AboutBento() {
@@ -17,11 +17,11 @@ export default function AboutBento() {
       {/* SECTION HEADER ÉDITORIAL CLAUDE STYLE */}
       <div className="mb-16 border-b border-zinc-200 pb-8">
         <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3 flex items-center gap-2">
-          <span>01 // Profil & Expertise Stratégique</span>
+          <span>01 // Profil, Leadership & Savoir-Faire</span>
         </h2>
         <p className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 leading-tight tracking-tight uppercase">
-          Je ne code pas de simples applications. <br />
-          <span className="text-zinc-400">J&apos;architecte des écosystèmes durables.</span>
+          Tech Lead IA & CTO Opérationnel. <br />
+          <span className="text-zinc-500">Architecture, Management & Rigueur.</span>
         </p>
       </div>
 
@@ -43,41 +43,41 @@ export default function AboutBento() {
               <div className="flex items-center gap-2.5">
                 <HeartPulse className="text-sky-400" size={24} />
                 <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
-                  Mission Nationale en cours
+                  Tech Lead IA & Cybersécurité
                 </span>
               </div>
-              <span className="text-xs font-mono text-zinc-400 uppercase">
-                Côte d&apos;Ivoire & International
+              <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest font-bold">
+                10+ Ans d&apos;Expérience
               </span>
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight">
-              Consultant e-Santé & Architecte IA
+              Architecture Distribuée & Systèmes Critiques
             </h3>
             <p className="text-zinc-300 leading-relaxed text-base md:text-lg">
-              Actuellement engagé auprès du <strong className="text-white font-semibold">Ministère de la Santé et de l&apos;Hygiène Publique (MSHP-CMU)</strong>. Je pilote des transformations numériques à l&apos;échelle nationale, alliant intelligence artificielle clinique (Computer Vision, NLP) et infrastructures backend résilientes pour l&apos;interconnexion des CHU et les programmes validés par l&apos;<strong className="text-white font-semibold">UNICEF</strong>.
+              Tech Lead & CTO Opérationnel spécialisé dans l&apos;IA appliquée (Computer Vision, MLOps, LLM & RAG) et la cybersécurité des systèmes critiques. Profil hands-on alliant arbitrage stratégique, écriture des briques logicielles complexes et structuration d&apos;équipes agiles performantes pour le Ministère de la Santé (MSHP-CMU), l&apos;UNICEF et des scale-ups internationales.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-6 mt-10 pt-6 border-t border-zinc-800 text-zinc-400 text-xs font-mono">
             <div>
-              <span className="block text-3xl font-black text-white font-mono">10+</span>
-              <span className="uppercase tracking-wider text-zinc-500">Années d&apos;Expérience</span>
+              <span className="block text-3xl font-black text-white font-mono">5 Pers.</span>
+              <span className="uppercase tracking-wider text-zinc-500">Lead d&apos;Équipe Direct</span>
+            </div>
+            <div className="h-8 w-[1px] bg-zinc-800"></div>
+            <div>
+              <span className="block text-3xl font-black text-emerald-400 font-mono">-40%</span>
+              <span className="uppercase tracking-wider text-zinc-500">Régressions Bugs</span>
             </div>
             <div className="h-8 w-[1px] bg-zinc-800"></div>
             <div>
               <span className="block text-3xl font-black text-sky-400 font-mono">UNICEF</span>
               <span className="uppercase tracking-wider text-zinc-500">Validation e-Santé</span>
             </div>
-            <div className="h-8 w-[1px] bg-zinc-800"></div>
-            <div>
-              <span className="block text-3xl font-black text-emerald-400 font-mono">MSHP-CMU</span>
-              <span className="uppercase tracking-wider text-zinc-500">CHU Connectés</span>
-            </div>
           </div>
         </motion.div>
 
-        {/* CARTE 2 : LABORATOIRE IA & DEEP TECH (1 COL) */}
+        {/* CARTE 2 : MANAGEMENT TECH & LEADERSHIP HUMAIN (1 COL) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,30 +88,37 @@ export default function AboutBento() {
           <div>
             <div className="flex justify-between items-start mb-6 pb-4 border-b border-zinc-100">
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">
-                Deep Tech & Vision
+                Management Tech
               </span>
-              <BrainCircuit className="text-sky-600" size={24} />
+              <Users className="text-zinc-900" size={24} />
             </div>
 
-            <h4 className="text-xl font-bold text-zinc-950 mb-3">Intelligence Artificielle</h4>
-            <p className="text-sm text-zinc-600 leading-relaxed mb-6">
-              Conception d&apos;algorithmes adaptés aux exigences cliniques : télépathologie temps réel pour le diagnostic du cancer (80% de précision validé <strong className="text-zinc-900">SiPath</strong>) et traitement du langage naturel (NLP vocal).
+            <h4 className="text-xl font-bold text-zinc-950 mb-3">Encadrement de 5 Personnes</h4>
+            <p className="text-sm text-zinc-600 leading-relaxed mb-4">
+              Direction technique directe de <strong>3 développeurs juniors et 2 stagiaires ingénieurs</strong>.
             </p>
+            <ul className="text-xs text-zinc-700 space-y-2 font-mono">
+              <li className="flex items-start gap-1.5">
+                <span className="text-emerald-600 font-bold">✓</span>
+                <span><strong>Revues de code systématiques (MRs)</strong> : réduction prouvée de 40% des régressions.</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-emerald-600 font-bold">✓</span>
+                <span><strong>Rituels Agile / Scrum</strong> bi-hebdomadaires & accélération de la vélocité sprint.</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-emerald-600 font-bold">✓</span>
+                <span>Montée en compétences continue et culture <strong>Clean Code / DDD</strong>.</span>
+              </li>
+            </ul>
           </div>
 
-          <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100">
-            {["PyTorch", "Computer Vision", "NLP & Speech", "FastAPI", "TensorRT", "RAG"].map((tech) => (
-              <span
-                key={tech}
-                className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 text-zinc-800 text-xs font-mono font-medium"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="pt-4 mt-4 border-t border-zinc-100 text-[11px] font-mono text-zinc-500">
+            Arbitrage stratégique & excellence opérationnelle.
           </div>
         </motion.div>
 
-        {/* CARTE 3 : ARCHITECTURE FULLSTACK & CLOUD (1 COL) */}
+        {/* CARTE 3 : AGENTIC AI & OUTILS D'INGÉNIERIE DE POINTE (1 COL) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,26 +129,35 @@ export default function AboutBento() {
           <div>
             <div className="flex justify-between items-start mb-6 pb-4 border-b border-zinc-100">
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">
-                Infrastructures
+                Agentic Engineering
               </span>
-              <Database className="text-blue-600" size={24} />
+              <Bot className="text-purple-600" size={24} />
             </div>
 
-            <h4 className="text-xl font-bold text-zinc-950 mb-3">Ingénierie Fullstack</h4>
-            <p className="text-sm text-zinc-600 leading-relaxed mb-6">
-              Architectures microservices modulaires, systèmes d&apos;information hospitaliers et applications mobiles résilientes déployées sous AWS, Docker et Kubernetes.
+            <h4 className="text-xl font-bold text-zinc-950 mb-3">Maîtrise IA & Agents</h4>
+            <p className="text-sm text-zinc-600 leading-relaxed mb-4">
+              Pionnier dans l&apos;usage d&apos;outils d&apos;ingénierie assistés par IA pour démultiplier la productivité et la fiabilité architecturale :
             </p>
+            <div className="flex flex-wrap gap-1.5">
+              {[
+                "Google Antigravity + Gemini",
+                "Claude Code (Anthropic)",
+                "Codex / ChatGPT (OpenAI)",
+                "MCP (Model Context Protocol)",
+                "Multi-Agent Orchestration",
+              ].map((tool) => (
+                <span
+                  key={tool}
+                  className="px-2 py-0.5 bg-purple-50 border border-purple-200 text-purple-900 text-[10px] font-mono font-bold"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100">
-            {["Next.js", "Spring Boot", "Flutter", "PostgreSQL", "AWS Cloud", "Docker"].map((tech) => (
-              <span
-                key={tech}
-                className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 text-zinc-800 text-xs font-mono font-medium"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="pt-4 mt-4 border-t border-zinc-100 text-[11px] font-mono text-zinc-500">
+            Augmentation du débit de livraison logicielle.
           </div>
         </motion.div>
 
@@ -157,29 +173,29 @@ export default function AboutBento() {
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100">
               <div className="flex items-center gap-3">
                 <GraduationCap className="text-zinc-900" size={24} />
-                <h4 className="text-xl font-bold text-zinc-950 tracking-tight">Académique & Certifications Internationales</h4>
+                <h4 className="text-xl font-bold text-zinc-950 tracking-tight">Formation Supérieure & Certifications Mondiales</h4>
               </div>
               <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                Standards Mondiaux
+                Standards Internationaux
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4 font-bold">
-                  Diplômes Supérieurs
+                  Parcours Académique
                 </h5>
                 <ul className="space-y-4 text-sm">
                   <li className="p-3 bg-zinc-50 border border-zinc-200">
                     <strong className="block text-zinc-950 text-base font-bold">HEC Maroc</strong>
                     <span className="text-xs text-zinc-600 font-mono">
-                      Master Executive IA, CyberSécurité & Big Data Science (2025)
+                      Master Exec. IA & Cybersécurité (2024 &mdash; 2025)
                     </span>
                   </li>
                   <li className="p-3 bg-zinc-50 border border-zinc-200">
                     <strong className="block text-zinc-950 text-base font-bold">PIGIER Côte d&apos;Ivoire</strong>
                     <span className="text-xs text-zinc-600 font-mono">
-                      Licence Professionnelle en Génie Logiciel
+                      Licence Génie Logiciel & Réseaux (2014 &mdash; 2017)
                     </span>
                   </li>
                 </ul>
@@ -191,19 +207,19 @@ export default function AboutBento() {
                 </h5>
                 <ul className="space-y-2.5 text-xs text-zinc-700">
                   <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
-                    <ShieldCheck size={16} className="text-emerald-600 shrink-0" />
-                    <span><strong>CISSP</strong> & <strong>CompTIA Security+</strong> (CyberSécurité)</span>
+                    <ShieldCheck size={16} className="text-emerald-700 shrink-0" />
+                    <span><strong>CISSP®</strong> & <strong>CompTIA Security+</strong> (Cybersécurité)</span>
                   </li>
                   <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
-                    <ShieldCheck size={16} className="text-blue-600 shrink-0" />
+                    <ShieldCheck size={16} className="text-blue-700 shrink-0" />
                     <span><strong>Imperial College London</strong> (Digital Health Specialization)</span>
                   </li>
                   <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
-                    <ShieldCheck size={16} className="text-purple-600 shrink-0" />
-                    <span><strong>Stanford Univ. / DeepLearning.AI</strong> (Andrew Ng)</span>
+                    <ShieldCheck size={16} className="text-purple-700 shrink-0" />
+                    <span><strong>Stanford / Coursera</strong> (Deep Learning Specialization 2025)</span>
                   </li>
                   <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
-                    <ShieldCheck size={16} className="text-sky-600 shrink-0" />
+                    <ShieldCheck size={16} className="text-sky-700 shrink-0" />
                     <span><strong>Google Professional</strong> (Data Analytics & Cloud Security)</span>
                   </li>
                 </ul>
@@ -213,7 +229,7 @@ export default function AboutBento() {
 
           <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between">
             <span className="text-xs font-mono text-zinc-500">
-              Identité vérifiable & recommandations
+              Profil vérifié & recommandations officielles
             </span>
             <a
               href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
@@ -229,77 +245,77 @@ export default function AboutBento() {
 
       </div>
 
-      {/* MATRICE TECHNIQUE COMPLÈTE STYLE DOSSIER ÉDITORIAL */}
+      {/* MATRICE TECHNIQUE COMPLÈTE ENRICHIE (RAG, SCRAPING, AGENTS) */}
       <div className="mt-8 p-8 md:p-10 bg-white border border-zinc-200">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-zinc-200">
           <div className="flex items-center gap-2.5">
             <Terminal size={20} className="text-zinc-900" />
             <h4 className="text-sm font-mono font-bold uppercase tracking-widest text-zinc-950">
-              Matrice Technologique & Conformité
+              Stack Technologique, RAG & Pipelines de Données
             </h4>
           </div>
           <span className="text-xs font-mono text-zinc-500">
-            Frontend • Backend • IA • Cloud • Normes de Santé
+            Vision • LLM & RAG • Scraping • Backend • Cloud
           </span>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-xs font-mono">
           <div>
             <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              IA & Computer Vision
+            </span>
+            <ul className="space-y-1 text-zinc-600">
+              <li>YOLOv8 / YOLOv11</li>
+              <li>PyTorch & OpenCV</li>
+              <li>Visionneuse WSI (TIFF)</li>
+              <li>Pipelines MLOps</li>
+            </ul>
+          </div>
+
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              LLM, RAG & Scraping
+            </span>
+            <ul className="space-y-1 text-zinc-600">
+              <li>RAG & pgvector</li>
+              <li>Vector Databases</li>
+              <li>Playwright & Scrapy</li>
+              <li>BeautifulSoup / Selenium</li>
+            </ul>
+          </div>
+
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
+              Backend & Données
+            </span>
+            <ul className="space-y-1 text-zinc-600">
+              <li>Python (FastAPI)</li>
+              <li>Node.js (TypeScript)</li>
+              <li>Java / Spring Boot</li>
+              <li>PostgreSQL (RLS) / Supabase</li>
+            </ul>
+          </div>
+
+          <div>
+            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
               Frontend & Mobile
             </span>
             <ul className="space-y-1 text-zinc-600">
-              <li>Next.js (App Router)</li>
-              <li>React 19 & TypeScript</li>
+              <li>React 18 / Next.js</li>
               <li>Flutter & Dart</li>
+              <li>React Native / Expo</li>
               <li>Tailwind CSS</li>
             </ul>
           </div>
 
           <div>
             <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
-              Backend & APIs
+              DevOps & Sécurité
             </span>
             <ul className="space-y-1 text-zinc-600">
-              <li>Python (FastAPI, Flask)</li>
-              <li>Java (Spring Boot)</li>
-              <li>Node.js / Express</li>
-              <li>PostgreSQL, MongoDB</li>
-            </ul>
-          </div>
-
-          <div>
-            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
-              IA & Computer Vision
-            </span>
-            <ul className="space-y-1 text-zinc-600">
-              <li>PyTorch & TensorFlow</li>
-              <li>Vision par Ordinateur</li>
-              <li>NLP & Voice Processing</li>
-              <li>Vector Search & RAG</li>
-            </ul>
-          </div>
-
-          <div>
-            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
-              Cloud & DevOps
-            </span>
-            <ul className="space-y-1 text-zinc-600">
-              <li>Amazon Web Services</li>
-              <li>Docker & Kubernetes</li>
-              <li>Pipelines CI/CD</li>
-              <li>Architecture Microservices</li>
-            </ul>
-          </div>
-
-          <div>
-            <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
-              Sécurité & Normes
-            </span>
-            <ul className="space-y-1 text-zinc-600">
+              <li>Docker / AWS Cloud</li>
               <li>Standards CISSP & IAM</li>
-              <li>Standards HL7 / FHIR</li>
-              <li>Cryptographie PKI</li>
+              <li>Chiffrement AES-256</li>
               <li>Conformité Santé</li>
             </ul>
           </div>

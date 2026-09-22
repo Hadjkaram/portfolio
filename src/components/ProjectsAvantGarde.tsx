@@ -40,48 +40,67 @@ export interface ProjectData {
 
 const allProjects: ProjectData[] = [
   {
-    id: "nuria",
-    index: "01",
-    title: "Nuria",
-    category: "health-gov",
-    categoryLabel: "Santé Publique & GovTech",
-    validation: "Validé UNICEF & MSHP-CMU",
-    desc: "La première plateforme panafricaine dédiée au dépistage et au suivi des troubles du neurodéveloppement (TND/Autisme). Déploiement national avec le Ministère de la Santé.",
-    link: "http://www.enuria.net",
-    featured: true,
-    technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "AWS"],
-    impactMetrics: "Déploiement national • Campagne Avril Bleu • +10k enfants ciblés",
-    architectureDetails: {
-      context: "Projet stratégique de santé publique piloté en coordination avec l'UNICEF et le Programme National de Santé Mentale (MSHP-CMU).",
-      challenge: "Numériser les protocoles cliniques de dépistage pédiatrique pour permettre aux soignants de terrain de diagnostiquer précocement les troubles du neurodéveloppement en zones urbaines et rurales.",
-      solution: "Architecture web progressive ultra-résiliente, optimisée pour les faibles bandes passantes, avec formulaires d'évaluation clinique dynamiques, synchronisation sécurisée et interconnexion aux registres nationaux.",
-      stackNotes: "Frontend Next.js sécurisé, API REST microservices, base de données relationnelle chiffrée au repos, pipeline CI/CD automatisé sous Docker.",
-      impact: "Reconnaissance officielle par l'UNICEF, intégration dans les protocoles du Ministère de la Santé de Côte d'Ivoire."
-    }
-  },
-  {
     id: "kanyeh-assist",
-    index: "02",
+    index: "01",
     title: "Kanyeh Assist",
     category: "ai-deeptech",
     categoryLabel: "Deep Tech & IA Médicale",
-    validation: "Validé par la SiPath",
-    desc: "Plateforme de télépathologie assistée par vision par ordinateur pour la détection temps réel du cancer en Afrique. Analyse microscopique haute résolution avec 80% de précision clinique.",
+    validation: "Validé par la SiPath & CHU",
+    desc: "Infrastructure nationale de télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville et le PNLC. Modèles YOLOv8/v11 pour la détection cellulaire d'atypies (sein, col de l'utérus), visionneuse WSI haute résolution (tuilage TIFF) et PostgreSQL RLS.",
     link: "https://new.kanyehassist.net/",
     featured: true,
-    technologies: ["Python", "PyTorch", "Computer Vision", "FastAPI", "React", "Docker"],
-    impactMetrics: "80% de précision clinique • Réduction du diagnostic de 3 semaines à quelques minutes",
+    technologies: ["Python (FastAPI)", "PyTorch (YOLOv8/v11)", "OpenCV", "React 18", "TypeScript", "PostgreSQL (RLS)", "Docker"],
+    impactMetrics: "80% de précision clinique • Reliant CHU Bouaké, Treichville & PNLC",
     architectureDetails: {
-      context: "Pénurie critique d'anatomopathologistes en Afrique subsaharienne (moins d'un spécialiste pour 1 million d'habitants).",
-      challenge: "Traiter et classifier des flux d'images histopathologiques volumineuses issues d'objectifs microscopiques en direct, sans latence prohibitive.",
-      solution: "Pipeline de Deep Learning entraîné sur des banques cellulaires africaines, couplé à une interface temps réel de télé-expertise permettant l'annotation collaborative à distance.",
-      stackNotes: "Modèles CNN/Vision Transformer optimisés par quantification TensorRT, backend asynchrone FastAPI, streaming WebSocket sécurisé.",
-      impact: "Validation scientifique et clinique par la Société Ivoirienne des Pathologistes (SiPath)."
+      context: "Pénurie critique d'anatomopathologistes en Afrique subsaharienne et délais d'attente prohibitifs pour les biopsies.",
+      challenge: "Traiter et classifier des flux d'images histopathologiques gigaoctets (Whole Slide Imaging - WSI) en direct avec isolation stricte des données de santé.",
+      solution: "Pipeline de Deep Learning YOLOv8/v11 optimisé pour la détection d'atypies cellulaires, visionneuse TIFF pyramidale tuilée haute fluidité, et politiques de sécurité Row-Level Security (RLS) par établissement.",
+      stackNotes: "Python FastAPI, PyTorch, OpenCV, React 18, TypeScript, Tailwind, PostgreSQL avec RLS, Docker.",
+      impact: "Validation scientifique par la Société Ivoirienne des Pathologistes (SiPath), déploiement au sein des CHU de Bouaké et Treichville."
+    }
+  },
+  {
+    id: "nuria",
+    index: "02",
+    title: "Nuria",
+    category: "health-gov",
+    categoryLabel: "Santé Publique & GovTech",
+    validation: "Validé UNICEF & MSHP",
+    desc: "1ère plateforme africaine de dépistage et suivi précoce des troubles neurodéveloppementaux de l'enfant. Moteur de scoring clinique automatisé et synchronisation résiliente pour connectivité régionale intermittente.",
+    link: "http://www.enuria.net",
+    featured: true,
+    technologies: ["Node.js (TypeScript)", "Next.js / React", "PostgreSQL", "Docker", "AWS"],
+    impactMetrics: "Déploiement national MSHP • Partenariat UNICEF • Campagne Avril Bleu",
+    architectureDetails: {
+      context: "Dépistage pédiatrique précoce des troubles du neurodéveloppement (TND/Autisme) à l'échelle du territoire ivoirien.",
+      challenge: "Garantir le recueil et le calcul de scores cliniques standardisés même en zone à connectivité dégradée ou inexistante.",
+      solution: "Moteur de scoring clinique automatisé avec synchronisation résiliente en mode hors-ligne, interface soignants intuitive et registre centralisé pour le Ministère de la Santé.",
+      stackNotes: "Node.js TypeScript, Next.js, base relationnelle PostgreSQL chiffrée, cluster Docker sous AWS.",
+      impact: "Reconnaissance officielle UNICEF et adoption institutionnelle par le Ministère de la Santé (MSHP)."
+    }
+  },
+  {
+    id: "tila",
+    index: "03",
+    title: "Tila (MindWell Connect)",
+    category: "health-gov",
+    categoryLabel: "Santé Mentale & Téléconsultation",
+    validation: "Validé MSHP-CMU & MTN",
+    desc: "Plateforme et application mobile (iOS/Android - ci.tila.app) de soutien psychologique en Afrique de l'Ouest. Mise en relation confidentielle patients-thérapeutes, suivi d'humeur et messagerie chiffrée de bout en bout (AES-256).",
+    link: "https://tila.ci",
+    technologies: ["React Native / Expo", "TypeScript", "Node.js", "WebSockets", "PostgreSQL", "Chiffrement AES-256"],
+    impactMetrics: "Plateforme ci.tila.app • Secret médical garanti (AES-256) • Yellow Day's MTN",
+    architectureDetails: {
+      context: "Démocratisation de l'accès aux soins de santé mentale et levée des tabous en Afrique subsaharienne.",
+      challenge: "Sécuriser les échanges intimes entre patients et spécialistes avec une garantie mathématique de confidentialité médicale.",
+      solution: "Application mobile cross-platform avec canaux de téléconsultation chiffrés AES-256, messagerie temps réel WebSockets et journalisation d'humeur anonymisée.",
+      stackNotes: "React Native Expo, Node.js, WebSockets, PostgreSQL, cryptographie AES-256.",
+      impact: "Plateforme déployée lors des Yellow Day's 21 de MTN CI et intégrée aux démarches du Programme National de Santé Mentale."
     }
   },
   {
     id: "sipath-web",
-    index: "03",
+    index: "04",
     title: "SiPath Web",
     category: "platforms-iot",
     categoryLabel: "Portail Institutionnel",
@@ -100,7 +119,7 @@ const allProjects: ProjectData[] = [
   },
   {
     id: "epneumo",
-    index: "04",
+    index: "05",
     title: "E-PNEUMO",
     category: "health-gov",
     categoryLabel: "ERP Médical Institutionnel",
@@ -115,25 +134,6 @@ const allProjects: ProjectData[] = [
       solution: "Système de dossier patient partagé (DMP) avec réplication multi-sites, alertes de suivi des traitements et tableaux de bord décisionnels ministériels.",
       stackNotes: "Conformité stricte aux standards de données de santé (HL7/FHIR), architecture résiliente en mode déconnecté.",
       impact: "Financé et soutenu par la Fondation MTN, déployé dans les principaux centres de référence."
-    }
-  },
-  {
-    id: "tila",
-    index: "05",
-    title: "Tila",
-    category: "health-gov",
-    categoryLabel: "Santé Mentale & Support",
-    validation: "Validé MSHP-CMU & MTN",
-    desc: "Plateforme pionnière d'écoute, de soutien psychologique et de télé-consultation en santé mentale. Déployée lors des Yellow Day's 21 de MTN CI.",
-    link: "https://tila.ci",
-    technologies: ["React", "FastAPI", "WebRTC", "PostgreSQL", "Chiffrement Asymétrique"],
-    impactMetrics: "Programme National de Santé Mentale • Écoute anonyme et sécurisée",
-    architectureDetails: {
-      context: "Lutte contre la stigmatisation de la santé mentale et facilitation de l'accès aux psychologues agréés.",
-      challenge: "Garantir un anonymat total et une confidentialité absolue tout en fluidifiant la prise de rendez-vous et la téléconsultation.",
-      solution: "Architecture avec salon de téléconsultation WebRTC chiffré de bout en bout, auto-évaluation anonyme du bien-être psychologique et routage vers des spécialistes certifiés.",
-      stackNotes: "Backend sécurisé, chiffrement asymétrique, infrastructure hébergée dans un environnement certifié.",
-      impact: "Utilisé lors des campagnes citoyennes d'envergure nationale et soutenu par le MSHP-CMU."
     }
   },
   {
