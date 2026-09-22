@@ -10,7 +10,7 @@ export type Message = {
 const knowledgeBase = [
   {
     keywords: ["qui est", "présente", "profil", "parle moi", "résumé", "bio", "qui es-tu"],
-    response: "Ibrahim Karamoko est Tech Lead IA & Cybersécurité, CTO Opérationnel et Full-Stack Senior avec plus de 10 ans d'expérience.\n\n• Management d'Équipe : Encadrement direct de 5 personnes (3 développeurs juniors, 2 stagiaires ingénieurs) avec une baisse démontrée de 40% des régressions grâce aux revues de code systématiques (MRs).\n• IA & Computer Vision : YOLOv8/v11, PyTorch, OpenCV, MLOps, RAG et Web Scraping (Playwright/Scrapy).\n• Outils d'Ingénierie IA : Maîtrise avancée d'Antigravity avec Gemini, Claude Code (Anthropic) et Codex avec ChatGPT (OpenAI).\n• Projets Stratégiques : Kanyeh Assist (télépathologie CHU Bouaké/Treichville), Nuria (UNICEF/MSHP), XH Skills Academy et Tila.\n• Diplômes & Certifications : Master Executive HEC Maroc (2025), Stanford (DeepLearning.AI), certifié CISSP® et CompTIA Security+."
+    response: "Ibrahim Karamoko est Tech Lead IA & Cybersécurité, CTO Opérationnel avec plus de 10 ans d'expérience.\n\n• Management d'Équipe : Encadrement direct de 5 personnes (3 développeurs juniors, 2 stagiaires ingénieurs) avec une baisse démontrée de 40% des régressions grâce aux revues de code systématiques (MRs).\n• IA & Computer Vision : YOLOv8/v11, PyTorch, OpenCV, MLOps, RAG et Web Scraping (Playwright/Scrapy).\n• Outils d'Ingénierie IA : Maîtrise avancée d'Antigravity avec Gemini, Claude Code (Anthropic) et Codex avec ChatGPT (OpenAI).\n• Projets Stratégiques : Kanyeh Assist (télépathologie CHU Bouaké/Treichville), Nuria (UNICEF/MSHP), XH Skills Academy et Tila.\n• Diplômes & Certifications : Master Executive HEC Maroc (2025), Stanford (DeepLearning.AI), certifié CISSP® et CompTIA Security+."
   },
   {
     keywords: ["management", "équipe", "lead", "manage", "personnes", "combien", "encadrement"],
@@ -38,7 +38,7 @@ const knowledgeBase = [
   },
   {
     keywords: ["contact", "mail", "téléphone", "joindre", "whatsapp", "email", "coordonnées", "disponible", "disponibilité"],
-    response: "Coordonnées et disponibilité directe :\n\n• Téléphone / WhatsApp : +225 07 16 31 37 08 / 01 01 59 41 53\n• Email : ibrahim92karamoko@gmail.com\n• LinkedIn : linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b\n• Localisation : Abidjan, Côte d'Ivoire & International\n• Disponibilité : 3 Novembre 2026 (Temps plein) / Ouvert aux mandats de conseil stratégique."
+    response: "Coordonnées et disponibilité directe :\n\n• Téléphone / WhatsApp : +225 07 16 31 37 08 / 01 01 59 41 53\n• Email : ibrahim92karamoko@gmail.com\n• LinkedIn : linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b\n• Localisation : Abidjan, Côte d'Ivoire & International\n• Disponibilité : Ouvert aux opportunités de direction technique & mandats de conseil stratégique."
   },
   {
     keywords: ["bonjour", "salut", "coucou", "hello", "hi"],
