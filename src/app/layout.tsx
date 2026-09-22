@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -61,6 +62,7 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth">
       <body className="min-h-screen bg-[#f7f7f5] text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white">
         {children}
+        <CookieConsentBanner />
       </body>
     </html>
   );

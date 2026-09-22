@@ -344,6 +344,16 @@ export default function CVPage() {
           <span className="text-zinc-900 font-bold">Dossier Candidature Exécutif • {new Date().getFullYear()}</span>
         </footer>
       </div>
+
+      {/* LIENS LÉGAUX BAS DE PAGE (MASQUÉS À L'IMPRESSION) */}
+      <div className="max-w-5xl mx-auto mt-4 text-center print:hidden text-xs font-mono text-zinc-500 space-x-6">
+        <Link href="/conditions-generales" className="hover:text-zinc-950 underline transition-colors">
+          Conditions Générales de Service
+        </Link>
+        <Link href="/politique-de-confidentialite" className="hover:text-zinc-950 underline transition-colors">
+          Politique de Confidentialité
+        </Link>
+      </div>
     </main>
   );
 }

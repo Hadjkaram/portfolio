@@ -7,10 +7,11 @@ import Contact from "@/components/Contact";
 import Chatbot from "@/components/Chatbot";
 import TypewriterHero from "@/components/TypewriterHero";
 import HeroBackgroundPremium from "@/components/HeroBackgroundPremium";
+import WelcomeModal from "@/components/WelcomeModal";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, Users } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Users, Shield } from "lucide-react";
 
 export default function Home() {
   const kpis = [
@@ -22,6 +23,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#f7f7f5] text-zinc-900 selection:bg-zinc-900 selection:text-white overflow-hidden relative">
+      {/* POPUP DE BIENVENUE PREMIUM AVANT D'ACCÉDER AU PORTFOLIO */}
+      <WelcomeModal />
+
       {/* NAVIGATION MINIMALISTE ÉDITORIALE AVEC LOGO SIGNATURE */}
       <Navbar />
 
@@ -154,24 +158,61 @@ export default function Home() {
       <Contact />
       <Chatbot />
 
-      {/* FOOTER ÉDITORIAL */}
+      {/* FOOTER ÉDITORIAL AVEC LIENS JURIDIQUES & COOKIES */}
       <footer className="border-t border-zinc-200 bg-white py-12 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <span className="font-mono font-bold text-xs uppercase tracking-widest text-zinc-950">
-              [IK] IBRAHIM KARAMOKO
-            </span>
-            <span className="text-xs text-zinc-400 font-mono hidden sm:inline">•</span>
-            <span className="text-xs text-zinc-500 font-mono hidden sm:inline">
-              Tech Lead IA & Cybersécurité | CTO Opérationnel
-            </span>
+        <div className="max-w-7xl mx-auto flex flex-col gap-8">
+          {/* LIGNE PRINCIPALE : IDENTITÉ & NAVIGATION */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-zinc-100">
+            <div className="flex items-center gap-3">
+              <span className="font-mono font-bold text-xs uppercase tracking-widest text-zinc-950">
+                [IK] IBRAHIM KARAMOKO
+              </span>
+              <span className="text-xs text-zinc-400 font-mono hidden sm:inline">•</span>
+              <span className="text-xs text-zinc-500 font-mono hidden sm:inline">
+                Tech Lead IA & Cybersécurité | CTO Opérationnel
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono uppercase tracking-wider text-zinc-600">
+              <a href="#about" className="hover:text-zinc-950 transition-colors">01. Profil & Lead</a>
+              <a href="#projects" className="hover:text-zinc-950 transition-colors">02. Projets</a>
+              <Link href="/cv" className="hover:text-zinc-950 transition-colors">CV Officiel</Link>
+              <a href="#contact" className="hover:text-zinc-950 transition-colors">Contact</a>
+            </div>
           </div>
 
-          <div className="flex items-center gap-6 text-xs font-mono uppercase tracking-wider text-zinc-600">
-            <a href="#about" className="hover:text-zinc-950 transition-colors">01. Profil & Lead</a>
-            <a href="#projects" className="hover:text-zinc-950 transition-colors">02. Projets</a>
-            <Link href="/cv" className="hover:text-zinc-950 transition-colors">CV Officiel</Link>
-            <a href="#contact" className="hover:text-zinc-950 transition-colors">Contact</a>
+          {/* LIGNE JURIDIQUE & GESTION DES COOKIES */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+              <Link
+                href="/conditions-generales"
+                className="hover:text-zinc-950 underline transition-colors"
+              >
+                Conditions Générales de Service (CGS & CGU)
+              </Link>
+              <Link
+                href="/politique-de-confidentialite"
+                className="hover:text-zinc-950 underline transition-colors"
+              >
+                Politique de Confidentialité
+              </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(new Event("open_cookie_preferences"));
+                  }
+                }}
+                className="hover:text-zinc-950 underline transition-colors flex items-center gap-1"
+              >
+                <Shield size={12} />
+                <span>Gestion des Cookies</span>
+              </button>
+            </div>
+
+            <div className="text-center sm:text-right text-[11px] text-zinc-400">
+              © {new Date().getFullYear()} El Hadj Ibrahim V. Karamoko. Tous droits réservés.
+            </div>
           </div>
         </div>
       </footer>
