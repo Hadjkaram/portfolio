@@ -244,13 +244,17 @@ export default function AboutBento() {
                 </h5>
                 <ul className="space-y-3 text-sm">
                   <li className="p-3 bg-zinc-50 border border-zinc-200">
-                    <strong className="block text-zinc-950 text-base font-bold">
+                    <div className="flex justify-between items-baseline mb-0.5">
+                      <strong className="block text-zinc-950 text-base font-bold">HEC Paris</strong>
+                      <span className="text-xs font-mono font-bold text-zinc-500">2026</span>
+                    </div>
+                    <span className="text-xs text-zinc-800 font-mono font-semibold block">
                       {t("Certificat Executive AI for Business Transformation", "Executive Certificate: AI for Business Transformation")}
-                    </strong>
-                    <span className="text-xs text-zinc-600 font-mono">
+                    </span>
+                    <span className="text-[11px] text-zinc-500 font-mono block mt-0.5">
                       {t(
-                        "Transformation Stratégique par l'IA (2026)",
-                        "Strategic Business Transformation with AI (2026)"
+                        "Transformation Stratégique des Organisations par l'IA",
+                        "Strategic Business & Organizational Transformation with AI"
                       )}
                     </span>
                   </li>

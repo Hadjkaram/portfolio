@@ -170,7 +170,7 @@ export const IBRAHIM_KNOWLEDGE_BASE: ProfileTopic[] = [
     title_en: "Higher Education & Elite Certifications",
     content_fr: `Ibrahim a bâti un cursus académique d'excellence :
 • Formations Académiques & Exécutives :
-  - Certificat Executive AI for Business Transformation (2026)
+  - Certificat Executive AI for Business Transformation — HEC Paris (2026)
   - Master Executive IA & Cybersécurité — HEC Maroc (2024 – 2025)
   - Deep Learning Specialization — Stanford University / Coursera (2025)
   - Licence Génie Logiciel & Réseaux — PIGIER Côte d'Ivoire (2014 – 2017)
@@ -182,7 +182,7 @@ export const IBRAHIM_KNOWLEDGE_BASE: ProfileTopic[] = [
 • Langues : Français (Langue maternelle C2), Anglais (Courant / Professionnel B2).`,
     content_en: `Ibrahim has completed top-tier academic and professional programs:
 • Academic & Executive Credentials:
-  - Executive Certificate: AI for Business Transformation (2026)
+  - Executive Certificate: AI for Business Transformation — HEC Paris (2026)
   - Executive Master in AI & Cybersecurity — HEC Morocco (2024 – 2025)
   - Deep Learning Specialization — Stanford University / Coursera (2025)
   - Bachelor of Software Engineering & Networks — PIGIER Côte d'Ivoire (2014 – 2017)

@@ -233,7 +233,7 @@ export default function CVPage() {
                   <strong className="block text-zinc-950">
                     {t("Certificat Exec. AI for Business Transformation", "Exec. Certificate: AI for Business Transformation")}
                   </strong>
-                  <span className="text-zinc-500 font-mono">2026</span>
+                  <span className="text-zinc-500 font-mono">HEC Paris • 2026</span>
                 </li>
                 <li>
                   <strong className="block text-zinc-950">

@@ -232,7 +232,7 @@ While many developers can prototype a basic agent script, very few know how to t
 At MCM GROUP SAS / PASS SANTÉ MOUSSO, he directly leads 5 engineers with a measured 40% reduction in production regressions through disciplined Merge Requests and Clean Code / DDD practices. He has the leadership experience to structure your dev team or recruit specialized talent to deliver your agent roadmap on time.
 
 4. Cybersecurity by Design & Governance (CISSP®):
-Autonomous agents present critical operational risks (prompt injection, tool misuse, credential leakage, sandbox escapes). Holding CISSP® and CompTIA Security+ certifications alongside the Executive Certificate in AI for Business Transformation (2026), Ibrahim implements strict sandboxing, API key vaulting, and zero-trust policies.
+Autonomous agents present critical operational risks (prompt injection, tool misuse, credential leakage, sandbox escapes). Holding CISSP® and CompTIA Security+ certifications alongside the Executive Certificate in AI for Business Transformation from HEC Paris (2026), Ibrahim implements strict sandboxing, API key vaulting, and zero-trust policies.
 
 In summary, entrusting your AI agent project to Ibrahim combines frontier AI innovation with battle-tested industrial execution.
 
@@ -256,8 +256,8 @@ Beaucoup savent prototyper un agent IA sous forme de script de démo ; très peu
 3. Management d'Équipe & Vélocité de Livraison (-40% de bugs) :
 Chez MCM GROUP SAS / PASS SANTÉ MOUSSO, il manage directement une équipe de 5 ingénieurs avec une baisse mesurée de 40% des régressions en production grâce à des revues de code strictes (MRs) et des standards Clean Code / DDD. Il sait structurer des développeurs et fixer des jalons de livraison clairs pour votre projet d'agent.
 
-4. Sécurité & Gouvernance des Données (CISSP® & Certificat Exec. AI 2026) :
-Les agents autonomes posent des défis critiques (sécurité des clés d'API, injection de prompts, exécution non contrôlée de code). Certifié CISSP® et titulaire du Certificat Executive AI for Business Transformation (2026), Ibrahim garantit une sécurité stricte dès la conception (Zero-Trust, sandboxing, isolation des secrets avec HashiCorp Vault).
+4. Sécurité & Gouvernance des Données (CISSP® & HEC Paris Exec. AI 2026) :
+Les agents autonomes posent des défis critiques (sécurité des clés d'API, injection de prompts, exécution non contrôlée de code). Certifié CISSP® et titulaire du Certificat Executive AI for Business Transformation de HEC Paris (2026), Ibrahim garantit une sécurité stricte dès la conception (Zero-Trust, sandboxing, isolation des secrets avec HashiCorp Vault).
 
 En conclusion, confier la direction technique de votre projet d'agent IA à Ibrahim, c'est combiner l'audace de l'innovation IA avec la sérénité d'une exécution industrielle rodée.
 
@@ -292,7 +292,7 @@ Unlike theorists, Ibrahim deploys real AI to production:
 • Resilient Web Scraping pipelines (Playwright, Scrapy) and AI-assisted workflows using Antigravity, Claude Code, and Codex.
 
 4. Elite Cybersecurity & International Trust:
-Holding CISSP® and CompTIA Security+ certifications alongside an Executive Master in AI & Cybersecurity from HEC and the Executive Certificate in AI for Business Transformation (2026), he guarantees security by design, HIPAA/HDS healthcare compliance, and Zero-Trust architectures.
+Holding CISSP® and CompTIA Security+ certifications alongside an Executive Master in AI & Cybersecurity and the Executive Certificate in AI for Business Transformation from HEC Paris (2026), he guarantees security by design, HIPAA/HDS healthcare compliance, and Zero-Trust architectures.
 
 Do you have a specific technical challenge, team structure, or mission scope you would like to discuss?`,
         matchedTopicIds: ["identity_core", "management_leadership", "scenarios_unexpected"],
@@ -320,7 +320,7 @@ Loin du battage médiatique, Ibrahim déploie des IA qui tournent en conditions 
 • Extraction de données massives (Playwright, Scrapy) et développement assisté par agents d'élite (Google Antigravity, Claude Code, Codex).
 
 4. Rigueur de Cybersécurité & Confiance Institutionnelle :
-Certifié CISSP® et CompTIA Security+, diplômé d'un Master Executive IA & Cybersécurité à HEC Maroc et titulaire du Certificat Executive AI for Business Transformation (2026), il intègre la sécurité dès la conception (normes HDS de santé, chiffrement AES-256, architectures Zero-Trust). Ses solutions sont au cœur des systèmes de l'UNICEF, du PNUD, de l'OMS et de l'AFD.
+Certifié CISSP® et CompTIA Security+, diplômé d'un Master Executive IA & Cybersécurité et titulaire du Certificat Executive AI for Business Transformation de HEC Paris (2026), il intègre la sécurité dès la conception (normes HDS de santé, chiffrement AES-256, architectures Zero-Trust). Ses solutions sont au cœur des systèmes de l'UNICEF, du PNUD, de l'OMS et de l'AFD.
 
 Avez-vous un projet spécifique, un audit ou une problématique d'équipe dont vous aimeriez parler plus en détail ?`,
       matchedTopicIds: ["identity_core", "management_leadership", "scenarios_unexpected"],
@@ -421,7 +421,7 @@ Souhaitez-vous que je vous détaille comment il structure ses revues de code ou 
         text: `${hasGreeting ? "Hello! " : ""}Ibrahim Karamoko has built a top-tier academic and professional qualification track:
 
 • Academic & Executive Credentials:
-  - Executive Certificate: AI for Business Transformation (2026) — Strategic AI adoption, organizational leverage, and technological innovation.
+  - Executive Certificate: AI for Business Transformation — HEC Paris (2026) — Strategic AI adoption, organizational leverage, and technological innovation.
   - Executive Master in AI & Cybersecurity (2024 – 2025) — HEC Morocco.
   - Deep Learning Specialization (2025) — Stanford University / Coursera.
   - Bachelor of Software Engineering & Networks (2014 – 2017) — PIGIER Côte d'Ivoire.
@@ -432,7 +432,7 @@ Souhaitez-vous que je vous détaille comment il structure ses revues de code ou 
   - Digital Health Specialization — Imperial College London.
   - Google Cloud Data & Security Professional.
 
-This unique combination of business executive training (HEC, Executive AI 2026), deep tech fundamentals (Stanford), and world-class cybersecurity (CISSP®) positions him as a rare profile in the market.
+This unique combination of business executive training (HEC Paris, Executive AI 2026), deep tech fundamentals (Stanford), and world-class cybersecurity (CISSP®) positions him as a rare profile in the market.
 
 Would you like to verify any of these credentials on his official LinkedIn profile?`,
         matchedTopicIds: ["education_certifications"],
@@ -444,7 +444,7 @@ Would you like to verify any of these credentials on his official LinkedIn profi
       text: `${hasGreeting ? "Bonjour ! " : ""}Ibrahim Karamoko s'appuie sur un cursus académique d'excellence et des certifications internationales reconnues :
 
 • Formations Académiques & Exécutives :
-  - Certificat Executive AI for Business Transformation (obtenu en 2026) : Stratégie de transformation d'entreprise par l'IA et gouvernance de l'innovation.
+  - Certificat Executive AI for Business Transformation — HEC Paris (obtenu en 2026) : Stratégie de transformation d'entreprise par l'IA et gouvernance de l'innovation.
   - Master Executive IA & Cybersécurité (2024 – 2025) : HEC Maroc.
   - Deep Learning Specialization (2025) : Stanford University / Coursera.
   - Licence Génie Logiciel & Réseaux (2014 – 2017) : PIGIER Côte d'Ivoire.
@@ -455,7 +455,7 @@ Would you like to verify any of these credentials on his official LinkedIn profi
   - Digital Health Specialization : Imperial College London.
   - Certification Google Cloud Data & Security.
 
-Cette combinaison entre vision exécutive d'entreprise (HEC, Certificat Executive AI 2026), rigorisme Deep Tech (Stanford) et cybersécurité de rang mondial (CISSP®) fait d'Ibrahim un directeur technique complet et crédible.
+Cette combinaison entre vision exécutive d'entreprise (HEC Paris, Certificat Executive AI 2026), rigorisme Deep Tech (Stanford) et cybersécurité de rang mondial (CISSP®) fait d'Ibrahim un directeur technique complet et crédible.
 
 Souhaitez-vous que je vous mette en relation avec lui pour examiner son parcours en détail ?`,
       matchedTopicIds: ["education_certifications"],
@@ -660,7 +660,7 @@ Souhaitez-vous explorer un cas d'usage précis d'IA ou une brique RAG pour vos p
 • Executive Leadership: Directly manages 5 engineers with a proven 40% reduction in production regressions through mandatory code reviews and Clean Code disciplines.
 • Core AI & Engineering: Specialized in YOLOv8/v11 computer vision, scalable RAG architectures with pgvector, resilient Web Scraping, and agentic workflows (Antigravity, Claude Code, Codex).
 • International Recognition: Architect behind systems deployed with UNICEF, UNDP, WHO, AFD, Roche Laboratories, and the Ministry of Health.
-• Qualifications: CISSP®, CompTIA Security+, Stanford Deep Learning, Executive Master in AI from HEC, and Executive Certificate in AI for Business Transformation (2026).
+• Qualifications: CISSP®, CompTIA Security+, Stanford Deep Learning, Executive Master in AI from HEC, and Executive Certificate in AI for Business Transformation from HEC Paris (2026).
 
 What aspect of his track record would you like to explore further?`,
         matchedTopicIds: ["identity_core"],
@@ -674,7 +674,7 @@ What aspect of his track record would you like to explore further?`,
 • Leadership d'Équipe : Encadre directement 5 ingénieurs avec une baisse mesurée de 40% des régressions en production grâce aux revues de code systématiques (MRs) et à la culture Clean Code / DDD.
 • IA Appliquée & Deep Tech : Spécialiste de la vision par ordinateur (YOLOv8/v11), des systèmes RAG avec pgvector, du Web Scraping résilient et des environnements assistés par agents (Antigravity, Claude Code, Codex).
 • Impact Institutionnel : Concepteur de plateformes déployées avec l'UNICEF, le PNUD, l'OMS, l'AFD, le Laboratoire Roche et le Ministère de la Santé (MSHP-CMU).
-• Titres & Certifications : Certifié CISSP® et CompTIA Security+, Stanford Deep Learning, Master Exec. IA à HEC Maroc et Certificat Executive AI for Business Transformation (2026).
+• Titres & Certifications : Certifié CISSP® et CompTIA Security+, Stanford Deep Learning, Master Exec. IA à HEC Maroc et Certificat Executive AI for Business Transformation de HEC Paris (2026).
 
 Souhaitez-vous en savoir plus sur son management, ses réalisations concrètes ou sa vision de CTO ?`,
       matchedTopicIds: ["identity_core"],
