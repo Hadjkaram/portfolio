@@ -12,9 +12,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight, Users, Shield } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const kpis = [
+  const { language, t } = useLanguage();
+
+  const kpis = language === "en" ? [
+    { value: "5 Pers.", label: "Direct Tech Lead", detail: "3 devs + 2 interns (-40% bugs)" },
+    { value: "10+ Yrs", label: "Executive & Engineering", detail: "Mission-critical & Cloud" },
+    { value: "UNICEF", label: "Official Validation", detail: "National platform Nuria" },
+    { value: "CISSP", label: "Critical Cybersecurity", detail: "Exec. Master AI HEC Morocco" },
+  ] : [
     { value: "5 Pers.", label: "Encadrement Tech Direct", detail: "3 dévs + 2 stagiaires (-40% bugs)" },
     { value: "10+ Ans", label: "Direction & Ingénierie", detail: "Systèmes critiques & Cloud" },
     { value: "UNICEF", label: "Validation Officielle", detail: "Plateforme nationale Nuria" },
@@ -26,7 +34,7 @@ export default function Home() {
       {/* POPUP DE BIENVENUE PREMIUM AVANT D'ACCÉDER AU PORTFOLIO */}
       <WelcomeModal />
 
-      {/* NAVIGATION MINIMALISTE ÉDITORIALE AVEC LOGO SIGNATURE */}
+      {/* NAVIGATION MINIMALISTE ÉDITORIALE AVEC SÉLECTEUR BILINGUE */}
       <Navbar />
 
       {/* HERO SECTION 2 COLONNES AVEC EFFET D'ARRIÈRE-PLAN PRO PREMIUM */}
@@ -46,24 +54,48 @@ export default function Home() {
             {/* LIGNE DE STATUT */}
             <div className="inline-flex items-center gap-2 mb-6 text-xs font-mono uppercase tracking-wider text-zinc-700 bg-white border border-zinc-200 px-3 py-1 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Tech Lead IA & Cybersécurité | CTO Opérationnel</span>
+              <span>
+                {t(
+                  "Tech Lead IA & Cybersécurité | CTO Opérationnel",
+                  "AI & Cybersecurity Tech Lead | Operational CTO"
+                )}
+              </span>
             </div>
 
             <h1 className="text-[12vw] md:text-[6.5vw] font-black leading-[0.88] tracking-tighter text-zinc-950 mb-8 uppercase">
-              TECH LEAD IA <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700">
-                & CYBERSÉCURITÉ.
-              </span>
+              {language === "en" ? (
+                <>
+                  AI TECH LEAD <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700">
+                    & CYBERSECURITY.
+                  </span>
+                </>
+              ) : (
+                <>
+                  TECH LEAD IA <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700">
+                    & CYBERSÉCURITÉ.
+                  </span>
+                </>
+              )}
             </h1>
 
             <div className="flex flex-col gap-6 items-center md:items-start max-w-xl w-full">
-              {/* EFFET D'ÉCRITURE AUTOMATIQUE REAL-TIME TYPEWRITER */}
+              {/* EFFET D'ÉCRITURE AUTOMATIQUE REAL-TIME TYPEWRITER BILINGUE */}
               <TypewriterHero />
 
               <div className="p-3 bg-white border border-zinc-200 text-xs font-mono text-zinc-700 flex items-center gap-3">
                 <Users size={16} className="text-sky-600 shrink-0" />
                 <span>
-                  <strong>Management Tech :</strong> Encadrement direct de 5 personnes (3 dévs + 2 stagiaires ingénieurs) &mdash; réduction de <strong>40% des régressions</strong>.
+                  {language === "en" ? (
+                    <>
+                      <strong>Tech Leadership:</strong> Direct management of 5 engineers (3 devs + 2 engineering interns) &mdash; proven <strong>40% drop in bugs</strong>.
+                    </>
+                  ) : (
+                    <>
+                      <strong>Management Tech :</strong> Encadrement direct de 5 personnes (3 dévs + 2 stagiaires ingénieurs) &mdash; réduction de <strong>40% des régressions</strong>.
+                    </>
+                  )}
                 </span>
               </div>
 
@@ -85,7 +117,7 @@ export default function Home() {
                 </div>
 
                 <div className="text-left text-xs font-mono text-zinc-500 leading-tight">
-                  <span className="font-bold text-zinc-900">Lead Hands-on</span>
+                  <span className="font-bold text-zinc-900">{t("Lead Hands-on", "Hands-on Lead")}</span>
                   <br />
                   Antigravity, Claude Code & Codex
                 </div>
@@ -97,7 +129,7 @@ export default function Home() {
                   href="#projects"
                   className="px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-2 hover:shadow-lg"
                 >
-                  <span>Explorer les Réalisations Déployées</span>
+                  <span>{t("Explorer les Réalisations Déployées", "Explore Deployed Projects")}</span>
                   <ArrowDownRight size={14} />
                 </a>
 
@@ -105,22 +137,22 @@ export default function Home() {
                   href="/cv"
                   className="px-6 py-3.5 bg-white border border-zinc-300 hover:border-zinc-950 text-zinc-900 text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm"
                 >
-                  <span>Consulter le CV Officiel</span>
+                  <span>{t("Consulter le CV Officiel (1 Page)", "View Official Resume (1 Page)")}</span>
                   <ArrowUpRight size={14} />
                 </Link>
               </div>
             </div>
           </motion.div>
 
-          {/* DROITE : TA PHOTO DANS SON CADRE ORGANIQUE DYNAMIQUE RESTAURÉ & AMÉLIORÉ */}
+          {/* DROITE : PHOTO DANS SON CADRE ORGANIQUE DYNAMIQUE */}
           <div className="w-full md:w-2/5 relative flex justify-center items-center h-[380px] md:h-[580px]">
             {/* Lueur de fond douce */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-tr from-sky-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
 
-            {/* LE CADRE (BLOB) ORGANIQUE SIGNATURE D'IBRAHIM */}
+            {/* LE CADRE ORGANIQUE SIGNATURE D'IBRAHIM */}
             <div className="relative w-[320px] h-[320px] md:w-[460px] md:h-[460px] bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] overflow-hidden shadow-2xl border-4 border-white flex justify-center items-end group transition-all duration-700 hover:rounded-[40%_60%_70%_30%/50%_60%_30%_50%]">
               
-              {/* TA PHOTO DANS LE CADRE */}
+              {/* PHOTO D'IBRAHIM DANS LE CADRE */}
               <Image
                 src="/ibrahim-photo.png"
                 alt="El Hadj Ibrahim V. Karamoko"
@@ -169,15 +201,26 @@ export default function Home() {
               </span>
               <span className="text-xs text-zinc-400 font-mono hidden sm:inline">•</span>
               <span className="text-xs text-zinc-500 font-mono hidden sm:inline">
-                Tech Lead IA & Cybersécurité | CTO Opérationnel
+                {t(
+                  "Tech Lead IA & Cybersécurité | CTO Opérationnel",
+                  "AI & Cybersecurity Tech Lead | Operational CTO"
+                )}
               </span>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono uppercase tracking-wider text-zinc-600">
-              <a href="#about" className="hover:text-zinc-950 transition-colors">01. Profil & Lead</a>
-              <a href="#projects" className="hover:text-zinc-950 transition-colors">02. Projets</a>
-              <Link href="/cv" className="hover:text-zinc-950 transition-colors">CV Officiel</Link>
-              <a href="#contact" className="hover:text-zinc-950 transition-colors">Contact</a>
+              <a href="#about" className="hover:text-zinc-950 transition-colors">
+                {t("01. Profil & Lead", "01. Profile & Lead")}
+              </a>
+              <a href="#projects" className="hover:text-zinc-950 transition-colors">
+                {t("02. Projets", "02. Projects")}
+              </a>
+              <Link href="/cv" className="hover:text-zinc-950 transition-colors">
+                {t("CV Officiel", "Official Resume")}
+              </Link>
+              <a href="#contact" className="hover:text-zinc-950 transition-colors">
+                {t("Contact", "Contact")}
+              </a>
             </div>
           </div>
 
@@ -188,13 +231,13 @@ export default function Home() {
                 href="/conditions-generales"
                 className="hover:text-zinc-950 underline transition-colors"
               >
-                Conditions Générales de Service (CGS & CGU)
+                {t("Conditions Générales de Service (CGS & CGU)", "Terms of Service (ToS & CGU)")}
               </Link>
               <Link
                 href="/politique-de-confidentialite"
                 className="hover:text-zinc-950 underline transition-colors"
               >
-                Politique de Confidentialité
+                {t("Politique de Confidentialité", "Privacy Policy")}
               </Link>
               <button
                 type="button"
@@ -206,12 +249,12 @@ export default function Home() {
                 className="hover:text-zinc-950 underline transition-colors flex items-center gap-1"
               >
                 <Shield size={12} />
-                <span>Gestion des Cookies</span>
+                <span>{t("Gestion des Cookies", "Cookie Preferences")}</span>
               </button>
             </div>
 
             <div className="text-center sm:text-right text-[11px] text-zinc-400">
-              © {new Date().getFullYear()} El Hadj Ibrahim V. Karamoko. Tous droits réservés.
+              © {new Date().getFullYear()} El Hadj Ibrahim V. Karamoko. {t("Tous droits réservés.", "All rights reserved.")}
             </div>
           </div>
         </div>

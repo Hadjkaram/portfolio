@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Sparkles, FileText } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const emptySubscribe = () => () => {};
 
 export default function WelcomeModal() {
+  const { language, t } = useLanguage();
   const hasSeenWelcome = useSyncExternalStore(
     emptySubscribe,
     () => sessionStorage.getItem("ik_portfolio_welcome_seen") === "true",
@@ -74,7 +76,7 @@ export default function WelcomeModal() {
                     El Hadj Ibrahim V. Karamoko
                   </h3>
                   <p className="text-[11px] font-mono text-zinc-500">
-                    Espace Exécutif & Portfolio
+                    {t("Espace Exécutif & Portfolio", "Executive Space & Portfolio")}
                   </p>
                 </div>
               </div>
@@ -89,38 +91,58 @@ export default function WelcomeModal() {
             <div className="space-y-4 mb-8">
               <div className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">
                 <Sparkles size={12} className="text-amber-500" />
-                <span>Bienvenue dans l&apos;espace de travail</span>
+                <span>{t("Bienvenue dans l'espace de travail", "Welcome to the workspace")}</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-zinc-950 uppercase leading-tight">
-                Architectures Critiques & <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">
-                  Solutions d&apos;Impact Panafricain.
-                </span>
+                {language === "en" ? (
+                  <>
+                    Critical Architectures & <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">
+                      High-Impact Panafrican Systems.
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    Architectures Critiques & <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">
+                      Solutions d&apos;Impact Panafricain.
+                    </span>
+                  </>
+                )}
               </h2>
 
               <p className="text-sm text-zinc-600 leading-relaxed">
-                Ce portfolio rassemble plus de <strong className="text-zinc-950 font-semibold">10 années d&apos;ingénierie logicielle</strong>, de direction d&apos;équipes agiles et de déploiement de solutions d&apos;IA appliquée et d&apos;e-Santé pour des institutions sanitaires et multilatérales.
+                {t(
+                  "Ce portfolio rassemble plus de 10 années d'ingénierie logicielle, de direction d'équipes agiles et de déploiement de solutions d'IA appliquée et d'e-Santé pour des institutions sanitaires et multilatérales.",
+                  "This portfolio consolidates 10+ years of software engineering, agile leadership, and mission-critical deployments in applied AI and digital health for global health agencies and enterprises."
+                )}
               </p>
 
               {/* LES 3 PILIERS EN GRILLE COMPACTE */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
                 <div className="p-3 bg-zinc-50 border border-zinc-200">
-                  <span className="text-[10px] font-mono text-zinc-400 block font-bold mb-1">01 // SYSTÈMES</span>
+                  <span className="text-[10px] font-mono text-zinc-400 block font-bold mb-1">
+                    01 // {t("SYSTÈMES", "SYSTEMS")}
+                  </span>
                   <p className="text-xs font-bold text-zinc-900 leading-tight">
-                    10 Architectures en Production
+                    {t("10 Architectures en Production", "10 Production Systems")}
                   </p>
                 </div>
                 <div className="p-3 bg-zinc-50 border border-zinc-200">
-                  <span className="text-[10px] font-mono text-zinc-400 block font-bold mb-1">02 // PARTENAIRES</span>
+                  <span className="text-[10px] font-mono text-zinc-400 block font-bold mb-1">
+                    02 // {t("PARTENAIRES", "PARTNERS")}
+                  </span>
                   <p className="text-xs font-bold text-zinc-900 leading-tight">
                     UNICEF, OMS, PNUD, Roche
                   </p>
                 </div>
                 <div className="p-3 bg-zinc-50 border border-zinc-200">
-                  <span className="text-[10px] font-mono text-zinc-400 block font-bold mb-1">03 // LEADERSHIP</span>
+                  <span className="text-[10px] font-mono text-zinc-400 block font-bold mb-1">
+                    03 // {t("LEADERSHIP", "LEADERSHIP")}
+                  </span>
                   <p className="text-xs font-bold text-zinc-900 leading-tight">
-                    5 Ingénieurs (-40% de bugs)
+                    {t("5 Ingénieurs (-40% de bugs)", "5 Engineers (-40% bugs)")}
                   </p>
                 </div>
               </div>
@@ -133,7 +155,7 @@ export default function WelcomeModal() {
                 onClick={handleEnter}
                 className="w-full sm:flex-1 py-3.5 px-6 bg-zinc-950 hover:bg-zinc-800 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all flex items-center justify-center gap-2 group shadow-md"
               >
-                <span>Accéder au Portfolio</span>
+                <span>{t("Accéder au Portfolio", "Enter Portfolio")}</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -145,14 +167,15 @@ export default function WelcomeModal() {
                 className="w-full sm:w-auto py-3.5 px-5 bg-white border border-zinc-300 hover:border-zinc-950 text-zinc-900 font-mono text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5"
               >
                 <FileText size={14} />
-                <span>Voir le CV A4</span>
+                <span>{t("Voir le CV A4", "View A4 Resume")}</span>
               </Link>
             </div>
 
             {/* PIED DE CARTE DISCRET */}
             <div className="mt-6 pt-3 border-t border-zinc-100 flex items-center justify-between text-[10px] font-mono text-zinc-400">
               <span className="flex items-center gap-1">
-                <ShieldCheck size={11} className="text-emerald-600" /> Données et navigation protégées
+                <ShieldCheck size={11} className="text-emerald-600" />
+                {t("Données et navigation protégées", "Protected data & navigation")}
               </span>
               <span>Abidjan & International</span>
             </div>

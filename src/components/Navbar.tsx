@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Globe } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,9 +21,9 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { num: "01", name: "Expertise", href: "#about" },
-    { num: "02", name: "Réalisations", href: "#projects", badge: "10" },
-    { num: "03", name: "Contact", href: "#contact" },
+    { num: "01", name: t("Expertise", "Expertise"), href: "#about" },
+    { num: "02", name: t("Réalisations", "Projects"), href: "#projects", badge: "10" },
+    { num: "03", name: t("Contact", "Contact"), href: "#contact" },
   ];
 
   return (
@@ -50,13 +52,13 @@ export default function Navbar() {
                 Ibrahim Karamoko
               </span>
               <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
-                e-Santé & IA Engineer
+                {t("e-Santé & IA Engineer", "Digital Health & AI Engineer")}
               </span>
             </div>
           </Link>
 
           {/* MENU DESKTOP ÉDITORIAL CLAUDE STYLE */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -75,31 +77,84 @@ export default function Navbar() {
 
             <div className="h-4 w-[1px] bg-zinc-300"></div>
 
+            {/* LIEN VERS LE CV OFFICIEL */}
             <Link
               href="/cv"
               className="text-xs font-mono uppercase tracking-wider text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1 py-1"
             >
-              <span>Curriculum</span>
+              <span>{t("Curriculum", "Resume / CV")}</span>
               <ArrowUpRight size={12} className="text-zinc-400" />
             </Link>
+
+            {/* SÉLECTEUR DE LANGUE BILINGUE FR / EN */}
+            <div className="flex items-center border border-zinc-300 bg-white p-0.5 font-mono text-[11px]">
+              <button
+                type="button"
+                onClick={() => setLanguage("fr")}
+                className={`px-2 py-0.5 transition-colors uppercase ${
+                  language === "fr"
+                    ? "bg-zinc-900 text-white font-bold"
+                    : "text-zinc-600 hover:text-zinc-950"
+                }`}
+                aria-label="Passer en Français"
+              >
+                FR
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage("en")}
+                className={`px-2 py-0.5 transition-colors uppercase ${
+                  language === "en"
+                    ? "bg-zinc-900 text-white font-bold"
+                    : "text-zinc-600 hover:text-zinc-950"
+                }`}
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+            </div>
 
             <a
               href="#contact"
               className="px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono uppercase tracking-wider transition-all duration-200 border border-zinc-900 hover:shadow-md"
             >
-              Discutons.
+              {t("Discutons.", "Let's Talk.")}
             </a>
           </nav>
 
-          {/* BOUTON MOBILE */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu"
-            className="md:hidden p-2 text-zinc-900 border border-zinc-300 bg-white"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* BOUTON MOBILE + LANG TOGGLE */}
+          <div className="flex items-center gap-2 md:hidden">
+            {/* SÉLECTEUR MOBILE COMPACT */}
+            <div className="flex items-center border border-zinc-300 bg-white p-0.5 font-mono text-[10px]">
+              <button
+                type="button"
+                onClick={() => setLanguage("fr")}
+                className={`px-1.5 py-0.5 uppercase ${
+                  language === "fr" ? "bg-zinc-900 text-white font-bold" : "text-zinc-600"
+                }`}
+              >
+                FR
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage("en")}
+                className={`px-1.5 py-0.5 uppercase ${
+                  language === "en" ? "bg-zinc-900 text-white font-bold" : "text-zinc-600"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Menu"
+              className="p-2 text-zinc-900 border border-zinc-300 bg-white"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -134,16 +189,44 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-sm font-mono uppercase tracking-wider text-zinc-900 py-2 border-b border-zinc-200 flex justify-between items-center"
               >
-                <span>Curriculum Vitae</span>
+                <span>{t("Curriculum Vitae (1 Page A4)", "Curriculum Vitae (1 Page A4)")}</span>
                 <ArrowUpRight size={14} />
               </Link>
+
+              {/* SÉLECTEUR DE LANGUE DANS LE MENU MOBILE */}
+              <div className="flex items-center justify-between py-2 border-b border-zinc-200 text-xs font-mono">
+                <span className="flex items-center gap-1.5 text-zinc-600">
+                  <Globe size={14} />
+                  <span>{t("Langue du site", "Site Language")}</span>
+                </span>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("fr")}
+                    className={`px-3 py-1 text-xs border ${
+                      language === "fr" ? "bg-zinc-900 text-white font-bold border-zinc-900" : "bg-white text-zinc-700 border-zinc-300"
+                    }`}
+                  >
+                    Français
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("en")}
+                    className={`px-3 py-1 text-xs border ${
+                      language === "en" ? "bg-zinc-900 text-white font-bold border-zinc-900" : "bg-white text-zinc-700 border-zinc-300"
+                    }`}
+                  >
+                    English
+                  </button>
+                </div>
+              </div>
 
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-3 bg-zinc-900 text-white text-xs font-mono uppercase tracking-wider mt-2"
               >
-                Démarrer une collaboration
+                {t("Démarrer une collaboration", "Start a Collaboration")}
               </a>
             </div>
           </motion.div>

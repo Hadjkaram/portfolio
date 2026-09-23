@@ -10,22 +10,34 @@ import {
   Users,
   Bot,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutBento() {
+  const { language, t } = useLanguage();
+
   return (
     <section id="about" className="py-28 px-6 md:px-12 max-w-7xl mx-auto">
       {/* SECTION HEADER ÉDITORIAL CLAUDE STYLE */}
       <div className="mb-16 border-b border-zinc-200 pb-8">
         <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3 flex items-center gap-2">
-          <span>01 // Profil, Leadership & Savoir-Faire</span>
+          <span>{t("01 // Profil, Leadership & Savoir-Faire", "01 // Profile, Leadership & Capabilities")}</span>
         </h2>
         <p className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 leading-tight tracking-tight uppercase">
-          Tech Lead IA & CTO Opérationnel. <br />
-          <span className="text-zinc-500">Architecture, Management & Rigueur.</span>
+          {language === "en" ? (
+            <>
+              AI Tech Lead & Operational CTO. <br />
+              <span className="text-zinc-500">Architecture, Leadership & Delivery.</span>
+            </>
+          ) : (
+            <>
+              Tech Lead IA & CTO Opérationnel. <br />
+              <span className="text-zinc-500">Architecture, Management & Rigueur.</span>
+            </>
+          )}
         </p>
       </div>
 
-      {/* GRILLE ARCHITECTURALE NETTE (SANS ARRONDIS BULLES) */}
+      {/* GRILLE ARCHITECTURALE NETTE */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* CARTE 1 : LEAD E-SANTÉ & IMPACT NATIONAL (2 COLS) */}
@@ -43,36 +55,48 @@ export default function AboutBento() {
               <div className="flex items-center gap-2.5">
                 <HeartPulse className="text-sky-400" size={24} />
                 <span className="font-mono text-xs uppercase tracking-widest text-sky-400 font-bold">
-                  Tech Lead IA & Cybersécurité
+                  {t("Tech Lead IA & Cybersécurité", "AI & Cybersecurity Tech Lead")}
                 </span>
               </div>
               <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest font-bold">
-                10+ Ans d&apos;Expérience
+                {t("10+ Ans d'Expérience", "10+ Years Experience")}
               </span>
             </div>
 
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight">
-              Architecture Distribuée & Systèmes Critiques
+              {t(
+                "Architecture Distribuée & Systèmes Critiques",
+                "Distributed Architecture & Mission-Critical Systems"
+              )}
             </h3>
             <p className="text-zinc-300 leading-relaxed text-base md:text-lg">
-              Tech Lead & CTO Opérationnel spécialisé dans l&apos;IA appliquée (Computer Vision, MLOps, LLM & RAG) et la cybersécurité des systèmes critiques. Profil hands-on alliant arbitrage stratégique, écriture des briques logicielles complexes et structuration d&apos;équipes agiles performantes pour le Ministère de la Santé (MSHP-CMU), l&apos;UNICEF et des scale-ups internationales.
+              {t(
+                "Tech Lead & CTO Opérationnel spécialisé dans l'IA appliquée (Computer Vision, MLOps, LLM & RAG) et la cybersécurité des systèmes critiques. Profil hands-on alliant arbitrage stratégique, écriture des briques logicielles complexes et structuration d'équipes agiles performantes pour le Ministère de la Santé (MSHP-CMU), l'UNICEF, le Laboratoire Roche et des scale-ups internationales.",
+                "Hands-on Tech Lead & Operational CTO specialized in applied AI (Computer Vision, MLOps, LLM & RAG) and cybersecurity for mission-critical systems. Combining high-level strategic roadmap direction with complex software engineering, building high-performing agile engineering teams for the Ministry of Health (MSHP-CMU), UNICEF, Roche Laboratories, and international scale-ups."
+              )}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-6 mt-10 pt-6 border-t border-zinc-800 text-zinc-400 text-xs font-mono">
             <div>
               <span className="block text-3xl font-black text-white font-mono">5 Pers.</span>
-              <span className="uppercase tracking-wider text-zinc-500">Lead d&apos;Équipe Direct</span>
+              <span className="uppercase tracking-wider text-zinc-500">
+                {t("Lead d'Équipe Direct", "Direct Team Lead")}
+              </span>
             </div>
             <div className="h-8 w-[1px] bg-zinc-800"></div>
             <div>
               <span className="block text-3xl font-black text-emerald-400 font-mono">-40%</span>
-              <span className="uppercase tracking-wider text-zinc-500">Régressions Bugs</span>
+              <span className="uppercase tracking-wider text-zinc-500">
+                {t("Régressions Bugs", "Production Bugs")}
+              </span>
             </div>
             <div className="h-8 w-[1px] bg-zinc-800"></div>
             <div>
               <span className="block text-3xl font-black text-sky-400 font-mono">UNICEF</span>
-              <span className="uppercase tracking-wider text-zinc-500">Validation e-Santé</span>
+              <span className="uppercase tracking-wider text-zinc-500">
+                {t("Validation e-Santé", "e-Health Validation")}
+              </span>
             </div>
           </div>
         </motion.div>
@@ -88,33 +112,56 @@ export default function AboutBento() {
           <div>
             <div className="flex justify-between items-start mb-6 pb-4 border-b border-zinc-100">
               <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">
-                Management Tech
+                {t("Management Tech", "Tech Leadership")}
               </span>
               <Users className="text-zinc-900" size={24} />
             </div>
 
-            <h4 className="text-xl font-bold text-zinc-950 mb-3">Encadrement de 5 Personnes</h4>
+            <h4 className="text-xl font-bold text-zinc-950 mb-3">
+              {t("Encadrement de 5 Personnes", "Management of 5 Engineers")}
+            </h4>
             <p className="text-sm text-zinc-600 leading-relaxed mb-4">
-              Direction technique directe de <strong>3 développeurs juniors et 2 stagiaires ingénieurs</strong>.
+              {t(
+                "Direction technique directe de 3 développeurs juniors et 2 stagiaires ingénieurs.",
+                "Direct technical management of 3 junior developers and 2 engineering interns."
+              )}
             </p>
             <ul className="text-xs text-zinc-700 space-y-2 font-mono">
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-600 font-bold">✓</span>
-                <span><strong>Revues de code systématiques (MRs)</strong> : réduction prouvée de 40% des régressions.</span>
+                <span>
+                  {language === "en" ? (
+                    <><strong>Mandatory Code Reviews (MRs)</strong>: proven 40% reduction in production regressions.</>
+                  ) : (
+                    <><strong>Revues de code systématiques (MRs)</strong> : réduction prouvée de 40% des régressions.</>
+                  )}
+                </span>
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-600 font-bold">✓</span>
-                <span><strong>Rituels Agile / Scrum</strong> bi-hebdomadaires & accélération de la vélocité sprint.</span>
+                <span>
+                  {language === "en" ? (
+                    <><strong>Bi-weekly Agile / Scrum rituals</strong> & acceleration of sprint delivery velocity.</>
+                  ) : (
+                    <><strong>Rituels Agile / Scrum</strong> bi-hebdomadaires & accélération de la vélocité sprint.</>
+                  )}
+                </span>
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-600 font-bold">✓</span>
-                <span>Montée en compétences continue et culture <strong>Clean Code / DDD</strong>.</span>
+                <span>
+                  {language === "en" ? (
+                    <>Continuous mentorship and <strong>Clean Code / DDD</strong> culture.</>
+                  ) : (
+                    <>Montée en compétences continue et culture <strong>Clean Code / DDD</strong>.</>
+                  )}
+                </span>
               </li>
             </ul>
           </div>
 
           <div className="pt-4 mt-4 border-t border-zinc-100 text-[11px] font-mono text-zinc-500">
-            Arbitrage stratégique & excellence opérationnelle.
+            {t("Arbitrage stratégique & excellence opérationnelle.", "Strategic arbitration & operational excellence.")}
           </div>
         </motion.div>
 
@@ -134,9 +181,14 @@ export default function AboutBento() {
               <Bot className="text-purple-600" size={24} />
             </div>
 
-            <h4 className="text-xl font-bold text-zinc-950 mb-3">Maîtrise IA & Agents</h4>
+            <h4 className="text-xl font-bold text-zinc-950 mb-3">
+              {t("Maîtrise IA & Agents", "AI & Agent Mastery")}
+            </h4>
             <p className="text-sm text-zinc-600 leading-relaxed mb-4">
-              Pionnier dans l&apos;usage d&apos;outils d&apos;ingénierie assistés par IA pour démultiplier la productivité et la fiabilité architecturale :
+              {t(
+                "Pionnier dans l'usage d'outils d'ingénierie assistés par IA pour démultiplier la productivité et la fiabilité architecturale :",
+                "Pioneering AI-assisted software engineering workflows to maximize development velocity and architectural reliability:"
+              )}
             </p>
             <div className="flex flex-wrap gap-1.5">
               {[
@@ -157,7 +209,7 @@ export default function AboutBento() {
           </div>
 
           <div className="pt-4 mt-4 border-t border-zinc-100 text-[11px] font-mono text-zinc-500">
-            Augmentation du débit de livraison logicielle.
+            {t("Augmentation du débit de livraison logicielle.", "Accelerated software engineering delivery.")}
           </div>
         </motion.div>
 
@@ -173,29 +225,40 @@ export default function AboutBento() {
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100">
               <div className="flex items-center gap-3">
                 <GraduationCap className="text-zinc-900" size={24} />
-                <h4 className="text-xl font-bold text-zinc-950 tracking-tight">Formation Supérieure & Certifications Mondiales</h4>
+                <h4 className="text-xl font-bold text-zinc-950 tracking-tight">
+                  {t(
+                    "Formation Supérieure & Certifications Mondiales",
+                    "Higher Education & Global Certifications"
+                  )}
+                </h4>
               </div>
               <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
-                Standards Internationaux
+                {t("Standards Internationaux", "International Standards")}
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4 font-bold">
-                  Parcours Académique
+                  {t("Parcours Académique", "Academic Credentials")}
                 </h5>
                 <ul className="space-y-4 text-sm">
                   <li className="p-3 bg-zinc-50 border border-zinc-200">
                     <strong className="block text-zinc-950 text-base font-bold">HEC Maroc</strong>
                     <span className="text-xs text-zinc-600 font-mono">
-                      Master Exec. IA & Cybersécurité (2024 &mdash; 2025)
+                      {t(
+                        "Master Exec. IA & Cybersécurité (2024 — 2025)",
+                        "Exec. Master in AI & Cybersecurity (2024 — 2025)"
+                      )}
                     </span>
                   </li>
                   <li className="p-3 bg-zinc-50 border border-zinc-200">
                     <strong className="block text-zinc-950 text-base font-bold">PIGIER Côte d&apos;Ivoire</strong>
                     <span className="text-xs text-zinc-600 font-mono">
-                      Licence Génie Logiciel & Réseaux (2014 &mdash; 2017)
+                      {t(
+                        "Licence Génie Logiciel & Réseaux (2014 — 2017)",
+                        "B.Sc. Software Engineering & Networks (2014 — 2017)"
+                      )}
                     </span>
                   </li>
                 </ul>
@@ -203,12 +266,12 @@ export default function AboutBento() {
 
               <div>
                 <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4 font-bold">
-                  Certifications Critiques
+                  {t("Certifications Critiques", "Critical Certifications")}
                 </h5>
                 <ul className="space-y-2.5 text-xs text-zinc-700">
                   <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
                     <ShieldCheck size={16} className="text-emerald-700 shrink-0" />
-                    <span><strong>CISSP®</strong> & <strong>CompTIA Security+</strong> (Cybersécurité)</span>
+                    <span><strong>CISSP®</strong> & <strong>CompTIA Security+</strong> ({t("Cybersécurité", "Cybersecurity")})</span>
                   </li>
                   <li className="flex items-center gap-2 p-2 bg-zinc-50 border border-zinc-200">
                     <ShieldCheck size={16} className="text-blue-700 shrink-0" />
@@ -229,7 +292,7 @@ export default function AboutBento() {
 
           <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between">
             <span className="text-xs font-mono text-zinc-500">
-              Profil vérifié & recommandations officielles
+              {t("Profil vérifié & recommandations officielles", "Verified profile & official endorsements")}
             </span>
             <a
               href="https://www.linkedin.com/in/el-hadj-ibrahim-v-karamoko-76951613b"
@@ -237,7 +300,7 @@ export default function AboutBento() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-zinc-950 hover:text-blue-600 transition-colors"
             >
-              <span>Consulter sur LinkedIn</span>
+              <span>{t("Consulter sur LinkedIn", "View on LinkedIn")}</span>
               <ArrowUpRight size={14} />
             </a>
           </div>
@@ -251,7 +314,10 @@ export default function AboutBento() {
           <div className="flex items-center gap-2.5">
             <Terminal size={20} className="text-zinc-900" />
             <h4 className="text-sm font-mono font-bold uppercase tracking-widest text-zinc-950">
-              Stack Technologique, RAG & Pipelines de Données
+              {t(
+                "Stack Technologique, RAG & Pipelines de Données",
+                "Technology Stack, RAG & Data Pipelines"
+              )}
             </h4>
           </div>
           <span className="text-xs font-mono text-zinc-500">
@@ -267,7 +333,7 @@ export default function AboutBento() {
             <ul className="space-y-1 text-zinc-600">
               <li>YOLOv8 / YOLOv11</li>
               <li>PyTorch & OpenCV</li>
-              <li>Visionneuse WSI (TIFF)</li>
+              <li>{t("Visionneuse WSI (TIFF)", "WSI TIFF Viewer")}</li>
               <li>Pipelines MLOps</li>
             </ul>
           </div>
@@ -286,13 +352,13 @@ export default function AboutBento() {
 
           <div>
             <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
-              Backend & Données
+              Backend & {t("Données", "Data")}
             </span>
             <ul className="space-y-1 text-zinc-600">
               <li>Python (FastAPI)</li>
               <li>Node.js (TypeScript)</li>
               <li>Java / Spring Boot</li>
-              <li>PostgreSQL (RLS) / Supabase</li>
+              <li>PostgreSQL (RLS)</li>
             </ul>
           </div>
 
@@ -310,13 +376,13 @@ export default function AboutBento() {
 
           <div>
             <span className="text-[11px] font-bold text-zinc-900 uppercase block mb-2 border-b border-zinc-200 pb-1">
-              DevOps & Sécurité
+              DevOps & {t("Sécurité", "Security")}
             </span>
             <ul className="space-y-1 text-zinc-600">
               <li>Docker / AWS Cloud</li>
-              <li>Standards CISSP & IAM</li>
-              <li>Chiffrement AES-256</li>
-              <li>Conformité Santé</li>
+              <li>{t("Standards CISSP & IAM", "CISSP & IAM Standards")}</li>
+              <li>{t("Chiffrement AES-256", "AES-256 Encryption")}</li>
+              <li>{t("Conformité Santé", "HDS Health Compliance")}</li>
             </ul>
           </div>
         </div>

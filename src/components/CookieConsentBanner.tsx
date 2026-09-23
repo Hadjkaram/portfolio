@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Check, Settings2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CookieConsentBanner() {
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
@@ -18,7 +20,7 @@ export default function CookieConsentBanner() {
       return () => clearTimeout(timer);
     }
 
-    // Écouteur pour ré-ouvrir le banner si l'utilisateur clique sur "Préférences Cookies" dans le footer
+    // Écouteur pour ré-ouvrir le banner si l'utilisateur clique sur "Gestion des Cookies" dans le footer
     const handleReopen = () => setVisible(true);
     window.addEventListener("open_cookie_preferences", handleReopen);
     return () => window.removeEventListener("open_cookie_preferences", handleReopen);
@@ -44,7 +46,7 @@ export default function CookieConsentBanner() {
         exit={{ y: 30, opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-lg z-50 bg-white border border-zinc-300 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] p-5 sm:p-6 text-zinc-900"
-        aria-label="Consentement aux cookies et respect de la vie privée"
+        aria-label={t("Consentement aux cookies et respect de la vie privée", "Cookie consent and privacy notice")}
         role="dialog"
       >
         {/* LIGNE BLEUE SUPÉRIEURE */}
@@ -56,34 +58,52 @@ export default function CookieConsentBanner() {
           </div>
           <div>
             <h3 className="font-bold text-sm tracking-tight text-zinc-950 uppercase font-mono">
-              Respect de votre vie privée & Cookies
+              {t("Respect de votre vie privée & Cookies", "Privacy & Cookie Preferences")}
             </h3>
             <p className="text-xs text-zinc-500 font-mono mt-0.5">
-              Conformité RGPD & Loi n° 2013-450 (Côte d&apos;Ivoire)
+              {t(
+                "Conformité RGPD & Loi n° 2013-450 (Côte d'Ivoire)",
+                "GDPR Compliance & Law No. 2013-450 (Côte d'Ivoire)"
+              )}
             </p>
           </div>
         </div>
 
         <p className="text-xs text-zinc-600 leading-relaxed mb-4">
-          Ce site utilise des cookies techniques et des mécanismes de stockage local nécessaires à la fluidité de navigation, au fonctionnement du chatbot IA et à la mesure d&apos;audience anonyme. Aucune donnée n&apos;est commercialisée.
+          {t(
+            "Ce site utilise des cookies techniques et des mécanismes de stockage local nécessaires à la fluidité de navigation, au fonctionnement de l'IA et à la mesure d'audience anonyme. Aucune donnée n'est commercialisée.",
+            "This site uses essential technical cookies and local storage required for seamless navigation, AI assistant operation, and anonymous performance analytics. No personal data is commercialized."
+          )}
         </p>
 
         {showDetails && (
           <div className="mb-4 p-3 bg-zinc-50 border border-zinc-200 text-[11px] font-mono space-y-2">
             <div className="flex items-center justify-between pb-1 border-b border-zinc-200">
-              <span className="font-bold text-zinc-900">Cookies Techniques (Essentiels)</span>
-              <span className="text-emerald-700 font-bold">Actifs (Toujours requis)</span>
+              <span className="font-bold text-zinc-900">
+                {t("Cookies Techniques (Essentiels)", "Technical Cookies (Essential)")}
+              </span>
+              <span className="text-emerald-700 font-bold">
+                {t("Actifs (Toujours requis)", "Active (Always required)")}
+              </span>
             </div>
             <p className="text-zinc-600 text-[10.5px]">
-              Mémorisation de la session, statut du popup de bienvenue et sécurité des formulaires.
+              {t(
+                "Mémorisation de la session, statut du popup de bienvenue et sécurité des formulaires.",
+                "Session caching, welcome modal state, and secure form transmission."
+              )}
             </p>
 
             <div className="flex items-center justify-between pt-1 pb-1 border-b border-zinc-200">
-              <span className="font-bold text-zinc-900">Mesure d&apos;audience & Télémétrie</span>
-              <span className="text-zinc-600">Optionnels</span>
+              <span className="font-bold text-zinc-900">
+                {t("Mesure d'audience & Télémétrie", "Analytics & Telemetry")}
+              </span>
+              <span className="text-zinc-600">{t("Optionnels", "Optional")}</span>
             </div>
             <p className="text-zinc-600 text-[10.5px]">
-              Statistiques d&apos;utilisation agrégées et anonymisées permettant d&apos;améliorer l&apos;ergonomie.
+              {t(
+                "Statistiques d'utilisation agrégées et anonymisées permettant d'améliorer l'ergonomie.",
+                "Aggregated, privacy-preserving usage metrics used strictly to enhance UX performance."
+              )}
             </p>
           </div>
         )}
@@ -96,13 +116,17 @@ export default function CookieConsentBanner() {
               className="text-zinc-600 hover:text-zinc-950 underline flex items-center gap-1 transition-colors"
             >
               <Settings2 size={12} />
-              <span>{showDetails ? "Masquer les détails" : "Personnaliser"}</span>
+              <span>
+                {showDetails
+                  ? t("Masquer les détails", "Hide details")
+                  : t("Personnaliser", "Customize")}
+              </span>
             </button>
             <Link
               href="/politique-de-confidentialite"
               className="text-zinc-500 hover:text-zinc-900 underline transition-colors"
             >
-              Politique de Confidentialité
+              {t("Politique de Confidentialité", "Privacy Policy")}
             </Link>
           </div>
 
@@ -112,7 +136,7 @@ export default function CookieConsentBanner() {
               onClick={handleAcceptEssential}
               className="flex-1 sm:flex-none px-3 py-2 bg-white border border-zinc-300 hover:border-zinc-950 text-zinc-800 text-xs font-mono font-medium transition-colors"
             >
-              Refuser non-essentiels
+              {t("Refuser non-essentiels", "Decline Non-Essential")}
             </button>
             <button
               type="button"
@@ -120,7 +144,7 @@ export default function CookieConsentBanner() {
               className="flex-1 sm:flex-none px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono font-bold transition-all shadow-sm flex items-center justify-center gap-1.5"
             >
               <Check size={13} />
-              <span>Tout Accepter</span>
+              <span>{t("Tout Accepter", "Accept All")}</span>
             </button>
           </div>
         </div>
