@@ -228,7 +228,13 @@ export default function CVPage() {
               <h3 className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-900 mb-1.5 flex items-center gap-1 border-b border-zinc-200 pb-1">
                 <GraduationCap size={12} /> {t("Formation", "Education")}
               </h3>
-              <ul className="text-[10px] space-y-1 text-zinc-800 leading-tight">
+              <ul className="text-[9.5px] space-y-1 text-zinc-800 leading-tight">
+                <li>
+                  <strong className="block text-zinc-950">
+                    {t("Certificat Exec. AI for Business Transformation", "Exec. Certificate: AI for Business Transformation")}
+                  </strong>
+                  <span className="text-zinc-500 font-mono">2026</span>
+                </li>
                 <li>
                   <strong className="block text-zinc-950">
                     {t("Master Exec. IA & Cybersécurité", "Exec. Master in AI & Cybersecurity")}

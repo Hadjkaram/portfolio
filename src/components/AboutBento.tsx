@@ -242,7 +242,18 @@ export default function AboutBento() {
                 <h5 className="font-mono text-xs uppercase tracking-widest text-zinc-400 mb-4 font-bold">
                   {t("Parcours Académique", "Academic Credentials")}
                 </h5>
-                <ul className="space-y-4 text-sm">
+                <ul className="space-y-3 text-sm">
+                  <li className="p-3 bg-zinc-50 border border-zinc-200">
+                    <strong className="block text-zinc-950 text-base font-bold">
+                      {t("Certificat Executive AI for Business Transformation", "Executive Certificate: AI for Business Transformation")}
+                    </strong>
+                    <span className="text-xs text-zinc-600 font-mono">
+                      {t(
+                        "Transformation Stratégique par l'IA (2026)",
+                        "Strategic Business Transformation with AI (2026)"
+                      )}
+                    </span>
+                  </li>
                   <li className="p-3 bg-zinc-50 border border-zinc-200">
                     <strong className="block text-zinc-950 text-base font-bold">HEC Maroc</strong>
                     <span className="text-xs text-zinc-600 font-mono">

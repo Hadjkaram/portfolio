@@ -119,27 +119,27 @@ export const IBRAHIM_KNOWLEDGE_BASE: ProfileTopic[] = [
     title_fr: "10 Réalisations Stratégiques Déployées",
     title_en: "10 Deployed Strategic Achievements",
     content_fr: `Ibrahim a piloté et déployé 10 architectures technologiques majeures en production :
-1. Kanyeh Assist : Télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville, le PNLC et le Laboratoire Roche. YOLOv8/v11 pour atypies cellulaires, viewer WSI TIFF gigaoctets et PostgreSQL RLS. Précision 80%.
-2. Nuria : 1ère plateforme africaine de dépistage pédiatrique des troubles neurodéveloppementaux (TND/Autisme), validée par l'UNICEF et adoptée par le Ministère de la Santé (MSHP). Synchronisation offline-first résiliente.
-3. Tila : Plateforme & app mobile (ci.tila.app) de santé mentale déployée auprès des institutions multilatérales : UNICEF, PNUD, AFD, Expertise France, PNLT, OMS et PNSM. Téléconsultations chiffrées AES-256 et WebSockets.
-4. XH Skills Academy : EdTech panafricaine en santé numérique (xhskillsacademy.com) portée par Corine Maurice Ouattara. Ibrahim y est Tech Lead et Formateur en santé numérique (LMS Next.js, streaming bas débit).
-5. E-PNEUMO : Dossier médical partagé en pneumologie et interconnexion hospitalière soutenu par la Fondation MTN.
-6. CI Identité : Solution régalienne d'identité numérique et IAM étatique (Go/Rust, Keycloak, PKI, OAuth 2.0).
-7. CI Connect : Moteur vocal et textuel NLP démocratisant l'accès au droit ivoirien via recherche vectorielle.
-8. AVLYTECH : Startup GovTech basée en France co-fondée par Ibrahim (CTO), architectures pour institutions publiques.
-9. Yamoh : Application mobile de covoiturage en Côte d'Ivoire (Flutter, Firebase, tarification dynamique).
-10. Assofit : Réseau social sportif et ERP d'associations avec moteur de matching algorithmique.`,
+1. Kanyeh Assist : Télé-diagnostic anatomopathologique reliant les CHU de Bouaké, Treichville, le PNLC et le Laboratoire Roche. YOLOv8/v11 pour atypies cellulaires, viewer WSI TIFF gigaoctets et PostgreSQL 16 Enterprise avec Row-Level Security (RLS) et HashiCorp Vault. Précision 80%.
+2. Nuria : 1ère plateforme africaine de dépistage pédiatrique des troubles neurodéveloppementaux (TND/Autisme), validée par l'UNICEF et adoptée par le Ministère de la Santé (MSHP). Synchronisation offline-first résiliente, PostgreSQL 16 HA, Keycloak OIDC et Semgrep DevSecOps.
+3. Tila : Plateforme & app mobile (ci.tila.app) de santé mentale déployée auprès des institutions multilatérales : UNICEF, PNUD, AFD, Expertise France, PNLT, OMS et PNSM. Téléconsultations chiffrées de bout en bout AES-256, PostgreSQL 16 partitionné, Redis Sentinel et Cloudflare WAF.
+4. XH Skills Academy : EdTech panafricaine en santé numérique (xhskillsacademy.com) portée par Corine Maurice Ouattara. Ibrahim y est Tech Lead et Formateur en santé numérique (LMS Next.js, streaming adaptatif, PostgreSQL 16, Redis Cache, DRM Cloudflare).
+5. E-PNEUMO : Dossier médical partagé en pneumologie et interconnexion hospitalière soutenu par la Fondation MTN (PostgreSQL 16 HA, tunnels VPN IPSec chiffrés, conformité HL7/FHIR, RBAC).
+6. CI Identité : Solution régalienne d'identité numérique et IAM étatique (Go/Rust, Keycloak IAM, PKI Cryptographie X.509, HSM module matériel, base distribuée CockroachDB).
+7. CI Connect : Moteur vocal et textuel NLP démocratisant l'accès au droit ivoirien via recherche vectorielle sous PostgreSQL 16 avec pgvector et guardrails IA anti-injection.
+8. AVLYTECH : Startup GovTech basée en France co-fondée par Ibrahim (CTO), architectures souveraines durcies pour institutions publiques (Kubernetes, Istio mTLS, PostgreSQL Enterprise, Trivy DevSecOps).
+9. Yamoh : Application mobile de covoiturage et mobilité urbaine en Côte d'Ivoire. Intègre un module KYC de vérification d'identité biométrique (anti-fraude / anti-spoofing), tarification dynamique, passerelle Mobile Money sécurisée, PostgreSQL 16 (PostGIS) et cache temps réel Redis Cluster.
+10. Assofit : Réseau social sportif et ERP d'associations avec moteur de matching algorithmique, PostgreSQL 16, Redis et tokenisation bancaire sécurisée PCI-DSS.`,
     content_en: `Ibrahim has engineered and deployed 10 major production architectures:
-1. Kanyeh Assist: National telepathology platform connecting University Hospitals of Bouaké and Treichville, PNLC, and Roche Laboratories. YOLOv8/v11 models detecting cellular atypia, gigabyte WSI TIFF viewer, PostgreSQL RLS. 80% accuracy.
-2. Nuria: Africa's first pediatric screening platform for neurodevelopmental disorders, validated by UNICEF and adopted by the Ministry of Health (MSHP). Resilient offline-first synchronization.
-3. Tila: Mental health mobile app & platform (ci.tila.app) mobilized by multilateral institutions: UNICEF, UNDP, AFD, Expertise France, PNLT, WHO, and PNSM. AES-256 encrypted teleconsultations and WebSockets.
-4. XH Skills Academy: Pan-African digital health EdTech (xhskillsacademy.com) championed by Corine Maurice Ouattara. Ibrahim serves as Tech Lead and Digital Health Instructor (Next.js LMS, low-bandwidth streaming).
-5. E-PNEUMO: Shared pulmonary electronic health record connecting public hospitals, partnered with MTN Foundation.
-6. CI Identité: Sovereign digital identity & IAM platform (Go/Rust, Keycloak, PKI, OAuth 2.0).
-7. CI Connect: Voice and text NLP engine democratizing access to Ivorian law through semantic vector search.
-8. AVLYTECH: France-based GovTech startup co-founded by Ibrahim (CTO), delivering sovereign software architectures.
-9. Yamoh: Urban and intercity ridesharing app in Côte d'Ivoire (Flutter, Firebase, dynamic pricing algorithm).
-10. Assofit: Sports community app with algorithmic member matching and club management ERP.`
+1. Kanyeh Assist: National telepathology platform connecting University Hospitals of Bouaké and Treichville, PNLC, and Roche Laboratories. YOLOv8/v11 models detecting cellular atypia, gigabyte WSI TIFF viewer, PostgreSQL 16 Enterprise RLS, and HashiCorp Vault. 80% accuracy.
+2. Nuria: Africa's first pediatric screening platform for neurodevelopmental disorders, validated by UNICEF and adopted by the Ministry of Health (MSHP). Resilient offline-first synchronization, PostgreSQL 16 HA, Keycloak OIDC, and Semgrep DevSecOps.
+3. Tila: Mental health mobile app & platform (ci.tila.app) mobilized by multilateral institutions: UNICEF, UNDP, AFD, Expertise France, PNLT, WHO, and PNSM. AES-256 end-to-end encrypted teleconsultations, partitioned PostgreSQL 16, Redis Sentinel, and Cloudflare Enterprise WAF.
+4. XH Skills Academy: Pan-African digital health EdTech (xhskillsacademy.com) championed by Corine Maurice Ouattara. Ibrahim serves as Tech Lead and Digital Health Instructor (Next.js LMS, adaptive streaming, PostgreSQL 16, Redis Cache, DRM Cloudflare).
+5. E-PNEUMO: Shared pulmonary electronic health record connecting public hospitals, partnered with MTN Foundation (PostgreSQL 16 HA, IPSec VPN tunnels, HL7/FHIR compliance, granular RBAC).
+6. CI Identité: Sovereign digital identity & IAM platform (Go/Rust, Keycloak IAM, PKI X.509 cryptography, HSM hardware security module, CockroachDB distributed database).
+7. CI Connect: Voice and text NLP engine democratizing access to Ivorian law through semantic vector search with PostgreSQL 16 pgvector and anti-injection AI guardrails.
+8. AVLYTECH: France-based GovTech startup co-founded by Ibrahim (CTO), delivering hardened sovereign software architectures (Kubernetes, Istio mTLS, PostgreSQL Enterprise, Trivy DevSecOps).
+9. Yamoh: Urban and intercity ridesharing platform in Côte d'Ivoire. Features automated biometric KYC identity verification (anti-fraud / anti-spoofing), dynamic pricing, secure Mobile Money gateway, PostgreSQL 16 (PostGIS), and Redis Cluster real-time cache.
+10. Assofit: Sports community app with algorithmic member matching, PostgreSQL 16, Redis Cache, and PCI-DSS compliant secure payment tokenization.`
   },
   {
     id: "career_trajectory",
@@ -164,12 +164,13 @@ export const IBRAHIM_KNOWLEDGE_BASE: ProfileTopic[] = [
   {
     id: "education_certifications",
     category: "education",
-    tags: ["diplomes", "formation", "hec", "stanford", "pigier", "certifications", "cissp", "comptia", "imperial-college"],
-    keywords: ["diplome", "diplômes", "etudes", "formation", "hec", "hec maroc", "stanford", "pigier", "master", "licence", "certifications", "cissp", "comptia", "imperial college", "degrees", "education"],
+    tags: ["diplomes", "formation", "executive-ai", "hec", "stanford", "pigier", "certifications", "cissp", "comptia", "imperial-college"],
+    keywords: ["diplome", "diplômes", "etudes", "formation", "executive ai", "business transformation", "hec", "hec maroc", "stanford", "pigier", "master", "licence", "certifications", "cissp", "comptia", "imperial college", "degrees", "education"],
     title_fr: "Formation Supérieure & Certifications d'Élite",
     title_en: "Higher Education & Elite Certifications",
     content_fr: `Ibrahim a bâti un cursus académique d'excellence :
-• Formations Académiques :
+• Formations Académiques & Exécutives :
+  - Certificat Executive AI for Business Transformation (2026)
   - Master Executive IA & Cybersécurité — HEC Maroc (2024 – 2025)
   - Deep Learning Specialization — Stanford University / Coursera (2025)
   - Licence Génie Logiciel & Réseaux — PIGIER Côte d'Ivoire (2014 – 2017)
@@ -180,7 +181,8 @@ export const IBRAHIM_KNOWLEDGE_BASE: ProfileTopic[] = [
   - Google Cloud Data & Security
 • Langues : Français (Langue maternelle C2), Anglais (Courant / Professionnel B2).`,
     content_en: `Ibrahim has completed top-tier academic and professional programs:
-• Academic Credentials:
+• Academic & Executive Credentials:
+  - Executive Certificate: AI for Business Transformation (2026)
   - Executive Master in AI & Cybersecurity — HEC Morocco (2024 – 2025)
   - Deep Learning Specialization — Stanford University / Coursera (2025)
   - Bachelor of Software Engineering & Networks — PIGIER Côte d'Ivoire (2014 – 2017)
