@@ -350,175 +350,186 @@ export default function ProjectsAvantGarde() {
     : allProjects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-28 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-200">
-      {/* SECTION HEADER ÉDITORIAL */}
-      <div className="mb-14 flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-zinc-200">
-        <div>
-          <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-3 flex items-center gap-2">
-            <span>{t("02 // Réalisations & Écosystèmes Déployés", "02 // Deployed Projects & Ecosystems")}</span>
-          </h2>
-          <p className="text-3xl md:text-5xl lg:text-6xl font-black text-zinc-950 leading-tight tracking-tight uppercase">
-            {language === "en" ? (
-              <>
-                Architectures <br />
-                <span className="text-zinc-500">in Production.</span>
-              </>
-            ) : (
-              <>
-                Architectures <br />
-                <span className="text-zinc-500">en Production.</span>
-              </>
-            )}
-          </p>
+    <section id="projects" className="w-full bg-[#0f1013] text-white py-28 relative border-y-2 border-zinc-800 transition-colors duration-500 overflow-hidden">
+      {/* EFFET DE PROFONDEUR ARCHITECTURALE & LUEURS CINÉMATIQUES */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2229_1px,transparent_1px),linear-gradient(to_bottom,#1f2229_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-25 pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        {/* SECTION HEADER ÉDITORIAL */}
+        <div className="mb-14 flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-zinc-800">
+          <div>
+            <h2 className="text-xs font-mono uppercase tracking-[0.25em] text-sky-400 mb-3 flex items-center gap-2 font-bold">
+              <span>{t("02 // Réalisations & Écosystèmes Déployés", "02 // Deployed Projects & Ecosystems")}</span>
+            </h2>
+            <p className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight uppercase">
+              {language === "en" ? (
+                <>
+                  Architectures <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400">
+                    in Production.
+                  </span>
+                </>
+              ) : (
+                <>
+                  Architectures <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-400">
+                    en Production.
+                  </span>
+                </>
+              )}
+            </p>
+          </div>
+
+          <div className="lg:max-w-md flex flex-col gap-2 text-left">
+            <p className="text-zinc-300 text-sm md:text-base leading-relaxed">
+              {t(
+                "Une sélection de 10 réalisations majeures validées par les institutions sanitaires (UNICEF, PNUD, OMS, AFD, MSHP-CMU, SiPath, Laboratoire Roche) et des partenaires télécoms et bancaires.",
+                "A curated selection of 10 major production architectures endorsed by global health agencies (UNICEF, UNDP, WHO, AFD, MSHP-CMU, SiPath, Roche Laboratories) and enterprise partners."
+              )}
+            </p>
+            <span className="text-xs font-mono text-zinc-400">
+              {t(
+                "Cliquez sur \"Consulter l'architecture\" pour inspecter les spécifications.",
+                "Click \"Inspect Architecture\" to review technical specifications."
+              )}
+            </span>
+          </div>
         </div>
 
-        <div className="lg:max-w-md flex flex-col gap-2 text-left">
-          <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
-            {t(
-              "Une sélection de 10 réalisations majeures validées par les institutions sanitaires (UNICEF, PNUD, OMS, AFD, MSHP-CMU, SiPath, Laboratoire Roche) et des partenaires télécoms et bancaires.",
-              "A curated selection of 10 major production architectures endorsed by global health agencies (UNICEF, UNDP, WHO, AFD, MSHP-CMU, SiPath, Roche Laboratories) and enterprise partners."
-            )}
-          </p>
-          <span className="text-xs font-mono text-zinc-400">
-            {t(
-              "Cliquez sur \"Consulter l'architecture\" pour inspecter les spécifications.",
-              "Click \"Inspect Architecture\" to review technical specifications."
-            )}
-          </span>
-        </div>
-      </div>
-
-      {/* TABS DE FILTRAGE ÉDITORIAL CLAUDE STYLE */}
-      <div className="flex items-center gap-1 overflow-x-auto pb-4 mb-10 border-b border-zinc-200 no-scrollbar">
-        {categoryTabs.map((tab) => {
-          const isActive = activeCategory === tab.id;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveCategory(tab.id)}
-              className={`relative px-4 py-2 text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors flex items-center gap-2 ${
-                isActive
-                  ? "text-zinc-950 font-bold border-b-2 border-zinc-950 bg-white"
-                  : "text-zinc-500 hover:text-zinc-900 bg-transparent"
-              }`}
-            >
-              <span>{tab.label}</span>
-              <span
-                className={`text-[10px] font-mono px-1.5 py-0.2 ${
-                  isActive ? "bg-zinc-900 text-white" : "bg-zinc-200 text-zinc-600"
-                }`}
-              >
-                {tab.count}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* GRILLE DES PROJETS NETTE ET STRUCTURÉE */}
-      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <AnimatePresence>
-          {filteredProjects.map((project) => {
-            const isFeatured = project.featured;
-            const categoryLabel = language === "en" ? project.categoryLabel_en : project.categoryLabel_fr;
-            const validation = language === "en" ? project.validation_en : project.validation_fr;
-            const desc = language === "en" ? project.desc_en : project.desc_fr;
-            const impactMetrics = language === "en" ? project.impactMetrics_en : project.impactMetrics_fr;
-
+        {/* TABS DE FILTRAGE ÉDITORIAL */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 border-b border-zinc-800 no-scrollbar">
+          {categoryTabs.map((tab) => {
+            const isActive = activeCategory === tab.id;
             return (
-              <motion.article
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className={`group relative p-8 flex flex-col justify-between transition-all duration-300 bg-white border border-zinc-200 hover:border-zinc-950 shadow-sm hover:shadow-md ${
-                  isFeatured ? "md:col-span-2 lg:col-span-2 bg-[#fcfcfb]" : ""
+              <button
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id)}
+                className={`relative px-4 py-2 text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-2 ${
+                  isActive
+                    ? "text-white font-bold border-b-2 border-sky-400 bg-zinc-800/90 shadow-sm"
+                    : "text-zinc-400 hover:text-white bg-zinc-900/60 border border-zinc-800/60"
                 }`}
               >
-                <div>
-                  {/* EN-TÊTE DE LA CARTE : NUMÉRO & BADGES */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-6 pb-4 border-b border-zinc-100">
-                    <span className="font-mono text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors">
-                      {"//"} {project.index}
-                    </span>
-
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-zinc-100 text-zinc-700 border border-zinc-200">
-                        {categoryLabel}
-                      </span>
-
-                      {validation && (
-                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-300 flex items-center gap-1">
-                          <CheckCircle2 size={11} />
-                          {validation}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* TITRE */}
-                  <h3 className={`font-black text-zinc-950 tracking-tight mb-3 uppercase ${
-                    isFeatured ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
-                  }`}>
-                    {project.title}
-                  </h3>
-
-                  {/* DESCRIPTION */}
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">
-                    {desc}
-                  </p>
-
-                  {/* MÉTRIQUE CLÉ */}
-                  {impactMetrics && (
-                    <div className="mb-6 p-3 bg-zinc-50 border border-zinc-200 text-xs font-mono text-zinc-800 flex items-center gap-2">
-                      <Activity size={14} className="text-sky-600 shrink-0" />
-                      <span>{impactMetrics}</span>
-                    </div>
-                  )}
-
-                  {/* TECH STACK TAGS */}
-                  <div className="flex flex-wrap gap-1.5 mb-8">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 bg-zinc-50 border border-zinc-200 text-zinc-700 text-[10px] font-mono"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* ACTIONS PIED DE CARTE */}
-                <div className="pt-4 border-t border-zinc-200 flex items-center justify-between gap-3 text-xs font-mono uppercase tracking-wider">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedProject(project)}
-                    className="font-bold text-zinc-950 hover:text-blue-600 flex items-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <span>{t("Consulter l'architecture", "Inspect Architecture")}</span>
-                    <ArrowRight size={13} />
-                  </button>
-
-                  {project.link !== "#" && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-zinc-950 flex items-center gap-1 transition-colors"
-                    >
-                      <span>{t("En ligne", "Live")}</span>
-                      <ArrowUpRight size={13} />
-                    </a>
-                  )}
-                </div>
-              </motion.article>
+                <span>{tab.label}</span>
+                <span
+                  className={`text-[10px] font-mono px-1.5 py-0.2 ${
+                    isActive ? "bg-sky-500 text-zinc-950 font-bold" : "bg-zinc-800 text-zinc-400"
+                  }`}
+                >
+                  {tab.count}
+                </span>
+              </button>
             );
           })}
-        </AnimatePresence>
-      </motion.div>
+        </div>
+
+        {/* GRILLE DES PROJETS NETTE ET STRUCTURÉE SOMBRE */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence>
+            {filteredProjects.map((project) => {
+              const isFeatured = project.featured;
+              const categoryLabel = language === "en" ? project.categoryLabel_en : project.categoryLabel_fr;
+              const validation = language === "en" ? project.validation_en : project.validation_fr;
+              const desc = language === "en" ? project.desc_en : project.desc_fr;
+              const impactMetrics = language === "en" ? project.impactMetrics_en : project.impactMetrics_fr;
+
+              return (
+                <motion.article
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                  className={`group relative p-8 flex flex-col justify-between transition-all duration-300 bg-[#16171b] border border-zinc-800/90 hover:border-sky-500/70 shadow-xl hover:shadow-[0_10px_30px_-10px_rgba(14,165,233,0.15)] ${
+                    isFeatured ? "md:col-span-2 lg:col-span-2 bg-[#1b1c22] border-zinc-700/80" : ""
+                  }`}
+                >
+                  <div>
+                    {/* EN-TÊTE DE LA CARTE : NUMÉRO & BADGES */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-6 pb-4 border-b border-zinc-800/80">
+                      <span className="font-mono text-xs font-bold text-sky-400 group-hover:text-sky-300 transition-colors">
+                        {"//"} {project.index}
+                      </span>
+
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-zinc-800 text-zinc-300 border border-zinc-700">
+                          {categoryLabel}
+                        </span>
+
+                        {validation && (
+                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-emerald-950/80 text-emerald-300 border border-emerald-500/50 flex items-center gap-1">
+                            <CheckCircle2 size={11} />
+                            {validation}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* TITRE */}
+                    <h3 className={`font-black text-white tracking-tight mb-3 uppercase ${
+                      isFeatured ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
+                    }`}>
+                      {project.title}
+                    </h3>
+
+                    {/* DESCRIPTION */}
+                    <p className="text-zinc-300 text-sm leading-relaxed mb-6">
+                      {desc}
+                    </p>
+
+                    {/* MÉTRIQUE CLÉ */}
+                    {impactMetrics && (
+                      <div className="mb-6 p-3 bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-zinc-200 flex items-center gap-2">
+                        <Activity size={14} className="text-sky-400 shrink-0" />
+                        <span>{impactMetrics}</span>
+                      </div>
+                    )}
+
+                    {/* TECH STACK TAGS */}
+                    <div className="flex flex-wrap gap-1.5 mb-8">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 bg-zinc-900 border border-zinc-700/80 text-zinc-300 text-[10px] font-mono"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* ACTIONS PIED DE CARTE */}
+                  <div className="pt-4 border-t border-zinc-800/90 flex items-center justify-between gap-3 text-xs font-mono uppercase tracking-wider">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedProject(project)}
+                      className="font-bold text-sky-400 hover:text-sky-300 flex items-center gap-1.5 transition-colors cursor-pointer"
+                    >
+                      <span>{t("Consulter l'architecture", "Inspect Architecture")}</span>
+                      <ArrowRight size={13} />
+                    </button>
+
+                    {project.link !== "#" && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-zinc-400 hover:text-white flex items-center gap-1 transition-colors"
+                      >
+                        <span>{t("En ligne", "Live")}</span>
+                        <ArrowUpRight size={13} />
+                      </a>
+                    )}
+                  </div>
+                </motion.article>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
+      </div>
 
       {/* MODAL ARCHITECTURE DÉTAILLÉE ÉDITORIALE CLAUDE STYLE */}
       <AnimatePresence>

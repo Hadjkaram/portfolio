@@ -180,12 +180,6 @@ export default function Chatbot() {
                       }`}
                     >
                       {msg.text}
-                      {!isUser && (
-                        <div className="mt-2 pt-1.5 border-t border-zinc-100 flex items-center justify-between text-[9px] font-mono text-zinc-400">
-                          <span>{msg.source === "gemini_llm" ? "Gemini AI Live" : "RAG Corpus Validé"}</span>
-                          <span>IK // Knowledge</span>
-                        </div>
-                      )}
                     </div>
                   </div>
                 );
